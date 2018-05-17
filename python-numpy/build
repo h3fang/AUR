@@ -1,0 +1,4 @@
+#!/bin/sh
+
+curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=python-numpy-openblas -o PKGBUILD
+
