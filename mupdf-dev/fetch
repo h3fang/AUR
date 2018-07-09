@@ -1,0 +1,5 @@
+#!/bin/sh
+
+curl https://git.archlinux.org/svntogit/community.git/plain/trunk/PKGBUILD?h=packages/mupdf -o PKGBUILD
+curl https://git.archlinux.org/svntogit/community.git/plain/trunk/mupdf.desktop?h=packages/mupdf -o mupdf.desktop
+curl https://git.archlinux.org/svntogit/community.git/plain/trunk/mupdf.xpm?h=packages/mupdf -o mupdf.xpm
