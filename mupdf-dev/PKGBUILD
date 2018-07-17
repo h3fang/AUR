@@ -7,15 +7,15 @@
 # Contributor: xduugu
 
 pkgbase=mupdf
-pkgname=( mupdf )
-pkgver=r6973.75c457dd
+pkgname=( mupdf-gl )
+pkgver=r6974.fe8b5f20
 pkgrel=1
 pkgdesc='Lightweight PDF and XPS viewer'
 arch=('x86_64')
 url='http://mupdf.com'
 license=('AGPL3')
 makedepends=('curl' 'desktop-file-utils' 'freetype2' 'freeglut' 'glu' 'harfbuzz'
-             'jbig2dec' 'libjpeg' 'mesa-libgl' 'openjpeg2' 'libxext')
+             'libjpeg' 'mesa-libgl' 'openjpeg2' 'libxext')
 # we need static libs for zathura-pdf-mupdf
 options=('staticlibs')
 source=('mupdf.desktop'
@@ -24,15 +24,22 @@ sha256sums=('ccff66979249bd4ab4ba8918660f194eb90eb0ae231b16e36a6cecdcf471883f'
             'a435f44425f5432c074dee745d8fbaeb879038ec1f1ec64f037c74662f09aca8')
 
 pkgver() {
-  cd "$pkgname"
+  cd "$pkgbase"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
-  git clone --recursive git://git.ghostscript.com/mupdf.git mupdf
+  if [ -d $pkgbase/.git ]; then
+    cd $pkgbase
+    git pull
+    git submodule update --recursive
+  else
+    git clone --recursive git://git.ghostscript.com/mupdf.git mupdf
+  fi
 
   # remove bundled packages, we want our system libraries
 #  rm -rf thirdparty/{curl,freeglut,freetype,harfbuzz,jbig2dec,lcms2,libjpeg,openjpeg,zlib}
+#  rm -rf thirdparty/curl
 
   # fix includes for jbig2dec
 #  sed '/^JBIG2DEC_CFLAGS :=/s|$| -I./include/mupdf|' -i Makethird
@@ -47,22 +54,24 @@ build() {
   export CFLAGS CXXFLAGS
 
   cd $pkgbase
-  make build=release apps
+  make build=native apps -j8
 }
 
-package_mupdf() {
-  pkgdesc='Lightweight PDF and XPS viewer'
-  depends=('curl' 'desktop-file-utils' 'freetype2' 'harfbuzz' 'jbig2dec'
-           'libjpeg' 'openjpeg2' 'openssl' 'libxext')
+package_mupdf-gl() {
+  pkgdesc='Lightweight PDF and XPS viewer with OpenGL backend'
+  conflicts=('mupdf')
+  provides=("mupdf=${pkgver}")
+  depends=('desktop-file-utils' 'freetype2' 'freeglut' 'glu' 'harfbuzz' 'jbig2dec'
+           'libjpeg' 'openjpeg2')
 
   cd $pkgbase
 
-  install -D -m0755 build/release/mupdf-x11 "$pkgdir"/usr/bin/mupdf
+  install -D -m0755 build/release/mupdf-gl "$pkgdir"/usr/bin/mupdf
 
   install -D -m0644 docs/man/mupdf.1 "$pkgdir"/usr/share/man/man1/mupdf.1
 
   install -d "$pkgdir"/usr/share/doc/mupdf
-  install -m0644  README COPYING CHANGES "$pkgdir"/usr/share/doc/mupdf
+  install -m0644 README COPYING CHANGES "$pkgdir"/usr/share/doc/mupdf
 
   install -D -m0644 ../mupdf.desktop "$pkgdir"/usr/share/applications/mupdf.desktop
   install -D -m0644 ../mupdf.xpm "$pkgdir"/usr/share/pixmaps/mupdf.xpm

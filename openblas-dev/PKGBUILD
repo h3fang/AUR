@@ -2,7 +2,7 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Giuseppe Borzi <gborzi _AT_ ieee _DOT_ org>
 
-pkgname=openblas
+pkgname=openblas-dev
 _pkgname=OpenBLAS
 pkgver=r3054.4dd70d98
 pkgrel=1  
