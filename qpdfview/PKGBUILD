@@ -13,7 +13,7 @@ depends=('libcups' 'libsynctex' 'poppler-qt5' 'qt5-svg')
 makedepends=('qt5-tools' 'libspectre' 'djvulibre')
 optdepends=('libspectre: for PostScript support'
             'djvulibre: for DjVu support')
-source=("qpdfview_trunk-r$pkgver.tgz"::"https://bazaar.launchpad.net/~adamreichold/qpdfview/trunk/tarball/$pkgver")
+source=("qpdfview_trunk-r$pkgver.tar.gz"::"https://bazaar.launchpad.net/~adamreichold/qpdfview/trunk/tarball/$pkgver")
 sha256sums=('SKIP')
 
 
