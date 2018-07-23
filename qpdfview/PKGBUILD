@@ -13,19 +13,28 @@ depends=('libcups' 'libsynctex' 'poppler-qt5' 'qt5-svg')
 makedepends=('qt5-tools' 'libspectre' 'djvulibre')
 optdepends=('libspectre: for PostScript support'
             'djvulibre: for DjVu support')
-source=("qpdfview_trunk-r$pkgver.tar.gz"::"https://bazaar.launchpad.net/~adamreichold/qpdfview/trunk/tarball/$pkgver")
-sha256sums=('SKIP')
+source=("qpdfview_trunk-r$pkgver.tar.gz"::"https://bazaar.launchpad.net/~adamreichold/qpdfview/trunk/tarball/$pkgver"
+        "scrollbar.patch"
+        "title.patch")
+sha256sums=('SKIP'
+            'f718d8922835b928701eed8502f3319e3fe25f3ce9fdd2ab0a8af23b36e4ba51'
+            '969eb81a560f4a1baeea38f56dd71e0b98a6b2d7e2aeeed955107007ead36df3')
 
+prepare() {
+    cd ~adamreichold/qpdfview/trunk/sources
+    patch < $startdir/scrollbar.patch
+    patch < $startdir/title.patch
+}
 
 build() {
-    cd ~adamreichold/$pkgname/trunk
+    cd ~adamreichold/qpdfview/trunk
     lrelease-qt5 qpdfview.pro
     qmake-qt5 qpdfview.pro
     make -j8
 }
 
 package() {
-    cd ~adamreichold/$pkgname/trunk
+    cd ~adamreichold/qpdfview/trunk
     make INSTALL_ROOT="$pkgdir" install
 }
 
