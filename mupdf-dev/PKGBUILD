@@ -8,7 +8,7 @@
 
 pkgbase=mupdf
 pkgname=( mupdf-gl )
-pkgver=r6974.fe8b5f20
+pkgver=r6980.709b4b95
 pkgrel=1
 pkgdesc='Lightweight PDF and XPS viewer'
 arch=('x86_64')
@@ -66,7 +66,7 @@ package_mupdf-gl() {
 
   cd $pkgbase
 
-  install -D -m0755 build/release/mupdf-gl "$pkgdir"/usr/bin/mupdf
+  install -D -m0755 build/native/mupdf-gl "$pkgdir"/usr/bin/mupdf
 
   install -D -m0644 docs/man/mupdf.1 "$pkgdir"/usr/share/man/man1/mupdf.1
 
