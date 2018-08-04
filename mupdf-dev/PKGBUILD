@@ -8,7 +8,7 @@
 
 pkgbase=mupdf
 pkgname=( mupdf-gl )
-pkgver=r6980.709b4b95
+pkgver=r6981.43a0278d
 pkgrel=1
 pkgdesc='Lightweight PDF and XPS viewer'
 arch=('x86_64')
