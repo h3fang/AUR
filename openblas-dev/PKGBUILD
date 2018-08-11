@@ -4,7 +4,7 @@
 
 pkgname=openblas
 _pkgname=OpenBLAS
-pkgver=r3086.9e654305
+pkgver=3104.1a00ef3d
 pkgrel=1  
 pkgdesc="An optimized BLAS library based on GotoBLAS2 1.13 BSD"
 arch=('x86_64')
@@ -19,27 +19,29 @@ sha512sums=('SKIP')
 
 pkgver() {
   cd "$_pkgname"
-  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  printf "%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
   cd "$srcdir/$_pkgname"
 
+  unset CFLAGS
+  unset CXXFLAGS
+
   make NO_STATIC=1 NO_LAPACK=1 NO_LAPACKE=1 NO_CBLAS=1 NO_AFFINITY=1 USE_OPENMP=1 \
-       CFLAGS="$CPPFLAGS $CFLAGS" DYNAMIC_ARCH=1 \
-       NUM_THREADS=64 MAJOR_VERSION=3 libs shared
+       NUM_THREADS=$(nproc) MAJOR_VERSION=3 libs shared
 }
 
 package() {
   cd "$srcdir/$_pkgname"
 
-  make PREFIX="$pkgdir/usr" NUM_THREADS=64 MAJOR_VERSION=3 install
+  make PREFIX="$pkgdir/usr" NUM_THREADS=$(nproc) MAJOR_VERSION=3 install
   rm -f "$pkgdir/usr/include/cblas.h" "$pkgdir"/usr/include/lapacke*
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 
   cd "$pkgdir/usr/lib/"
-  ln -sf libopenblasp-r$pkgver.so libblas.so
-  ln -sf libopenblasp-r$pkgver.so libblas.so.3
+  ln -sf libopenblas.so libblas.so
+  ln -sf libopenblas.so libblas.so.3
   sed -i -e "s%$pkgdir%%" "$pkgdir/usr/lib/cmake/openblas/OpenBLASConfig.cmake"
   sed -i -e "s%$pkgdir%%" "$pkgdir/usr/lib/pkgconfig/openblas.pc"
 
