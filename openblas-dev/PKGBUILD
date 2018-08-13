@@ -4,7 +4,7 @@
 
 pkgname=openblas
 _pkgname=OpenBLAS
-pkgver=3104.1a00ef3d
+pkgver=3116.d4d3113a
 pkgrel=1  
 pkgdesc="An optimized BLAS library based on GotoBLAS2 1.13 BSD"
 arch=('x86_64')
@@ -12,8 +12,8 @@ url="http://www.openblas.net/"
 license=('BSD')
 depends=('gcc-libs')
 makedepends=('perl' 'gcc-fortran')
-provides=('blas=3.8.0')
-conflicts=('blas')
+provides=('blas=3.8.0' 'lapack=3.8.0')
+conflicts=('blas' 'lapack')
 source=("$_pkgname"::'git+https://github.com/xianyi/OpenBLAS.git#branch=develop')
 sha512sums=('SKIP')
 
@@ -28,8 +28,8 @@ build() {
   unset CFLAGS
   unset CXXFLAGS
 
-  make NO_STATIC=1 NO_LAPACK=1 NO_LAPACKE=1 NO_CBLAS=1 NO_AFFINITY=1 USE_OPENMP=1 \
-       NUM_THREADS=$(nproc) MAJOR_VERSION=3 libs shared
+  make NO_STATIC=1 NO_LAPACK=0 NO_LAPACKE=1 NO_CBLAS=1 NO_AFFINITY=1 USE_OPENMP=1 \
+       NUM_THREADS=$(nproc) MAJOR_VERSION=3 libs netlib shared
 }
 
 package() {
@@ -42,6 +42,11 @@ package() {
   cd "$pkgdir/usr/lib/"
   ln -sf libopenblas.so libblas.so
   ln -sf libopenblas.so libblas.so.3
+
+  ln -sf libopenblas.so liblapack.so
+  ln -sf libopenblas.so liblapack.so.3
+  ln -sf libopenblas.so liblapack.so.3.8.0
+
   sed -i -e "s%$pkgdir%%" "$pkgdir/usr/lib/cmake/openblas/OpenBLASConfig.cmake"
   sed -i -e "s%$pkgdir%%" "$pkgdir/usr/lib/pkgconfig/openblas.pc"
 
