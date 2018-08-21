@@ -3,7 +3,6 @@
 # Contributor: Giuseppe Borzi <gborzi _AT_ ieee _DOT_ org>
 
 pkgname=openblas
-_pkgname=OpenBLAS
 pkgver=3116.d4d3113a
 pkgrel=1  
 pkgdesc="An optimized BLAS library based on GotoBLAS2 1.13 BSD"
@@ -14,16 +13,16 @@ depends=('gcc-libs')
 makedepends=('perl' 'gcc-fortran')
 provides=('blas=3.8.0' 'lapack=3.8.0')
 conflicts=('blas' 'lapack')
-source=("$_pkgname"::'git+https://github.com/xianyi/OpenBLAS.git#branch=develop')
+source=("$pkgname"::'git+https://github.com/xianyi/OpenBLAS.git#branch=develop')
 sha512sums=('SKIP')
 
 pkgver() {
-  cd "$_pkgname"
+  cd "$pkgname"
   printf "%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-  cd "$srcdir/$_pkgname"
+  cd "$srcdir/$pkgname"
 
   unset CFLAGS
   unset CXXFLAGS
@@ -33,7 +32,7 @@ build() {
 }
 
 package() {
-  cd "$srcdir/$_pkgname"
+  cd "$srcdir/$pkgname"
 
   make PREFIX="$pkgdir/usr" NUM_THREADS=$(nproc) MAJOR_VERSION=3 install
   rm -f "$pkgdir/usr/include/cblas.h" "$pkgdir"/usr/include/lapacke*

@@ -14,23 +14,15 @@ license=('custom')
 url="http://www.numpy.org/"
 makedepends=('cblas' 'lapack' 'python' 'python-setuptools' 'gcc-fortran'
              'python-nose' 'cython')
-checkdepends=('python-pytest')
 options=('staticlibs')
 source=("$pkgbase-$pkgver.tar.gz::https://github.com/numpy/numpy/archive/v$pkgver.tar.gz")
 sha512sums=('1ee1c6cdf4ae287f1a0e7c49533c143c5842817cd92681cf72507f32904866de2e1fdca648f09fdca9fae391c78cebdd9a32a7116ff10ca3887f6f5ab18763b2')
 
 build() {
   cd "$srcdir"/numpy-$pkgver
+  CFLAGS="-march=native"
+  CXXFLAGS="-march=native"
   python setup.py build -j 8
-}
-
-check() {
-  # TODO: Fix fortran tests here (it works fine after installation)
-
-  cd "$srcdir"/numpy-$pkgver
-  python setup.py install --root="$PWD/tmp_install" --optimize=1
-  cd "$PWD/tmp_install"
-  PATH="$PWD/usr/bin:$PATH" PYTHONPATH="$PWD/usr/lib/python3.7/site-packages:$PYTHONPATH" python -c 'import numpy; numpy.test()'
 }
 
 package() {
