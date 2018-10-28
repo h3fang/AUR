@@ -1,4 +1,3 @@
-# $Id$
 # Maintainer: Jan de Groot <jgc@archlinux.org>
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Douglas Soares de Andrade <dsa@aur.archlinux.org>
@@ -6,17 +5,16 @@
 
 pkgbase=python-numpy
 pkgname=('python-numpy')
-pkgver=1.15.0
-pkgrel=2
+pkgver=1.15.3
+pkgrel=1
 pkgdesc="Scientific tools for Python"
 arch=('x86_64')
 license=('custom')
 url="http://www.numpy.org/"
-makedepends=('cblas' 'lapack' 'python' 'python-setuptools' 'gcc-fortran'
-             'python-nose' 'cython')
+makedepends=('cblas' 'lapack' 'python' 'python-setuptools' 'gcc-fortran' 'cython')
 options=('staticlibs')
 source=("$pkgbase-$pkgver.tar.gz::https://github.com/numpy/numpy/archive/v$pkgver.tar.gz")
-sha512sums=('1ee1c6cdf4ae287f1a0e7c49533c143c5842817cd92681cf72507f32904866de2e1fdca648f09fdca9fae391c78cebdd9a32a7116ff10ca3887f6f5ab18763b2')
+sha512sums=('9c8125e5d1ede6bb700243909db6c2bd4e9dc5889ec461972985cb77d19890cd254047245a7b3826477ab222c21a6c27333a6d110117baa4df9c10e4eb701668')
 
 build() {
   cd "$srcdir"/numpy-$pkgver
