@@ -3,17 +3,20 @@
 # Contributor: Douglas Soares de Andrade <dsa@aur.archlinux.org>
 # Contributor: Angel 'angvp' Velasquez <angvp[at]archlinux.com.ve> 
 
-pkgbase=python-numpy
-pkgname=('python-numpy')
+pkgname=python-numpy
 pkgver=1.15.3
 pkgrel=1
 pkgdesc="Scientific tools for Python"
 arch=('x86_64')
 license=('custom')
 url="http://www.numpy.org/"
-makedepends=('cblas' 'lapack' 'python' 'python-setuptools' 'gcc-fortran' 'cython')
+#conflicts=('python-numpy')
+#provides=('python-numpy')
+depends=('cblas' 'lapack' 'python')
+makedepends=('cblas' 'lapack' 'python' 'python-setuptools' 'python-nose' 'gcc-fortran' 'cython')
+# checkdepends=('python-pytest')
 options=('staticlibs')
-source=("$pkgbase-$pkgver.tar.gz::https://github.com/numpy/numpy/archive/v$pkgver.tar.gz")
+source=("$pkgname-$pkgver.tar.gz::https://github.com/numpy/numpy/archive/v$pkgver.tar.gz")
 sha512sums=('9c8125e5d1ede6bb700243909db6c2bd4e9dc5889ec461972985cb77d19890cd254047245a7b3826477ab222c21a6c27333a6d110117baa4df9c10e4eb701668')
 
 build() {
@@ -23,11 +26,16 @@ build() {
   python setup.py build -j 8
 }
 
-package() {
-  depends=('cblas' 'lapack' 'python')
-  optdepends=('python-nose: testsuite'
-              'openblas: faster linear algebra')
+# check() {
+#   # TODO: Fix fortran tests here (it works fine after installation)
 
+#   cd "$srcdir"/numpy-$pkgver
+#   python setup.py install --root="$PWD/tmp_install" --optimize=1
+#   cd "$PWD/tmp_install"
+#   PATH="$PWD/usr/bin:$PATH" PYTHONPATH="$PWD/usr/lib/python3.7/site-packages:$PYTHONPATH" python -c 'import numpy; numpy.test(verbose=2)'
+# }
+
+package() {
   cd numpy-$pkgver
   python setup.py install --prefix=/usr --root="${pkgdir}" --optimize=1
 
