@@ -2,7 +2,7 @@
 # Contributor: Giuseppe Borzi <gborzi _AT_ ieee _DOT_ org>
 
 pkgname=openblas
-pkgver=3233.76a66eaa
+pkgver=3270.ecbeb802
 pkgrel=1  
 pkgdesc="An optimized BLAS library based on GotoBLAS2 1.13 BSD"
 arch=('x86_64')
@@ -30,11 +30,11 @@ build() {
 package() {
   cd "$srcdir/$pkgname"
 
-  make PREFIX="$pkgdir/usr" MAJOR_VERSION=3 install
+  make PREFIX="$pkgdir"/usr MAJOR_VERSION=3 install
   rm -f "$pkgdir"/usr/include/lapacke*
-  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
 
-  cd "$pkgdir/usr/lib/"
+  cd "$pkgdir"/usr/lib/
   # BLAS
   ln -sf libopenblas_*.so libblas.so
   ln -sf libopenblas_*.so libblas.so.3
@@ -49,8 +49,9 @@ package() {
   ln -sf libopenblas_*.so liblapack.so.3
   ln -sf libopenblas_*.so liblapack.so.3.8.0
 
-  sed -i -e "s%$pkgdir%%" "$pkgdir/usr/lib/cmake/openblas/OpenBLASConfig.cmake"
-  sed -i -e "s%$pkgdir%%" "$pkgdir/usr/lib/pkgconfig/openblas.pc"
+  sed -i -e "s%$pkgdir%%" "$pkgdir"/usr/lib/cmake/openblas/OpenBLASConfig.cmake
+  sed -i -e "s%$pkgdir%%" "$pkgdir"/usr/lib/pkgconfig/openblas.pc
+  ln -s openblas.pc "$pkgdir"/usr/lib/pkgconfig/blas.pc
 
   rmdir "$pkgdir"/usr/bin
 }
