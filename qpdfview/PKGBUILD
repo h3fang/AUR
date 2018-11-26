@@ -3,7 +3,7 @@
 # Contributor: Adam Reichold <adam.reichold@t-online.de>
 
 pkgname=qpdfview
-pkgver=2083
+pkgver=2087
 pkgrel=1
 pkgdesc='A tabbed PDF viewer using the poppler library.'
 url='https://launchpad.net/qpdfview'
@@ -30,11 +30,12 @@ build() {
     cd ~adamreichold/qpdfview/trunk
     lrelease-qt5 qpdfview.pro
     qmake-qt5 qpdfview.pro
-    make -j8
+    make -j9
 }
 
 package() {
     cd ~adamreichold/qpdfview/trunk
     make INSTALL_ROOT="$pkgdir" install
+    sed -i 's/Exec=qpdfview --unique %F/Exec=qpdfview %F/' $pkgdir/usr/share/applications/qpdfview.desktop
 }
 
