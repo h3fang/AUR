@@ -1,4 +1,0 @@
-#!/bin/sh
-
-curl https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=aurman -o PKGBUILD-official
-
