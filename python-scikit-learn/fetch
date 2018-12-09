@@ -1,0 +1,3 @@
+#!/bin/sh
+
+curl https://git.archlinux.org/svntogit/community.git/plain/trunk/PKGBUILD?h=packages/python-scikit-learn -o PKGBUILD-official

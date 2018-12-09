@@ -2,7 +2,7 @@
 # Contributor: Giuseppe Borzi <gborzi _AT_ ieee _DOT_ org>
 
 pkgname=openblas
-pkgver=3270.ecbeb802
+pkgver=3323.701ea883
 pkgrel=1  
 pkgdesc="An optimized BLAS library based on GotoBLAS2 1.13 BSD"
 arch=('x86_64')

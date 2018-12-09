@@ -1,9 +1,8 @@
-# $Id$
 # Maintainer: Alad Wenter <alad@mailbox.org>
 # Contributor: Adam Reichold <adam.reichold@t-online.de>
 
 pkgname=qpdfview
-pkgver=2087
+pkgver=2088
 pkgrel=1
 pkgdesc='A tabbed PDF viewer using the poppler library.'
 url='https://launchpad.net/qpdfview'
