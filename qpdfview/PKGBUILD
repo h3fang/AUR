@@ -2,7 +2,7 @@
 # Contributor: Adam Reichold <adam.reichold@t-online.de>
 
 pkgname=qpdfview
-pkgver=2088
+pkgver=2090
 pkgrel=1
 pkgdesc='A tabbed PDF viewer using the poppler library.'
 url='https://launchpad.net/qpdfview'
@@ -16,8 +16,8 @@ source=("qpdfview_trunk-r$pkgver.tar.gz"::"https://bazaar.launchpad.net/~adamrei
         "scrollbar.patch"
         "title.patch")
 sha256sums=('SKIP'
-            'f718d8922835b928701eed8502f3319e3fe25f3ce9fdd2ab0a8af23b36e4ba51'
-            '969eb81a560f4a1baeea38f56dd71e0b98a6b2d7e2aeeed955107007ead36df3')
+            'ee6c938da6aff33cdf1e01eaae2cc709b6ebe3162d413f29a365db4c5ed5b35c'
+            '8e65b47dfeda6e04a0f030355f3e947f2d5315fb9bfa92ac6fae1ca8465bdb4c')
 
 prepare() {
     cd ~adamreichold/qpdfview/trunk/sources

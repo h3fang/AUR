@@ -1,6 +1,6 @@
 --- mainwindow.cpp	2018-07-21 15:20:53.000000000 +0800
 +++ mainwindow.cpp	2018-07-22 16:21:06.430552535 +0800
-@@ -2896,10 +2896,10 @@
+@@ -2898,10 +2898,10 @@
  
          if(s_settings->mainWindow().currentPageInWindowTitle())
          {
