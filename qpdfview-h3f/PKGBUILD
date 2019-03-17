@@ -1,13 +1,15 @@
 # Maintainer: Alad Wenter <alad@mailbox.org>
 # Contributor: Adam Reichold <adam.reichold@t-online.de>
 
-pkgname=qpdfview
+pkgname=qpdfview-h3f
 pkgver=2090
 pkgrel=1
 pkgdesc='A tabbed PDF viewer using the poppler library.'
 url='https://launchpad.net/qpdfview'
 arch=('x86_64')
 license=('GPL2')
+provides=('qpdfview')
+conflicts=('qpdfview')
 depends=('libcups' 'libsynctex' 'poppler-qt5' 'qt5-svg')
 makedepends=('qt5-tools' 'libspectre' 'djvulibre')
 optdepends=('libspectre: for PostScript support'
