@@ -1,39 +1,39 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 # Contributor: Giuseppe Borzi <gborzi _AT_ ieee _DOT_ org>
 
-pkgname=openblas-h3f
-_pkgname=openblas
+pkgname=openblas
 pkgver=3591.dff4a197
 pkgrel=1  
 pkgdesc="An optimized BLAS library based on GotoBLAS2 1.13 BSD"
 arch=('x86_64')
 url="http://www.openblas.net/"
 license=('BSD')
+groups=('modified')
 depends=('gcc-libs')
 makedepends=('perl' 'gcc-fortran')
 provides=('blas=3.8.0' 'cblas=3.8.0' 'lapack=3.8.0')
 conflicts=('blas' 'cblas' 'lapack')
-source=("$_pkgname"::'git+https://github.com/xianyi/OpenBLAS.git#branch=develop')
+source=("$pkgname"::'git+https://github.com/xianyi/OpenBLAS.git#branch=develop')
 sha512sums=('SKIP')
 
 pkgver() {
-  cd "$_pkgname"
+  cd "$pkgname"
   printf "%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-  cd "$srcdir/$_pkgname"
+  cd "$srcdir/$pkgname"
 
   make NO_STATIC=1 NO_LAPACKE=1 NO_AFFINITY=1 USE_OPENMP=1 CFLAGS="-march=native" \
        MAJOR_VERSION=3 libs netlib shared
 }
 
 package() {
-  cd "$srcdir/$_pkgname"
+  cd "$srcdir/$pkgname"
 
   make PREFIX="$pkgdir"/usr MAJOR_VERSION=3 install
   rm -f "$pkgdir"/usr/include/lapacke*
-  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$_pkgname/LICENSE
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
 
   cd "$pkgdir"/usr/lib/
   # BLAS
