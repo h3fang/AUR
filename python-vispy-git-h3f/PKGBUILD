@@ -1,12 +1,13 @@
 # Maintainer: Antony Lee <anntzer dot lee at gmail dot com>
 
 pkgname=python-vispy-git
-pkgver=v0.5.0.r361.g521485d8
+pkgver=v0.5.0.r406.ge0834f0f
 pkgrel=1
 pkgdesc='A high-performance interactive 2D/3D data visualization library.'
 arch=('any')
 url='https://github.com/vispy/vispy/'
 license=('BSD')
+groups=('modified')
 depends=('python-numpy')
 makedepends=('cython')
 optdepends=('python-glfw: a possible backend'
