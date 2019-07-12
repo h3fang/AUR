@@ -1,0 +1,71 @@
+# Maintainer: Fang He <hf.enigma@gmail.com>
+
+pkgname=texlive-fontsextra
+pkgver=2019.50876
+_revnr=${pkgver#2019.}
+pkgrel=1
+pkgdesc="TeX Live - extra fonts that I need"
+license=('GPL')
+arch=(any)
+depends=('texlive-core')
+groups=('texlive-most' 'modified')
+url='http://tug.org/texlive/'
+source=("https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/boondox.tar.xz"
+        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/fira.tar.xz"
+        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/firamath.tar.xz"
+        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/firamath-otf.tar.xz"
+        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/fontawesome.tar.xz"
+        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/fontawesome5.tar.xz"
+        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newpx.tar.xz"
+        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newtx.tar.xz"
+        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newtxsf.tar.xz"
+        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newtxtt.tar.xz"
+        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/sourcecodepro.tar.xz"
+        "$pkgname.maps")
+options=('!emptydirs')
+sha256sums=('SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            '0cf7aebef83eabf5564560e04d427bc1ae168cc09849c19fb050f5f15037eec0')
+
+build() {
+   cd "$srcdir"
+   touch CONTENTS
+   touch MAPS
+   for p in tlpkg/tlpobj/*.tlpobj; do
+       pstem=${p#tlpkg/tlpobj/}
+       pstem=${pstem%.tlpobj}
+       echo $pstem $(grep revision $p | awk '{print $2}') >> CONTENTS
+       echo $(grep -i $pstem.map $pkgname.maps) >> MAPS
+   done
+   sed -i '/^$/d' MAPS
+   rm -rf {tlpkg,doc,source} || true
+}
+
+package() {
+   cd "$srcdir"
+   install -m755 -d $pkgdir/var/lib/texmf/arch/installedpkgs
+   install -m644 CONTENTS $pkgdir/var/lib/texmf/arch/installedpkgs/${pkgname}_${_revnr}.pkgs
+   install -m644 MAPS $pkgdir/var/lib/texmf/arch/installedpkgs/$pkgname.maps
+   install -m755 -d $pkgdir/usr/share
+   wanteddirs=$(for d in *; do test -d $d && [[ $d != texmf* ]] && echo $d; done) || true
+   for dir in $wanteddirs; do
+     find $dir -type d -exec install -d -m755 $pkgdir/usr/share/texmf-dist/'{}' \;
+     find $dir -type f -exec install -m644 '{}' $pkgdir/usr/share/texmf-dist/'{}' \;
+   done
+   if [[ -d texmf-dist ]]; then
+     find texmf-dist -type d -exec install -d -m755 $pkgdir/usr/share/'{}' \;
+     find texmf-dist -type f -exec install -m644 '{}' $pkgdir/usr/share/'{}' \;
+   fi
+   if [[ -d $pkgdir/usr/share/texmf-dist/scripts ]]; then
+     find $pkgdir/usr/share/texmf-dist/scripts -type f -exec chmod a+x '{}' \;
+   fi
+}
