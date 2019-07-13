@@ -10,17 +10,17 @@ arch=(any)
 depends=('texlive-core')
 groups=('texlive-most' 'modified')
 url='http://tug.org/texlive/'
-source=("https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/boondox.tar.xz"
-        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/fira.tar.xz"
-        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/firamath.tar.xz"
-        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/firamath-otf.tar.xz"
-        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/fontawesome.tar.xz"
-        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/fontawesome5.tar.xz"
-        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newpx.tar.xz"
-        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newtx.tar.xz"
-        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newtxsf.tar.xz"
-        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newtxtt.tar.xz"
-        "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/sourcecodepro.tar.xz"
+source=("https://ctan.org/tex-archive/systems/texlive/tlnet/archive/boondox.tar.xz"
+        "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/fira.tar.xz"
+        "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/firamath.tar.xz"
+        "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/firamath-otf.tar.xz"
+        "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/fontawesome.tar.xz"
+        "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/fontawesome5.tar.xz"
+        "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/newpx.tar.xz"
+        "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/newtx.tar.xz"
+        "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/newtxsf.tar.xz"
+        "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/newtxtt.tar.xz"
+        "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/sourcecodepro.tar.xz"
         "$pkgname.maps::https://git.archlinux.org/svntogit/packages.git/plain/trunk/texlive-fontsextra.maps?h=packages/texlive-fontsextra")
 options=('!emptydirs')
 sha256sums=('SKIP'
