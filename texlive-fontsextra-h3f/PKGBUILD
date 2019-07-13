@@ -21,7 +21,7 @@ source=("https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/bo
         "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newtxsf.tar.xz"
         "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newtxtt.tar.xz"
         "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/sourcecodepro.tar.xz"
-        "$pkgname.maps")
+        "$pkgname.maps::https://git.archlinux.org/svntogit/packages.git/plain/trunk/texlive-fontsextra.maps?h=packages/texlive-fontsextra")
 options=('!emptydirs')
 sha256sums=('SKIP'
             'SKIP'
