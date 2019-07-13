@@ -4,7 +4,7 @@
 pkgname=qpdfview
 pkgver=0.4.18beta1
 _pkgver=2091
-pkgrel=1
+pkgrel=2
 pkgdesc='A tabbed PDF viewer using the poppler library.'
 url='https://launchpad.net/qpdfview'
 arch=('x86_64')
