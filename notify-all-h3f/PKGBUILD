@@ -11,7 +11,7 @@ depends=('pulseaudio' 'libnotify')
 source=(
 	"notify-all"
 )
-sha512sums=('66db67434fc2398438415558cac629a64957601c02aebe9658d18b6f0ad860e94e6ef2fbb5094080241140b8b3671736f93932b24febda6d8c82c72b1ebcd4e0')
+sha512sums=('ba1a54dabf4799071b7dbae62562eb311133dc80ce092792068c2df689823f39a3d6adc43e102c0718c42a9ac11f805399ac87086961c153fa0dde42e95e7d61')
 
 package() {
 	install -Dm755 "$srcdir/notify-all" "$pkgdir/usr/bin/notify-all"
