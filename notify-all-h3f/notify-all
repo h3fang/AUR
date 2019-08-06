@@ -1,0 +1,11 @@
+#!/bin/bash
+# This script assumes each user owns one "pulseaudio" process. Change it if this doesn't hold.
+
+args="$@"
+
+for p in $(pgrep pulseaudio); do
+    dbus=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/$p/environ | tr -d '\0' | sed 's/DBUS_SESSION_BUS_ADDRESS=//')
+    user=$(grep -m 1 -z USER /proc/$p/environ | tr -d '\0' | sed 's/USER=//')
+    dply=$(grep -z DISPLAY /proc/$p/environ | tr -d '\0' | sed 's/DISPLAY=//')
+    sudo -u $user sh -c "DBUS_SESSION_BUS_ADDRESS=\"$dbus\" DISPLAY=\"$dply\" notify-send $args"
+done
