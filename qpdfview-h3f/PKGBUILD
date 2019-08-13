@@ -2,9 +2,9 @@
 # Contributor: Adam Reichold <adam.reichold@t-online.de>
 
 pkgname=qpdfview
-pkgver=0.4.18beta1
-_pkgver=2091
-pkgrel=2
+pkgver=0.4.18
+_pkgver=2092
+pkgrel=1
 pkgdesc='A tabbed PDF viewer using the poppler library.'
 url='https://launchpad.net/qpdfview'
 arch=('x86_64')
