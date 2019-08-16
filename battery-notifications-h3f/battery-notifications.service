@@ -1,0 +1,6 @@
+[Unit]
+Description=Battery notifications
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/battery-notifications

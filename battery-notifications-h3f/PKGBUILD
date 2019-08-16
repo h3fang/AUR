@@ -1,0 +1,22 @@
+# Maintainer: hefang
+
+pkgname=battery-notifications
+pkgver=0.1
+pkgrel=1
+pkgdesc="Battery notifications"
+url="https://bbs.archlinux.org/viewtopic.php?pid=1431917"
+license=('MIT')
+groups=(modified)
+depends=('notify-all' 'acpi' 'libnotify')
+arch=('x86_64')
+source=('battery-notifications'
+        'battery-notifications.timer'
+        'battery-notifications.service')
+
+md5sums=('SKIP' 'SKIP' 'SKIP')
+
+package() {
+    install -Dm644 "$srcdir/$pkgname.service" "$pkgdir/etc/systemd/system/$pkgname.service"
+    install -Dm644 "$srcdir/$pkgname.timer" "$pkgdir/etc/systemd/system/$pkgname.timer"
+    install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
+}
