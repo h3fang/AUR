@@ -7,4 +7,4 @@ OnUnitInactiveSec=60
 Unit=battery-notifications.service
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=graphical.target
