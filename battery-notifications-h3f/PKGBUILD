@@ -7,16 +7,18 @@ pkgdesc="Battery notifications"
 url="https://bbs.archlinux.org/viewtopic.php?pid=1431917"
 license=('MIT')
 groups=(modified)
-depends=('notify-all' 'acpi' 'libnotify')
+depends=('notify-all' 'acpi' 'libnotify' 'udev')
 arch=('x86_64')
 source=('battery-notifications'
         'battery-notifications.timer'
-        'battery-notifications.service')
+        'battery-notifications.service'
+        'battery-notifications.rules')
 
-md5sums=('SKIP' 'SKIP' 'SKIP')
+md5sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
 
 package() {
     install -Dm644 "$srcdir/$pkgname.service" "$pkgdir/etc/systemd/system/$pkgname.service"
     install -Dm644 "$srcdir/$pkgname.timer" "$pkgdir/etc/systemd/system/$pkgname.timer"
+    install -Dm644 "$srcdir/$pkgname.rules" "$pkgdir/usr/lib/udev/rules.d/99-$pkgname.rules"
     install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
 }
