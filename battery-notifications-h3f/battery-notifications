@@ -1,0 +1,40 @@
+#!/bin/bash
+
+HIGHFILE=/tmp/h3f_battery_high
+LOWFILE=/tmp/h3f_battery_low
+CRITICALFILE=/tmp/h3f_battery_critical
+B_HIGH=85
+B_LOW=40
+B_CRITICAL=20
+
+b_info=$(acpi)
+b_percent=$(echo $b_info | pcregrep -o1 ", ([0-9]+)%")
+b_status=$(echo $b_info | pcregrep -o1 ": (\w+),")
+
+echo $b_percent $b_status
+
+if [[ $b_status == "Discharging" ]]; then
+	if [[ $b_percent -le $B_CRITICAL ]]; then
+	    if [[ ! -f $CRITICALFILE ]]; then
+		    notify-all -u critical "Low Battery" "Battery running critically low at $b_percent%."
+		    touch $CRITICALFILE
+		    rm -f $LOWFILE $HIGHFILE
+	    fi
+	elif [[ $b_percent -le $B_LOW ]]; then
+	    if [[ ! -f $LOWFILE ]]; then
+		    notify-all -u critical "Low Battery" "Battery running low at $b_percent%."
+		    touch $LOWFILE
+		    rm -f $CRITICALFILE $HIGHFILE
+	    fi
+	elif [[ $b_percent -ge $B_HIGH ]]; then
+	    if [[ ! -f $HIGHFILE ]]; then
+		    notify-all "Battery running high at $b_percent%."
+		    touch $HIGHFILE
+		    rm -f $CRITICALFILE $LOWFILE
+	    fi
+	else
+	    rm -f $HIGHFILE $LOWFILE $CRITICALFILE
+	fi
+else
+	rm -f $HIGHFILE $LOWFILE $CRITICALFILE
+fi
