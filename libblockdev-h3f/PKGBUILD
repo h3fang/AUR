@@ -8,8 +8,8 @@ arch=('x86_64')
 url="https://github.com/rhinstaller/libblockdev"
 license=('LGPL')
 groups=('modified')
-depends=('btrfs-progs' 'dosfstools' 'dmraid' 'gptfdisk' 'libbytesize' 'mdadm' 'ndctl'
-         'parted' 'volume_key' 'xfsprogs' 'kmod' 'libyaml')
+depends=('dosfstools' 'dmraid' 'gptfdisk' 'libbytesize' 'mdadm' 'ndctl'
+         'parted' 'volume_key' 'kmod' 'libyaml')
 makedepends=('autoconf-archive' 'gobject-introspection' 'systemd' 'python')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/rhinstaller/libblockdev/archive/$pkgver-1.tar.gz")
 sha512sums=('e1e9976d24bdd8775310c9b25c31eb3b0e2d06a295b75f0c281def694104664f42abbbec307fbeb7c960ba5059299d0da66aa7afb26850c3640a8e73ea777aaf')
@@ -17,7 +17,7 @@ sha512sums=('e1e9976d24bdd8775310c9b25c31eb3b0e2d06a295b75f0c281def694104664f42a
 build() {
   cd "$srcdir"/$pkgname-$pkgver-1
   ./autogen.sh
-  ./configure --prefix=/usr --sysconfdir=/etc --without-lvm_dbus --without-lvm
+  ./configure --prefix=/usr --sysconfdir=/etc --without-lvm_dbus --without-lvm --without-btrfs
   make
 }
 
