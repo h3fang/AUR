@@ -1,7 +1,7 @@
 # Maintainer: Fang He <hf.enigma@gmail.com>
 
 pkgname=texlive-fontsextra
-pkgver=2019.50876
+pkgver=2019.52580
 _revnr=${pkgver#2019.}
 pkgrel=1
 pkgdesc="TeX Live - extra fonts that I need"
@@ -34,7 +34,7 @@ sha256sums=('SKIP'
             'SKIP'
             'SKIP'
             'SKIP'
-            '0cf7aebef83eabf5564560e04d427bc1ae168cc09849c19fb050f5f15037eec0')
+            '702e911cfdf0331c32fa1049f96c8e323b10e2733fa49db607df2265fc94e32a')
 
 build() {
    cd "$srcdir"
