@@ -9,6 +9,14 @@
 - remove lvm2, btrfs, xfs dependency
 - official repo package
 
+## linux
+- remove linux-docs split package
+- add proton fsync patch
+- add kernel_gcc_patch
+- add modprobed localmodconfig for faster compilation
+- native build for performance
+- official repo package
+
 ## notify-all
 - send notifications to all users
 - do not exist on AUR
