@@ -55,6 +55,7 @@
 
 ## wine-staging
 - no binfmt
+- add CLOCK_MONOTONIC and FSYNC patches
 - with `--disable-tests`
 - native build for performance
 - official repo package
