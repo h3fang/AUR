@@ -27,12 +27,6 @@
 - native build for performance
 - official repo package
 
-## python-deap-git
-- nothing special, it should be removed
-
-## python-vispy-git
-- nothing special, it should be removed
-
 ## qpdfview
 - move page number to the beginning of title
 - darker scroll handle color
