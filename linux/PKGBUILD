@@ -1,11 +1,12 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-_gcc_more_v='20190822'
-_subarch=25
 pkgbase=linux
 pkgver=5.3.8.1
 pkgrel=1
+_gcc_more_v='20190822'
+_subarch=31 # Native optimizations autodetected by GCC (MNATIVE)
 _srcver=${pkgver%.*}-arch${pkgver##*.}
+_srcname=linux-${_srcver}
 url="https://git.archlinux.org/linux.git/log/?h=v$_srcver"
 arch=(x86_64)
 license=(GPL2)
@@ -15,10 +16,9 @@ makedepends=(
   git
 )
 options=('!strip')
-_srcname=linux-5.3.8-arch1
 source=(
-  "https://git.archlinux.org/linux.git/snapshot/linux-5.3.8-arch1.tar.gz"
-  config         # the main kernel config file
+  "https://git.archlinux.org/linux.git/snapshot/$_srcname.tar.gz"
+  "config::https://git.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/linux" # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   "futex-wait-multiple-5.2.1.patch::https://aur.archlinux.org/cgit/aur.git/plain/futex-wait-multiple-5.2.1.patch?h=linux-fsync"
 )
@@ -28,10 +28,10 @@ validpgpkeys=(
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
 sha256sums=(
-  'SKIP'
+  'ec2092391717d165faeab20d21789aab2606ddcc1b85cb80003481aa4c9ca6a9'
   '08a798facbb6bfb85448661d23551d50d6bf6219e59d095feb28f1e0658f751c'
-  'SKIP'
-  'SKIP')
+  '5b66761eae4efa4cb967aba9d4e555aa320cf5c004f0848e6bfbcb75ef66fbf1'
+  'b8a9225b4b5cbabac26398d11cc26566e4407d150dacb92f3411c9bb8cc23942')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -63,13 +63,13 @@ prepare() {
 
   yes "$_subarch" | make oldconfig
 
-  make -s kernelrelease > version
-  msg2 "Prepared %s version %s" "$pkgbase" "$(<version)"
-
   if [ -f $HOME/.config/modprobed.db ]; then
     msg2 "Running Steven Rostedt's make localmodconfig now"
     make LSMOD=$HOME/.config/modprobed.db localmodconfig
   fi
+
+  make -s kernelrelease > version
+  msg2 "Prepared %s version %s" "$pkgbase" "$(<version)"
 }
 
 build() {
