@@ -1,4 +1,0 @@
-#!/bin/sh
-
-curl https://git.archlinux.org/svntogit/community.git/plain/trunk/PKGBUILD?h=packages/openblas -o PKGBUILD-official
-
