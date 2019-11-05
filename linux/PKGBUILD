@@ -4,7 +4,7 @@ pkgbase=linux
 pkgver=5.3.8.1
 pkgrel=1
 _gcc_more_v='20190822'
-_subarch=31 # Native optimizations autodetected by GCC (MNATIVE)
+_subarch=25 # Intel Skylake (MSKYLAKE)
 _srcver=${pkgver%.*}-arch${pkgver##*.}
 _srcname=linux-${_srcver}
 url="https://git.archlinux.org/linux.git/log/?h=v$_srcver"
