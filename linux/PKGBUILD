@@ -13,14 +13,13 @@ license=(GPL2)
 groups=('modified')
 makedepends=(
   xmlto kmod inetutils bc libelf
-  git
 )
 options=('!strip')
 source=(
   "https://git.archlinux.org/linux.git/snapshot/$_srcname.tar.gz"
   "config::https://git.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/linux" # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  "futex-wait-multiple-5.2.1.patch::https://aur.archlinux.org/cgit/aur.git/plain/futex-wait-multiple-5.2.1.patch?h=linux-fsync"
+  "0007-v5.3-fsync.patch::https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/linux53-tkg/linux53-tkg-patches/0007-v5.3-fsync.patch"
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -29,9 +28,9 @@ validpgpkeys=(
 )
 sha256sums=(
   'ec2092391717d165faeab20d21789aab2606ddcc1b85cb80003481aa4c9ca6a9'
-  '08a798facbb6bfb85448661d23551d50d6bf6219e59d095feb28f1e0658f751c'
-  '5b66761eae4efa4cb967aba9d4e555aa320cf5c004f0848e6bfbcb75ef66fbf1'
-  'b8a9225b4b5cbabac26398d11cc26566e4407d150dacb92f3411c9bb8cc23942')
+  'e749cd85d37d4d70099b0a7f54e852b039ae07c14e4ab8be299c64edae5d4ba4'
+  '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
+  '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -61,7 +60,8 @@ prepare() {
   msg2 "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch ..."
   patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch"
 
-  yes "$_subarch" | make oldconfig
+#  yes "$_subarch" | make oldconfig
+  make oldconfig
 
   if [ -f $HOME/.config/modprobed.db ]; then
     msg2 "Running Steven Rostedt's make localmodconfig now"
