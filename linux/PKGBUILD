@@ -60,8 +60,7 @@ prepare() {
   msg2 "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch ..."
   patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch"
 
-#  yes "$_subarch" | make oldconfig
-  make oldconfig
+  yes "$_subarch" | make oldconfig
 
   if [ -f $HOME/.config/modprobed.db ]; then
     msg2 "Running Steven Rostedt's make localmodconfig now"
