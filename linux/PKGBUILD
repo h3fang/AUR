@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-pkgver=5.3.9.1
+pkgver=5.3.11.1
 pkgrel=1
 _gcc_more_v='20190822'
 _subarch=25 # Intel Skylake (MSKYLAKE)
@@ -28,8 +28,8 @@ validpgpkeys=(
   '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
 sha256sums=(
-  'd9fdd3a350274d24ed91881ecf792bdcd624c1648f61950e3e67a554fa131ab1'
-  'e749cd85d37d4d70099b0a7f54e852b039ae07c14e4ab8be299c64edae5d4ba4'
+  'SKIP'
+  '54bd002b40030609bfb236c35d2a23d23e426edd1f84dd448afbadd1b0aacb55'
   '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
   '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
 
