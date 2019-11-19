@@ -5,7 +5,7 @@ pkgver=5.3.11.1
 pkgrel=1
 _gcc_more_v='20190822'
 _subarch=25 # Intel Skylake (MSKYLAKE)
-_srcver=${pkgver%.*}-arch${pkgver##*.}
+_srcver=${pkgver%.*}
 _srcname=linux-${_srcver}
 pkgdesc='Linux'
 url="https://git.archlinux.org/linux.git/log/?h=v$_srcver"
@@ -17,20 +17,24 @@ makedepends=(
 )
 options=('!strip')
 source=(
-  "https://git.archlinux.org/linux.git/snapshot/$_srcname.tar.gz"
+  "https://mirrors.tuna.tsinghua.edu.cn/kernel/v5.x/linux-$_srcver.tar".{xz,sign}
   "config::https://git.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/linux" # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
+  "0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch::https://git.archlinux.org/linux.git/patch/?id=cc5f615a8c610c3e1b744def763569a1119b5541"
+  "0002-Bluetooth-hidp-Fix-assumptions-on-the-return-value-o.patch::https://git.archlinux.org/linux.git/patch/?id=bd20b50ea137e295b017567d94d15416a2daf9cc"
   "0007-v5.3-fsync.patch::https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/linux53-tkg/linux53-tkg-patches/0007-v5.3-fsync.patch"
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
-  '8218F88849AAC522E94CF470A5E9288C4FA415FA'  # Jan Alexander Steffens (heftig)
 )
 sha256sums=(
-  'c0a7e0f6f6e0db8bf9025ccd3655c4b1c3f35f702c6842297c4e599612c3b64f'
+  '6e7156946d1d72e24786d09a47511e44c3abe5d4da757f4f68f2da482880aeb7'
+  'SKIP'
   '54bd002b40030609bfb236c35d2a23d23e426edd1f84dd448afbadd1b0aacb55'
   '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
+  'f98bbfa6e4f50c44c665267b037cb2a84f728580bbec33a6dd5324970e176857'
+  'a861baf87f36fb922da72613ad42d17f29a8f7be820ff57bbc4c093e206f20e4'
   '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
 
 export KBUILD_BUILD_HOST=archlinux
