@@ -1,11 +1,11 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-pkgver=5.3.13.1
+_srcver=5.4
+pkgver=${_srcver}.1
 pkgrel=1
 _gcc_more_v='20190822'
 _subarch=25 # Intel Skylake (MSKYLAKE)
-_srcver=${pkgver%.*}
 _srcname=linux-${_srcver}
 pkgdesc='Linux'
 url="https://git.archlinux.org/linux.git/log/?h=v$_srcver"
@@ -13,28 +13,26 @@ arch=(x86_64)
 license=(GPL2)
 groups=('modified')
 makedepends=(
-  xmlto kmod inetutils bc libelf
+  bc kmod libelf
 )
 options=('!strip')
 source=(
   "https://mirrors.ustc.edu.cn/kernel.org/linux/kernel/v5.x/linux-$_srcver.tar".{xz,sign}
   "config::https://git.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/linux" # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  "0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch::https://git.archlinux.org/linux.git/patch/?id=d938db454691d69590eb081db22c507c9ebca5f8"
-  "0002-Bluetooth-hidp-Fix-assumptions-on-the-return-value-o.patch::https://git.archlinux.org/linux.git/patch/?id=4932fe6b8e63b92f8252591b5381423c01bac552"
-  "0007-v5.3-fsync.patch::https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/linux53-tkg/linux53-tkg-patches/0007-v5.3-fsync.patch"
+  "0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch::https://git.archlinux.org/linux.git/patch/?id=be5448e23a73cd7a5f09d32b7e80ba8372d789fb"
+  "0007-v5.4-fsync.patch::https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/linux54-tkg/linux54-tkg-patches/0007-v5.4-fsync.patch"
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
 sha256sums=(
-  '9f04e53f03d0ead6561195fb71aac18cbee419112ed54f9d4fc1515a5fa5c92f'
+  'bf338980b1670bca287f9994b7441c2361907635879169c64ae78364efc5f491'
   'SKIP'
-  '10ee7800902b1d82f9c184b367c9d904f4dc48f6d9ce3277327e825d7ab690d1'
+  'edf3e3de13ff0ee40da422ba168c03a3f351229aabb01829853da3b08720ea78'
   '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
-  '6121794e0eb0fa765921c9d82cf527ef17a4a3680c3c7ee5791d8ac5d6aeeecf'
-  'c45c828162e5115601156b51515feb516ba6ff19c68aa58a80fbc70f4b00707b'
+  'f2ee7daffc2b39b38230b759dee0cf201e753717e5d61461dd1ceb1a9884cdba'
   '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
 
 export KBUILD_BUILD_HOST=archlinux
