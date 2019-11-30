@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.4
+_srcver=5.4.1
 pkgver=${_srcver}.1
 pkgrel=1
 _gcc_more_v='20190822'
@@ -30,7 +30,7 @@ validpgpkeys=(
 sha256sums=(
   'bf338980b1670bca287f9994b7441c2361907635879169c64ae78364efc5f491'
   'SKIP'
-  'edf3e3de13ff0ee40da422ba168c03a3f351229aabb01829853da3b08720ea78'
+  'b7f23bbc09b6c571b76f851f0389386a6f3a64f3d7b1b8509c8550228b0f4537'
   '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
   'f2ee7daffc2b39b38230b759dee0cf201e753717e5d61461dd1ceb1a9884cdba'
   '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
