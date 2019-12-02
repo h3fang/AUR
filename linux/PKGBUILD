@@ -20,7 +20,7 @@ source=(
   "https://mirrors.ustc.edu.cn/kernel.org/linux/kernel/v5.x/linux-$_srcver.tar".{xz,sign}
   "config::https://git.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/linux" # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  "0001-ZEN-Add-sysctl-and-CONFIG-to-disallow-unprivileged-C.patch::https://git.archlinux.org/linux.git/patch/?id=be5448e23a73cd7a5f09d32b7e80ba8372d789fb"
+  "0001-archlinux.patch::https://git.archlinux.org/linux.git/patch/?h=v5.4.1-arch1&id2=79438f37a69a80822333c86acb06a71abce1bce3"
   "0007-v5.4-fsync.patch::https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/linux54-tkg/linux54-tkg-patches/0007-v5.4-fsync.patch"
 )
 validpgpkeys=(
@@ -28,11 +28,11 @@ validpgpkeys=(
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
 sha256sums=(
-  'bf338980b1670bca287f9994b7441c2361907635879169c64ae78364efc5f491'
+  'a7d48bb324d53e421ffbe4da40087b3c0c5112707e5f3d827c30118542c74fd9'
   'SKIP'
   'b7f23bbc09b6c571b76f851f0389386a6f3a64f3d7b1b8509c8550228b0f4537'
   '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
-  'f2ee7daffc2b39b38230b759dee0cf201e753717e5d61461dd1ceb1a9884cdba'
+  '994cfdd96e11c278521fdc2d7295c3fdcf98b8f8eec262e2a0415b471e093d8a'
   '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
 
 export KBUILD_BUILD_HOST=archlinux
