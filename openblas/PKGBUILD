@@ -20,7 +20,7 @@ sha512sums=('9c4898301c675471bbce2bb99b6bbe7c90724784fac06504416d4bd5da3cd4488f7
 build() {
   cd "$srcdir/$_pkgname-$pkgver"
 
-  make NO_STATIC=1 NO_LAPACKE=1 NO_AFFINITY=1 USE_OPENMP=1 CFLAGS="-march=native" \
+  make NO_STATIC=1 NO_LAPACKE=1 NO_AFFINITY=1 USE_OPENMP=1 CFLAGS="$CPPFLAGS $CFLAGS" \
        MAJOR_VERSION=3 libs netlib shared
 }
 
