@@ -2,7 +2,7 @@
 
 pkgbase=linux
 _srcver=5.4.2
-pkgver=${_srcver}.1
+pkgver=${_srcver}.arch1
 pkgrel=1
 _gcc_more_v='20190822'
 _subarch=25 # Intel Skylake (MSKYLAKE)
