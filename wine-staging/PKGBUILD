@@ -161,6 +161,8 @@ build() {
     --with-gstreamer \
     --enable-win64 \
     --with-xattr \
+    --without-mingw \
+    --disable-winemenubuilder \
     --disable-tests
 
   make
@@ -176,6 +178,8 @@ build() {
     --with-xattr \
     --libdir=/usr/lib32 \
     --with-wine64="$srcdir/$pkgname-64-build" \
+    --without-mingw \
+    --disable-winemenubuilder \
     --disable-tests
 
   make
