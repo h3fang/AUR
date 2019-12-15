@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.4.2
+_srcver=5.4.3
 pkgver=${_srcver}.arch1
 pkgrel=1
 _gcc_more_v='20190822'
@@ -20,18 +20,18 @@ source=(
   "https://mirrors.ustc.edu.cn/kernel.org/linux/kernel/v5.x/linux-$_srcver.tar".{xz,sign}
   "config::https://git.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/linux" # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  "0001-archlinux.patch::https://git.archlinux.org/linux.git/patch/?h=v5.4.2-arch1&id2=5f8bc2bb0e0f456e2217bbd1caac2acf211431c9"
+  "0001-archlinux.patch::https://git.archlinux.org/linux.git/patch/?h=v5.4.3-arch1&id2=f7688b48ac46e9a669e279f1bc167722d5141eda"
   "0007-v5.4-fsync.patch::https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/linux54-tkg/linux54-tkg-patches/0007-v5.4-fsync.patch"
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('32f98256877ca6b016715ffffcf184f1603df9e17a324787f252cd602e03a557'
+sha256sums=('6731682f32e1b1ee53b0e7f66b8dc263d25a0e809e78e2139cb0ed77c378ee51'
             'SKIP'
-            'b7f23bbc09b6c571b76f851f0389386a6f3a64f3d7b1b8509c8550228b0f4537'
+            '5d58a2115892839997ae7dcca226697c34b656de7685cb3eb8696451dc5100a0'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
-            '8f1e6b480c62c0ad2a117d694e99573f68db75cb59524c1c2f8df373d4720b00'
+            '1dc83bbe677bfb24e53446452a5a63568be944cd735c988840f429dffdaf6318'
             '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
 
 export KBUILD_BUILD_HOST=archlinux
