@@ -17,7 +17,7 @@ makedepends=(
 )
 options=('!strip')
 source=(
-  "https://mirrors.ustc.edu.cn/kernel.org/linux/kernel/v5.x/linux-$_srcver.tar".{xz,sign}
+  "https://cdn.kernel.org/pub/linux/kernel/v5.x/linux-$_srcver.tar".{xz,sign}
   "config::https://git.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/linux" # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   "0001-archlinux.patch::https://git.archlinux.org/linux.git/patch/?h=v5.4.3-arch1&id2=f7688b48ac46e9a669e279f1bc167722d5141eda"
