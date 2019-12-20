@@ -1,0 +1,12 @@
+diff --git a/src/hstr_history.c b/src/hstr_history.c
+index 8a809e6..bf1f8a5 100644
+--- a/src/hstr_history.c
++++ b/src/hstr_history.c
+@@ -368,6 +368,6 @@ int history_mgmt_remove_from_ranked(char *cmd, HistoryItems *history) {
+ void history_mgmt_flush(void)
+ {
+     if(dirty) {
+-        fill_terminal_input("history -r\n", false);
++        // fill_terminal_input("history -r\n", false);
+     }
+ }
