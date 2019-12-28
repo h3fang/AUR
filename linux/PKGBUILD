@@ -2,7 +2,7 @@
 
 pkgbase=linux
 _srcver=5.4.6
-_archver=arch1
+_archver=arch3
 pkgver=${_srcver}.${_archver}
 pkgrel=1
 _gcc_more_v='20190822'
@@ -32,7 +32,7 @@ sha256sums=('fda561bcdea397ddd59656319c53871002938b19b554f30efed90affa30989c8'
             'SKIP'
             '5d58a2115892839997ae7dcca226697c34b656de7685cb3eb8696451dc5100a0'
             '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
-            'db63b81394fa86b6fb99e504af92240d27a5ec7f97ca4d8dd27a62cba3145f65'
+            '153671eecc8e7a0d401d63d9c45f3dd408549fe2cd6f632860e0391d8a55d5ab'
             '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
 
 export KBUILD_BUILD_HOST=archlinux
