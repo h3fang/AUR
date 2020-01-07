@@ -2,14 +2,20 @@
 - send notifications to all users based on battery state
 - do not exist on AUR
 
+## dxvk-wine-git
+- with the POE patch
+
 ## earlyoom
 - without the pre-generated manpage
+
+## hstr-git
+- with the patch to remove the "history -r" call
 
 ## libblockdev
 - remove lvm2, btrfs, xfs dependency
 - official repo package
 
-## linux
+## linux (deprecated, switched to linux-zen)
 - remove linux-docs split package
 - add proton fsync patch
 - add kernel_gcc_patch
@@ -22,7 +28,7 @@
 - do not exist on AUR
 
 ## openblas
-- provides blas and lapack
+- provide blas and lapack
 - prefer AUR version build flags
 - native build for performance
 - official repo package
