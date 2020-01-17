@@ -14,7 +14,7 @@ source=('battery-notifications'
         'battery-notifications.service'
         'battery-notifications.rules')
 
-sha256sums=('503ac921e8b81f5f27ac4d347c22a97c511894237de921274794adbacaf487eb'
+sha256sums=('2f0eb603435313cf2a0323b1ec98ded9df0e0daf37f3662f566ab925519616c5'
             'b7a7445cd983d9c788a6c2995ca1389d1a5d3e71f4a3b98dbc10d31057ae2ba2'
             '0019446e31b5bce33a2e83b2b3110865c65ee271e3535ee185e3581fc50df164'
             'a52c043865787531752328040d379a95a0b8bb77256b54dc79a055ac4a85dd38')
