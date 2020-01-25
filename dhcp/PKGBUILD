@@ -5,18 +5,18 @@ pkgbase=dhcp
 pkgname=dhclient
 
 # separate patch levels with a period to maintain proper versioning.
-pkgver=4.4.1
-pkgrel=4
+pkgver=4.4.2
+pkgrel=1
 arch=('x86_64')
 license=('custom:isc-dhcp')
 url="https://www.isc.org/software/dhcp"
 makedepends=('bash' 'iproute2' 'openldap')
 groups=('modified')
-source=("ftp://ftp.isc.org/isc/${pkgbase}/${pkgver}/${pkgbase}-${pkgver}.tar.gz"
+source=("https://downloads.isc.org/isc/${pkgbase}/${pkgver}/${pkgbase}-${pkgver}.tar.gz"
         'dhclient@.service::https://git.archlinux.org/svntogit/packages.git/plain/trunk/dhclient@.service?h=packages/dhcp'
         '0002-iproute2.patch::https://git.archlinux.org/svntogit/packages.git/plain/trunk/0002-iproute2.patch?h=packages/dhcp'
         '0003-disable-syslog-for-info.patch')
-sha256sums=('2a22508922ab367b4af4664a0472dc220cc9603482cf3c16d9aff14f3a76b608'
+sha256sums=('1a7ccd64a16e5e68f7b5e0f527fd07240a2892ea53fe245620f4f5f607004521'
             '86cd0b1e0ea1d47ab096f6ee925eee60545116fb887a155761eda589b30e4f0e'
             '837a64189b949afae951655546967cc8f17f2f2cf370faabff00575364f0fcf7'
             '3e393076780fb14e258a72a478295bc46842f1476f830fffa4274a3ddf77fe05')
