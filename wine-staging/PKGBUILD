@@ -5,7 +5,7 @@
 # Contributor: Giovanni Scafora <giovanni@archlinux.org>
 
 pkgname=wine-staging
-pkgver=5.0rc5
+pkgver=5.0
 pkgrel=1
 
 _pkgbasever=${pkgver/rc/-rc}
@@ -18,8 +18,8 @@ source=(https://dl.winehq.org/wine/source/5.0/wine-$_pkgbasever.tar.xz
         https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/wine-tkg-git/wine-tkg-patches/proton/fsync-staging.patch
         https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/wine-tkg-git/wine-tkg-patches/proton/fsync-staging-no_alloc_handle.patch)
 
-sha512sums=('42abe3c8e2ed63b8e3b77be7862afac2ef86af6e63dfac28f61f0749a4382ed622f7b1679f10c4221852049d6305de4685a99f5a888079132c85c95b40ae0ae0'
-            '5f60b11dfe9868b3c3cbc08891066c481af99c788cb7b591c795a16378f50ac8305b27c5bd7e3ab76d22fafcffe2db679f560effdbf2a6e51f5b143f65b2894f'
+sha512sums=('681de951804c3dd3ae8c677a0ea52d172b04cac58594698b191cd972b25899cd2030d01a25fc2ad2eb6b99976a30319d2bd5ba8b7ff98b1a8b43832fa6514b83'
+            '36849fc2c848db9949982619c4544b56468012a1f086cc92eb3e2027377c58c3c24daf508149e0e34a70e6b283edfd80833dc2f346c75f0be69f1fb2c5999cd6'
             '6e54ece7ec7022b3c9d94ad64bdf1017338da16c618966e8baf398e6f18f80f7b0576edf1d1da47ed77b96d577e4cbb2bb0156b0b11c183a0accf22654b0a2bb'
             '978926da8ceb175ccc28e343a973c5f821fdefb42af81bd57ffb0baa9a959203b8e34f28c6454454be2f64e4d71c7f7702331f0090a86138362c47e6ab6409ac'
             'df3e9387222fb1c23fabf726633fbf7961b0d05ce39d4a0aac62dc959fd310b855c476160ae608a09b50bd0cea3ff165173366d613cf28730e2a42104328b034'
