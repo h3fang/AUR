@@ -1,12 +1,12 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.4.15
+_srcver=5.5
 _archver=arch1
-_commit=111e415c94f5c299de1ee50c825b60e63d5919e9
+_commit=d5226fa6dbae0569ee43ecfc08bdcd6770fc4755
 pkgver=${_srcver}.${_archver}
 pkgrel=1
-_gcc_more_v='20190822'
+_gcc_more_v='20191217'
 _subarch= # 25: Intel Skylake (MSKYLAKE)
 _srcname=linux-${_srcver}
 pkgdesc='Linux'
@@ -23,17 +23,17 @@ source=(
   "config::https://git.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/linux" # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   "0001-archlinux.patch::https://git.archlinux.org/linux.git/patch/?h=v${_srcver}-${_archver}&id2=${_commit}"
-  "0007-v5.4-fsync.patch::https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/linux54-tkg/linux54-tkg-patches/0007-v5.4-fsync.patch"
+  "0007-v5.5-fsync.patch::https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/linux55-tkg/linux55-tkg-patches/0007-v5.5-fsync.patch"
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('6407222f850f685b346011bd696a3216d5df0f37e0184099100d2724396d94b1'
+sha256sums=('a6fbd4ee903c128367892c2393ee0d9657b6ed3ea90016d4dc6f1f6da20b2330'
             'SKIP'
-            'eb95e2f45dc868b097136d75077b8861b85fea109de78bff253fbf98162e5cb6'
-            '8c11086809864b5cef7d079f930bd40da8d0869c091965fa62e95de9a0fe13b5'
-            'db6a314121c470825e34b34a4d4c6d7b64d31eaf5076ca20999a910c7cec7d21'
+            'e967ac8bd663509cc0ca6451a95a9965eb59832e316eec77484960dcedec8c1c'
+            '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
+            '35b8493d236caac8266fcf82f50d71aa79a90fa4a1dd1632aa80fbc0c350508e'
             '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
 
 export KBUILD_BUILD_HOST=archlinux
@@ -61,8 +61,8 @@ prepare() {
   cp ../config .config
   make olddefconfig
 
-  echo "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch ..."
-  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v4.13+.patch"
+  echo "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.5+.patch ..."
+  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.5+.patch"
 
   yes "$_subarch" | make oldconfig
 
