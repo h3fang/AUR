@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.5
+_srcver=5.5.1
 _archver=arch1
-_commit=d5226fa6dbae0569ee43ecfc08bdcd6770fc4755
+_commit=70c707aae3e586f6ebc677ad733a9c3cea32f7ac
 pkgver=${_srcver}.${_archver}
 pkgrel=1
 _gcc_more_v='20191217'
@@ -29,11 +29,11 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('a6fbd4ee903c128367892c2393ee0d9657b6ed3ea90016d4dc6f1f6da20b2330'
+sha256sums=('0323916148e3bccf478a43bc650d0c3a2debbc5a152c5f37256a900bd7e730d9'
             'SKIP'
-            'e967ac8bd663509cc0ca6451a95a9965eb59832e316eec77484960dcedec8c1c'
+            '63141b88e5ffb583617d51364ebc1378fd3a73b8352e13450e982851d40fbaf2'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
-            '35b8493d236caac8266fcf82f50d71aa79a90fa4a1dd1632aa80fbc0c350508e'
+            'cb8e507604c5bfd74f36e4d3716403264ce33af38572ff8d53906a88a61c6c75'
             '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
 
 export KBUILD_BUILD_HOST=archlinux
