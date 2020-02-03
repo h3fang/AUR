@@ -2,14 +2,18 @@
 - send notifications to all users based on battery state
 - do not exist on AUR
 
-## dxvk-wine-git
-- with the POE patch
+## dhcp(dhclient)
+- do not spam INFO messages into system journal
 
 ## earlyoom
 - without the pre-generated manpage
 
 ## hstr-git
 - with the patch to remove the "history -r" call
+
+## i3lock-color
+- fix text alignment
+- official repo package
 
 ## libblockdev
 - remove lvm2, btrfs, xfs dependency
@@ -38,10 +42,6 @@
 - darker scroll handle color
 - official repo package
 
-## i3lock-color
-- fix text alignment
-- official repo package
-
 ## swaylock-effects-git
 - fix text alignment
 
@@ -49,9 +49,6 @@
 - only a few selected fonts
 - https://h3fang.github.io/texlive-fontsextra/
 - official repo package
-
-## vscodium-bin
-- removed some unnecessary dependencies
 
 ## wine-staging
 - no binfmt
