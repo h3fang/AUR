@@ -21,7 +21,6 @@
 
 ## linux (deprecated, switched to linux-zen)
 - remove linux-docs split package
-- add proton fsync patch
 - add kernel_gcc_patch
 - add modprobed localmodconfig for faster compilation
 - native build for performance

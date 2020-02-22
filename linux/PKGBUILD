@@ -23,7 +23,6 @@ source=(
   "config::https://git.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/linux" # the main kernel config file
   "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
   "0001-archlinux.patch::https://git.archlinux.org/linux.git/patch/?h=v${_srcver}-${_archver}&id2=${_commit}"
-  "0007-v5.5-fsync.patch::https://raw.githubusercontent.com/Tk-Glitch/PKGBUILDS/master/linux55-tkg/linux55-tkg-patches/0007-v5.5-fsync.patch"
 )
 validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
@@ -33,8 +32,7 @@ sha256sums=('7ac07bc03f2d159f924d25a79df07d1a115a13f44f67455511d3c84c15ac5087'
             'SKIP'
             'd8ec5445fe03cd5e0cb95a8bcbdf4887a1649825b0a68b8ffd62dabe300ecb8f'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
-            '9a80675ef9aaf682b112be742e03c5c3c8a36cda5073cfd11596c9f5f8ab0f3c'
-            '2d9260b80b43bbd605cf420d6bd53aa7262103dfd77196ba590ece5600b6dc0d')
+            '9a80675ef9aaf682b112be742e03c5c3c8a36cda5073cfd11596c9f5f8ab0f3c')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
