@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.5.5
+_srcver=5.5.6
 _archver=arch1
-_commit=e36d2b2f21eb833ea8113092d0b87cec02b1164c
+_commit=d542c06f7665ee93cf6983dac472a1dd12050401
 pkgver=${_srcver}.${_archver}
 pkgrel=1
 _gcc_more_v='20191217'
@@ -28,11 +28,11 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('7ac07bc03f2d159f924d25a79df07d1a115a13f44f67455511d3c84c15ac5087'
+sha256sums=('54cc88ab9d7517267d8592905b277424ae441f3d7209c7ad1236533c2be6ee35'
             'SKIP'
-            'd8ec5445fe03cd5e0cb95a8bcbdf4887a1649825b0a68b8ffd62dabe300ecb8f'
+            'a841aa011edf6bae0ffbe8ead8177e5056de5a6d7333bb96e16917903de4d868'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
-            '9a80675ef9aaf682b112be742e03c5c3c8a36cda5073cfd11596c9f5f8ab0f3c')
+            '49f6ee4e9042f30a7a3224d8a328fa653dc8a0669b72310a57086be227c4ac2b')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -75,7 +75,7 @@ prepare() {
 
 build() {
   cd $_srcname
-  make bzImage modules
+  make all
 }
 
 _package() {
