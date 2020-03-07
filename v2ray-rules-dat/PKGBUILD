@@ -1,0 +1,22 @@
+# Maintainer: h3fang <hf.enigma@gmail.com>
+
+pkgname=v2ray-rules-dat
+pkgver=202003062205
+pkgrel=1
+pkgdesc="Enhanced edition of V2Ray rules dat files"
+arch=('any')
+provides=('v2ray-geoip' 'v2ray-domain-list-community')
+conflicts=('v2ray-geoip' 'v2ray-domain-list-community')
+url="https://github.com/Loyalsoldier/v2ray-rules-dat"
+license=('GPLv3')
+source=(
+    "geoip-$pkgver.dat::https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$pkgver/geoip.dat"
+    "geosite-$pkgver.dat::https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$pkgver/geosite.dat"
+)
+sha512sums=('4c2e5317468698e474d6d6d45542f21c1df18379a6f6176d706cf712a084d6c25971a10f92882dd6ee9ec0b098490ac6920bea8ccae0c0640f0de2c9ce858f47'
+            'a9b32c50059a8008bfb213c71a3c5e65246cb871575e75be934dc500244eb73fd5eb7b909014eb0a44f414be48d5958f23ffec71cf5fb3cdf213edcac0a8fc6c')
+
+package() {
+  install -Dm755 geoip-$pkgver.dat "$pkgdir"/usr/lib/v2ray/geoip.dat
+  install -Dm755 geosite-$pkgver.dat "$pkgdir"/usr/lib/v2ray/geosite.dat
+}
