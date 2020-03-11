@@ -1,20 +1,21 @@
 # Maintainer: h3fang <hf.enigma@gmail.com>
 
 pkgname=v2ray-rules-dat
-pkgver=202003062205
+pkgver=202003112205
 pkgrel=1
 pkgdesc="Enhanced edition of V2Ray rules dat files"
 arch=('any')
 provides=('v2ray-geoip' 'v2ray-domain-list-community')
 conflicts=('v2ray-geoip' 'v2ray-domain-list-community')
+groups=('modified')
 url="https://github.com/Loyalsoldier/v2ray-rules-dat"
 license=('GPL3')
 source=(
     "geoip-$pkgver.dat::https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$pkgver/geoip.dat"
     "geosite-$pkgver.dat::https://github.com/Loyalsoldier/v2ray-rules-dat/releases/download/$pkgver/geosite.dat"
 )
-sha512sums=('4c2e5317468698e474d6d6d45542f21c1df18379a6f6176d706cf712a084d6c25971a10f92882dd6ee9ec0b098490ac6920bea8ccae0c0640f0de2c9ce858f47'
-            'a9b32c50059a8008bfb213c71a3c5e65246cb871575e75be934dc500244eb73fd5eb7b909014eb0a44f414be48d5958f23ffec71cf5fb3cdf213edcac0a8fc6c')
+sha512sums=('c2740fc5dc604077b9ff13ad214645c9117969e954c002662f399db3420b5fda1a7532614ba59cd1e5e6ad3c3c8ea65ec922553091a88405987fbf2980d410fb'
+            'd03eb8ff82dc3b729cc01f082afbfab9b8586d75ecc908b08503c2c2d6b4378b75617e288912f4fc8916a8afd323a7223d724cbca88d1802b4fec6a78d030c54')
 
 package() {
     install -Dm755 geoip-$pkgver.dat "$pkgdir"/usr/lib/v2ray/geoip.dat
