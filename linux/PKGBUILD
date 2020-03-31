@@ -2,7 +2,7 @@
 
 pkgbase=linux
 _srcver=5.5.13
-_archver=arch1
+_archver=arch2
 _commit=fe5ae687d01e74854ed33666c932a9c11e22139c
 pkgver=${_srcver}.${_archver}
 pkgrel=1
@@ -30,7 +30,7 @@ validpgpkeys=(
 )
 sha256sums=('1f3b3614a06bffc9c621c82f98d8ca88c60538a8c6dd77f96f2e7fee310a4ee2'
             'SKIP'
-            'cefc4c5853c1df6595380fb7259289f5850662cd7aa9600dce114e4e525114e1'
+            '0b414b6974b732cfb71b6f45b6210d127528aa6452132e9b9338719ac021bf06'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
             '1ffe1674eab272b4a3a34de83841a1a0761c32ede31538492766276be28d8a24')
 
