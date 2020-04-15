@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.6.3
+_srcver=5.6.4
 _archver=arch1
-_commit=f9fb85751506e75ecffaa498896efbb0c886adda
+_commit=0a27a29496060843ae3a8fe78aaec0062cbd5dfa
 pkgver=${_srcver}.${_archver}
 pkgrel=1
 _gcc_more_v='20191217'
@@ -28,7 +28,7 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('1d13689abbcab59250a8231a5871747be25a1d2fe431cf263395de35780c50aa'
+sha256sums=('5df1741e550cb6fa7471530f42da98bac5093e693e2c4f3aef4393d8135b9d91'
             'SKIP'
             '6ac452e2124f92747a57c5a50e11ca2f1e8112669845b4431311545c7fd2a36c'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
