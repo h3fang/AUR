@@ -4,7 +4,7 @@
 
 pkgname=clash-git
 _pkgver=0.19.0
-pkgver=0.19.0.r11.g84f627f
+pkgver=0.19.0.r15.g065456f
 pkgrel=1
 pkgdesc="A rule based proxy in Go"
 arch=('x86_64')
@@ -12,7 +12,7 @@ url="https://github.com/Dreamacro/clash"
 license=('GPL3')
 makedepends=('go-pie' 'git')
 depends=('glibc')
-provides=('clash')
+conflicts=('clash')
 source=("clash@.service"
         "clash_user.service"
         "$pkgname::git+https://github.com/Dreamacro/clash.git#branch=dev")
