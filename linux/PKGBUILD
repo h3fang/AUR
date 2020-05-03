@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.6.8
+_srcver=5.6.10
 _archver=arch1
-_commit=63c3d497410788af1804579f0cded007318c5991
+_commit=c9feecbe2f4a6b1ca993195f5ce7baf65cf0a310
 pkgver=${_srcver}.${_archver}
 pkgrel=1
 _gcc_more_v='20191217'
@@ -28,11 +28,11 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('19e142ff07a2c8d10116074099b9d845682e74544a2b6c1641f7cb044ac282df'
+sha256sums=('7bdc96827a9db8de79cd13d74a1c5fe8915674f793e592387f2903cb225801b9'
             'SKIP'
             'f392c9ecbb5177ea2573aaf22935322940ea2be0366f3fb9c9f861431f4aed21'
             '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
-            '0d2cdf6d9fb7f65e12b695eb3ecbe86e988ad26e0c876727ded9a2c19c141ccd')
+            '1112fa0c29a971417121a30d703c502cae52f931f0626fb6abc788c2c812d48b')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
