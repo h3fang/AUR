@@ -4,3 +4,6 @@ Description=Battery notifications
 [Service]
 Type=simple
 ExecStart=/usr/bin/battery-notifications
+
+[Install]
+WantedBy=graphical.target

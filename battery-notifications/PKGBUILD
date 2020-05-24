@@ -1,27 +1,28 @@
 # Maintainer: hefang
 
 pkgname=battery-notifications
-pkgver=0.2
+pkgver=0.3
 pkgrel=1
 pkgdesc="Battery notifications"
 url="https://bbs.archlinux.org/viewtopic.php?pid=1431917"
 license=('MIT')
 groups=(modified)
-depends=('notify-all' 'acpi' 'libnotify' 'udev')
+depends=('fmt' 'libnotify')
 arch=('x86_64')
-source=('battery-notifications'
-        'battery-notifications.timer'
-        'battery-notifications.service'
-        'battery-notifications.rules')
+source=('Makefile'
+        'battery-notifications.cpp'
+        'battery-notifications.service')
 
-sha256sums=('2f0eb603435313cf2a0323b1ec98ded9df0e0daf37f3662f566ab925519616c5'
-            'b7a7445cd983d9c788a6c2995ca1389d1a5d3e71f4a3b98dbc10d31057ae2ba2'
-            '0019446e31b5bce33a2e83b2b3110865c65ee271e3535ee185e3581fc50df164'
-            'a52c043865787531752328040d379a95a0b8bb77256b54dc79a055ac4a85dd38')
+sha256sums=('b93ab7ddb8552a7944ff53d22aa3def60451e8588a7e047efa61066b5b6e7a3c'
+            '2ecd75dd9e98960c3e4985f90f15d0e81e980f701d2c7afc2c40e34636d56bcc'
+            '5e5ee719826ddd9dccd2ea516ab80617530062d37ea64cbca9e1d351dd26d54a')
+
+build() {
+    cd "$srcdir"
+    make
+}
 
 package() {
-    install -Dm644 "$srcdir/$pkgname.service" "$pkgdir/etc/systemd/system/$pkgname.service"
-    install -Dm644 "$srcdir/$pkgname.timer" "$pkgdir/etc/systemd/system/$pkgname.timer"
-    install -Dm644 "$srcdir/$pkgname.rules" "$pkgdir/usr/lib/udev/rules.d/99-$pkgname.rules"
+    install -Dm644 "$srcdir/$pkgname.service" "$pkgdir/usr/lib/systemd/user/$pkgname.service"
     install -Dm755 "$srcdir/$pkgname" "$pkgdir/usr/bin/$pkgname"
 }
