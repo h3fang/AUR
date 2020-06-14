@@ -3,38 +3,36 @@
 # Contributor: Luke Yue <lukedyue@gmail.com>
 
 pkgname=clash-git
-_pkgver=0.19.0
-pkgver=premium.r1.g3638b07
+pkgver=0.20.0.r445.g9f1d85a
 pkgrel=1
 pkgdesc="A rule based proxy in Go"
 arch=('x86_64')
 url="https://github.com/Dreamacro/clash"
 license=('GPL3')
-makedepends=('go-pie' 'git')
+makedepends=('go' 'git')
 depends=('glibc')
 conflicts=('clash')
 source=("clash@.service"
         "clash_user.service"
         "$pkgname::git+https://github.com/Dreamacro/clash.git#branch=dev")
-sha512sums=('e9e215e0a06d0d1072467342dd72e777725b94634714c5bd5fdee31f48897d9b8ab7e83830d836533d6862fa6ebfda56dbf138edd873140de61d8ccdf2a54572'
-            '338c3a5904623bec48c03b2ef8cf452979c229fc5b89b2e0447664b40cd6e29c83cae47a19145be76d3ee2f0b6a54184a0cff69b834ba6107b444caacc02decf'
+sha512sums=('5b53faea10bba16df98a74fcbffebb6c8b7f8c238999a147bb848b2c30732688813915fd6bc32f44ec6f90024ad29dbde059e70760c91ccea198dd05da52d077'
+            '3ae61e1c6f0213ea8c3113c62f27c704f04f657cda8c726c0e487194dd5c1ce36e448f6e22b61aeef65f4a1910a2df62a3798f0cba9bae10c8e80a7cb1cfb7b3'
             'SKIP')
 
 pkgver() {
     cd "$pkgname"
-    git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+    printf "%s.r%s.g%s" "$(git tag -l --sort=creatordate | tail -n1 | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
     cd "${pkgname}"
     export GOPATH="${srcdir}/go"
-    mkdir "$GOPATH"
-    go build -trimpath -ldflags "-extldflags ${LDFLAGS} -X github.com/Dreamacro/clash/constant.Version=${_pkgver} -w -s" -mod=readonly
+    go build -trimpath -ldflags "-extldflags ${LDFLAGS} -X github.com/Dreamacro/clash/constant.Version=${pkgver} -w -s" -mod=readonly -modcacherw
 }
 
 check() {
     cd "${pkgname}"
-    go test github.com/Dreamacro/clash/...
+    go test github.com/Dreamacro/clash/... -modcacherw
 }
 
 package() {
