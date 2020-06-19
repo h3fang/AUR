@@ -1,8 +1,8 @@
 # Maintainer: Fang He <hf.enigma@gmail.com>
 
 pkgname=texlive-fontsextra
-pkgver=2019.52580
-_revnr=${pkgver#2019.}
+pkgver=2020.55407
+_revnr=${pkgver#2020.}
 pkgrel=1
 pkgdesc="TeX Live - extra fonts that I need"
 license=('GPL')
@@ -23,18 +23,18 @@ source=("https://ctan.org/tex-archive/systems/texlive/tlnet/archive/boondox.tar.
         "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/sourcecodepro.tar.xz"
         "$pkgname.maps::https://git.archlinux.org/svntogit/packages.git/plain/trunk/texlive-fontsextra.maps?h=packages/texlive-fontsextra")
 options=('!emptydirs')
-sha256sums=('SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            'SKIP'
-            '702e911cfdf0331c32fa1049f96c8e323b10e2733fa49db607df2265fc94e32a')
+sha256sums=('60fe27edf2325cecc1e9b7e4d36f03cdc9c3c5c441a4c839497ca29f3e857071'
+            'fd3e420a2204d1296e882b6cb1c4d218fc28f1abdac370710587caf406835df4'
+            '8db3a02d8578fe86270f395fafd263a95e34d6e8b37b8a1dd8d46be4ddce3c0d'
+            'c55add2adb27e1258a6cc335f0149d5d53662b68f243d57f97bafca83042141a'
+            'a2e24ac5e56f16af8b6c4b7e95b190f44d7b631e1072c6abc0a2ff581750e242'
+            '8dca12a426b6e5653ae754674e79b2a6df52765ba7acc5046c2c73c53297b697'
+            '107efe6bd2d5e0d8761a47e8ce39062ee073c34126f5ecb5454f2959bce583b6'
+            '6524483351b424b24141aca3731b410a9470c36294ba5e0dff916cc5ef41e304'
+            '57f2f4c6332a86409abbbd178f8f6a5c2e2191f6ee0c6ea2e60df833d8c897a0'
+            '8c01e4d3ea6401a698540a96bcc90a575da9247616005cb78f66379d55c14d2a'
+            '1ec9052d3e9664439eec2449dbe3671e076eab45ceeae2deebfff16dde854c26'
+            '6346b4a1fc5a2a2e744715ae2e9462a55255e229e59d0e00ab5957d34bd75f99')
 
 build() {
    cd "$srcdir"
@@ -52,20 +52,20 @@ build() {
 
 package() {
    cd "$srcdir"
-   install -m755 -d $pkgdir/var/lib/texmf/arch/installedpkgs
-   install -m644 CONTENTS $pkgdir/var/lib/texmf/arch/installedpkgs/${pkgname}_${_revnr}.pkgs
-   install -m644 MAPS $pkgdir/var/lib/texmf/arch/installedpkgs/$pkgname.maps
-   install -m755 -d $pkgdir/usr/share
+   install -m755 -d "$pkgdir"/var/lib/texmf/arch/installedpkgs
+   install -m644 CONTENTS "$pkgdir"/var/lib/texmf/arch/installedpkgs/${pkgname}_${_revnr}.pkgs
+   install -m644 MAPS "$pkgdir"/var/lib/texmf/arch/installedpkgs/$pkgname.maps
+   install -m755 -d "$pkgdir"/usr/share
    wanteddirs=$(for d in *; do test -d $d && [[ $d != texmf* ]] && echo $d; done) || true
    for dir in $wanteddirs; do
-     find $dir -type d -exec install -d -m755 $pkgdir/usr/share/texmf-dist/'{}' \;
-     find $dir -type f -exec install -m644 '{}' $pkgdir/usr/share/texmf-dist/'{}' \;
+     find $dir -type d -exec install -d -m755 "$pkgdir"/usr/share/texmf-dist/'{}' \;
+     find $dir -type f -exec install -m644 '{}' "$pkgdir"/usr/share/texmf-dist/'{}' \;
    done
    if [[ -d texmf-dist ]]; then
-     find texmf-dist -type d -exec install -d -m755 $pkgdir/usr/share/'{}' \;
-     find texmf-dist -type f -exec install -m644 '{}' $pkgdir/usr/share/'{}' \;
+     find texmf-dist -type d -exec install -d -m755 "$pkgdir"/usr/share/'{}' \;
+     find texmf-dist -type f -exec install -m644 '{}' "$pkgdir"/usr/share/'{}' \;
    fi
-   if [[ -d $pkgdir/usr/share/texmf-dist/scripts ]]; then
-     find $pkgdir/usr/share/texmf-dist/scripts -type f -exec chmod a+x '{}' \;
+   if [[ -d "$pkgdir"/usr/share/texmf-dist/scripts ]]; then
+     find "$pkgdir"/usr/share/texmf-dist/scripts -type f -exec chmod a+x '{}' \;
    fi
 }
