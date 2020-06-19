@@ -1,12 +1,12 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.6.15
+_srcver=5.7.3
 _archver=arch1
-_commit=183673bef8533a3744ad27e32ca901de59e09307
+_commit=c58091a3ea4c1fa8a71f38842c877fbd4c54b45d
 pkgver=${_srcver}.${_archver}
 pkgrel=1
-_gcc_more_v='20191217'
+_gcc_more_v='20200527'
 _subarch= # 25: Intel Skylake (MSKYLAKE)
 _srcname=linux-${_srcver}
 pkgdesc='Linux'
@@ -15,7 +15,7 @@ arch=(x86_64)
 license=(GPL2)
 groups=('modified')
 makedepends=(
-  bc kmod libelf
+  bc kmod libelf pahole
 )
 options=('!strip')
 source=(
@@ -28,11 +28,11 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('65ab799393d490463c610270634874dfcb66440a312837d04b51bbb69323034e'
+sha256sums=('0710ec7ba7f43fa4666da4a2da1c66c96b30a40f0417f19ea30584643d6bfce9'
             'SKIP'
-            '2a157fdbf3a6396e985db9ae5d11870a786717dca31de78cad09c06eb28761ff'
-            '7a4a209de815f4bae49c7c577c0584c77257e3953ac4324d2aa425859ba657f5'
-            'a55594c770f4f236d559668d82c8b9a1cfa37acc8f968e1743953fed9dcdbb45')
+            '623601ed9d7879dd9dba1cd50fc8051f9db508b49b4fc0c47c5a9eb9165fc04e'
+            '8255e6b6e0bdcd66a73d917b56cf2cccdd1c3f4b3621891cfffc203404a5b6dc'
+            'e96e01a1e8a14009309f64c7f3288840ad1d8bfdb9f8142c147640115495760b')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -59,8 +59,8 @@ prepare() {
   cp ../config .config
   make olddefconfig
 
-  echo "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.5+.patch ..."
-  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.5+.patch"
+  echo "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.7+.patch ..."
+  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.7+.patch"
 
   yes "$_subarch" | make oldconfig
 
@@ -83,6 +83,8 @@ _package() {
   depends=(coreutils kmod initramfs)
   optdepends=('crda: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
+  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
+  replaces=()
 
   cd $_srcname
   local kernver="$(<version)"
@@ -97,7 +99,7 @@ _package() {
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   echo "Installing modules..."
-  make INSTALL_MOD_PATH="$pkgdir/usr" modules_install
+  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 modules_install
 
   # remove build and source links
   rm "$modulesdir"/{source,build}
@@ -172,6 +174,9 @@ _package-headers() {
         strip -v $STRIP_SHARED "$file" ;;
     esac
   done < <(find "$builddir" -type f -perm -u+x ! -name vmlinux -print0)
+
+  echo "Stripping vmlinux..."
+  strip -v $STRIP_STATIC "$builddir/vmlinux"
 
   echo "Adding symlink..."
   mkdir -p "$pkgdir/usr/src"
