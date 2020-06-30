@@ -2,8 +2,8 @@
 # Contributor: Ariel AxionL <i@axionl.me>
 # Contributor: Luke Yue <lukedyue@gmail.com>
 
-pkgname=clash-git
-pkgver=0.20.0.r448.g18bb285
+pkgname=clash-dev-git
+pkgver=1.0.0.r456.g93c987a
 pkgrel=1
 pkgdesc="A rule based proxy in Go"
 arch=('x86_64')
@@ -12,6 +12,7 @@ license=('GPL3')
 makedepends=('go' 'git')
 depends=('glibc')
 conflicts=('clash')
+groups=('modified')
 source=("clash@.service"
         "clash_user.service"
         "$pkgname::git+https://github.com/Dreamacro/clash.git#branch=dev")
@@ -27,7 +28,12 @@ pkgver() {
 build() {
     cd "${pkgname}"
     export GOPATH="${srcdir}/go"
-    go build -trimpath -ldflags "-extldflags ${LDFLAGS} -X github.com/Dreamacro/clash/constant.Version=${pkgver} -w -s" -mod=readonly -modcacherw
+    export CGO_CPPFLAGS="${CPPFLAGS}"
+    export CGO_CFLAGS="${CFLAGS//-flto=auto/}"
+    export CGO_CXXFLAGS="${CXXFLAGS//-flto=auto/}"
+    export CGO_LDFLAGS="${LDFLAGS}"
+    export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
+    go build -trimpath -ldflags "-X github.com/Dreamacro/clash/constant.Version=${pkgver}"
 }
 
 check() {
