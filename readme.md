@@ -11,10 +11,6 @@
 ## hstr-git
 - with the patch to remove the "history -r" call
 
-## i3lock-color
-- fix text alignment
-- official repo package
-
 ## libblockdev
 - remove lvm2, btrfs, xfs dependency
 - official repo package
