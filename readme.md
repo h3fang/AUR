@@ -39,5 +39,5 @@
 
 ## texlive-fontsextra
 - only a few selected fonts
-- https://h3fang.github.io/texlive-fontsextra/
+- https://h3fang.github.io/post/2019/texlive-fontsextra/
 - official repo package
