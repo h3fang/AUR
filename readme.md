@@ -5,9 +5,6 @@
 ## dhcp(dhclient)
 - do not spam INFO messages into system journal
 
-## earlyoom
-- without the pre-generated manpage
-
 ## hstr-git
 - with the patch to remove the "history -r" call
 
