@@ -4,7 +4,7 @@
 # requires libnotify, pulseaudio
 
 set -eEuo pipefail
-trap 's=$?; notify-send -u critical "Failed to execute notify-all."; exit $s' ERR
+trap 's=$?; notify-send -u critical "Failed to execute notify-all." "line: $LINENO\ncommand: $BASH_COMMAND"; exit $s' ERR
 
 for p in $(pgrep pulseaudio); do
     dbus=$(grep -z DBUS_SESSION_BUS_ADDRESS /proc/"$p"/environ | tr -d '\0' | sed 's/DBUS_SESSION_BUS_ADDRESS=//')

@@ -1,6 +1,6 @@
 # Maintainer: hefang
 pkgname=notify-all
-pkgver=0.2
+pkgver=0.3
 pkgrel=1
 pkgdesc="Send notification to all users"
 arch=('any')
@@ -11,7 +11,7 @@ depends=('pulseaudio' 'libnotify')
 source=(
 	"notify-all"
 )
-sha256sums=('8e94591a6e93630b741760ebb354ed53a7369efa15dcdb91819384c82018537d')
+sha256sums=('855c15aaf013423a215550ff370c0098cc7203a939b59774ca81acc2fd179269')
 
 package() {
 	install -Dm755 "$srcdir/notify-all" "$pkgdir/usr/bin/notify-all"
