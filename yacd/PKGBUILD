@@ -1,0 +1,16 @@
+# Maintainer: h3fang
+
+pkgname=yacd
+pkgver=0.2.1
+pkgrel=1
+pkgdesc="Yet Another Clash Dashboard"
+arch=('any')
+url="https://github.com/haishanh/yacd"
+source=("${pkgname}::https://github.com/haishanh/yacd/archive/gh-pages.zip")
+sha256sums=('9f61369ecce2f14ea9b5479e3501afb2aab59aef9144bcc5cc7dca3b48708d98')
+groups=('modified')
+
+package() {
+  install -dm755 "${pkgdir}/usr/share"
+  cp -rT "${srcdir}/yacd-gh-pages" "${pkgdir}/usr/share/${pkgname}"
+}
