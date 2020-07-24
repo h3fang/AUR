@@ -1,12 +1,12 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.7.9
+_srcver=5.7.10
 _archver=arch1
-_commit=7490e75482cc99ce9d0c32a1d028d2f834c36713
+_commit=780e72b005455d117e2f733707ceca14792a67f1
 pkgver=${_srcver}.${_archver}
 pkgrel=1
-_gcc_more_v='20200527'
+_gcc_more_v='20200615'
 _subarch= # 25: Intel Skylake (MSKYLAKE)
 _srcname=linux-${_srcver}
 pkgdesc='Linux'
@@ -28,11 +28,11 @@ validpgpkeys=(
   'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
   '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
 )
-sha256sums=('a87d3066a7849cd6ba9a004311a9ee0402d29d17f12f64ad7d942447070b43f8'
+sha256sums=('4725430c65b7573b7d26c402dd9ffdad18529a302ce2e342c849e7800f193d44'
             'SKIP'
             'ed60b20ee841e16038da0d145fbf3f53fac94122c4001d6cd03abe64e9e760f6'
-            '8255e6b6e0bdcd66a73d917b56cf2cccdd1c3f4b3621891cfffc203404a5b6dc'
-            'c1feff4881e95229dcbab25caacc7af17b8f937c852f2417ad128b5209fc26d9')
+            '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
+            '9b2425fb85ef5af19ac8545fc15a6e3e169ae92c0fbec59d35b87be5a68bb615')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
