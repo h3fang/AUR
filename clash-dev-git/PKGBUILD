@@ -3,7 +3,7 @@
 # Contributor: Luke Yue <lukedyue@gmail.com>
 
 pkgname=clash-dev-git
-pkgver=1.0.0.r456.g93c987a
+pkgver=20200725.r473.8f00980
 pkgrel=1
 pkgdesc="A rule based proxy in Go"
 arch=('x86_64')
@@ -21,8 +21,11 @@ sha512sums=('5b53faea10bba16df98a74fcbffebb6c8b7f8c238999a147bb848b2c30732688813
             'SKIP')
 
 pkgver() {
-    cd "$pkgname"
-    printf "%s.r%s.g%s" "$(git tag -l --sort=creatordate | tail -n1 | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g')" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+    cd "$srcdir/$pkgname"
+    local date=$(git log -1 --format="%cd" --date=short | sed s/-//g)
+    local count=$(git rev-list --count HEAD)
+    local commit=$(git rev-parse --short HEAD)
+    echo "$date.r${count}.$commit"
 }
 
 build() {

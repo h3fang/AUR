@@ -13,6 +13,7 @@ conflicts=('clash-dashboard')
 provides=('clash-dashborad')
 source=("${_pkgname}::git+https://github.com/Dreamacro/clash-dashboard.git")
 sha1sums=('SKIP')
+groups=('modified')
 
 pkgver() {
   cd "${srcdir}/${_pkgname}"
