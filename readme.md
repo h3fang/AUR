@@ -6,6 +6,9 @@
 - use official repo build instructions
 - make go build cache read/write
 
+## clash-dashboard-git
+- fix building and packaging instructions
+
 ## evince-light
 - keep only pdf support
 - use cmake build system
@@ -16,7 +19,7 @@
 ## libblockdev
 - remove lvm2, btrfs, xfs dependency
 
-## linux (deprecated, switched to linux-zen)
+## linux
 - remove linux-docs split package
 - add kernel_gcc_patch
 - add modprobed localmodconfig for faster compilation
