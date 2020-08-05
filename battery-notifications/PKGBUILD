@@ -14,7 +14,7 @@ source=('Makefile'
         'battery-notifications.service')
 
 sha256sums=('b93ab7ddb8552a7944ff53d22aa3def60451e8588a7e047efa61066b5b6e7a3c'
-            '2ecd75dd9e98960c3e4985f90f15d0e81e980f701d2c7afc2c40e34636d56bcc'
+            '548f5a7efe7b3b1eb0d79f8cb7a316340fb6afbe47e1e8796fc50afdca525343'
             '5e5ee719826ddd9dccd2ea516ab80617530062d37ea64cbca9e1d351dd26d54a')
 
 build() {

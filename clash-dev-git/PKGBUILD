@@ -3,7 +3,7 @@
 # Contributor: Luke Yue <lukedyue@gmail.com>
 
 pkgname=clash-dev-git
-pkgver=20200725.r473.8f00980
+pkgver=20200730.r479.791d203
 pkgrel=1
 pkgdesc="A rule based proxy in Go"
 arch=('x86_64')
