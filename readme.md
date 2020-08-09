@@ -1,16 +1,12 @@
 ## battery-notifications
-- send notifications to all users based on battery state
-- not on AUR
+- send notifications to user based on battery states
 
 ## clash-dev-git
 - use official repo build instructions
-- make go build cache read/write
-
-## clash-dashboard-git
-- fix building and packaging instructions
+- make go build cache writable
 
 ## evince-light
-- keep only pdf support
+- with only pdf support
 - use cmake build system
 
 ## hstr-git
@@ -45,5 +41,5 @@
 - remove install script
 
 ## yacd
-- create the PKGBUILD for the package
+- create PKGBUILD for yacd
 
