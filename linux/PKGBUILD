@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.8
+_srcver=5.8.1
 _archver=arch1
-_commit=bcf876870b95592b52519ed4aafcf9d95999bc9c
+_commit=5f49ff2540e2c2799cde0cfaf6af9e1f824cd393
 pkgver=${_srcver}.${_archver}
 pkgrel=1
 _gcc_more_v='20200615'
@@ -59,8 +59,8 @@ prepare() {
   cp ../config .config
   make olddefconfig
 
-  echo "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.7+.patch ..."
-  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.7+.patch"
+  echo "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.8+.patch ..."
+  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.8+.patch"
 
   yes "$_subarch" | make oldconfig
 
