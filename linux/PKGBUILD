@@ -1,16 +1,14 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.8.1
-_archver=arch1
-_commit=5f49ff2540e2c2799cde0cfaf6af9e1f824cd393
-pkgver=${_srcver}.${_archver}
+_srcver=5.8.3
+_zenver=zen1
+_commit=279d711a7eed64877421ebd53c71305ac29b5d1d
+pkgver=${_srcver}.${_zenver}
 pkgrel=1
-_gcc_more_v='20200615'
-_subarch= # 25: Intel Skylake (MSKYLAKE)
-_srcname=linux-${_srcver}
+_srcname=zen-kernel-${_srcver}-${_zenver}
 pkgdesc='Linux'
-url="https://git.archlinux.org/linux.git/log/?h=v$_srcver-$_archver"
+url="https://github.com/zen-kernel/zen-kernel/releases/tag/v${_srcver}.${_zenver}"
 arch=(x86_64)
 license=(GPL2)
 groups=('modified')
@@ -19,20 +17,11 @@ makedepends=(
 )
 options=('!strip')
 source=(
-  "https://mirrors.163.com/kernel/v5.x/linux-$_srcver.tar".{xz,sign}
-  "config::https://git.archlinux.org/svntogit/packages.git/plain/trunk/config?h=packages/linux" # the main kernel config file
-  "enable_additional_cpu_optimizations-$_gcc_more_v.tar.gz::https://github.com/graysky2/kernel_gcc_patch/archive/$_gcc_more_v.tar.gz"
-  "0001-archlinux.patch::https://git.archlinux.org/linux.git/patch/?h=v${_srcver}-${_archver}&id2=${_commit}"
+  "https://github.com/zen-kernel/zen-kernel/archive/v${_srcver}-${_zenver}.tar.gz"
+  "config::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_commit}/trunk/config"
 )
-validpgpkeys=(
-  'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
-  '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
-)
-sha256sums=('e7f75186aa0642114af8f19d99559937300ca27acaf7451b36d4f9b0f85cf1f5'
-            'SKIP'
-            '240321e752714a4b64c2aaf15a875866f24e7b66bbbe79042e0ee73d64849c38'
-            '278fe9ffb29d92cc5220e7beac34a8e3a2006e714d16a21a0427069f9634af90'
-            '12b44528158c732922297dda48a193eedcd244eae01f36d40f18a93dfa453e55')
+sha256sums=('188a79cb5c71009b9d8b18d016a1f2a081048fbe125bb640b67b50fd029f8411'
+            '6b635ee9d01865057f04f5c4606fbe37f37829d0d748d61e18490ecef943abb6')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -46,23 +35,9 @@ prepare() {
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
 
-  local src
-  for src in "${source[@]}"; do
-    src="${src%%::*}"
-    src="${src##*/}"
-    [[ $src = *.patch ]] || continue
-    echo "Applying patch $src..."
-    patch -Np1 < "../$src"
-  done
-
   echo "Setting config..."
   cp ../config .config
   make olddefconfig
-
-  echo "Applying enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.8+.patch ..."
-  patch -Np1 -i "$srcdir/kernel_gcc_patch-$_gcc_more_v/enable_additional_cpu_optimizations_for_gcc_v9.1+_kernel_v5.8+.patch"
-
-  yes "$_subarch" | make oldconfig
 
   if [ -f $HOME/.config/modprobed.db ]; then
     echo "Running Steven Rostedt's make localmodconfig now"
