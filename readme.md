@@ -17,9 +17,12 @@
 
 ## linux
 - remove linux-docs split package
-- add kernel_gcc_patch
 - add modprobed localmodconfig for faster compilation
 - native build for performance
+
+## networkd-notify
+- use iw instead of wireless-tools
+- increase notification popup duration
 
 ## openblas
 - provide blas and lapack
