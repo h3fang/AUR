@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.8.3
+_srcver=5.8.4
 _zenver=zen1
-_commit=279d711a7eed64877421ebd53c71305ac29b5d1d
+_commit=f5ef8506bcec4ab84fe68592d689482f0d192fa9
 pkgver=${_srcver}.${_zenver}
 pkgrel=1
 _srcname=zen-kernel-${_srcver}-${_zenver}
@@ -20,7 +20,7 @@ source=(
   "https://github.com/zen-kernel/zen-kernel/archive/v${_srcver}-${_zenver}.tar.gz"
   "config::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_commit}/trunk/config"
 )
-sha256sums=('188a79cb5c71009b9d8b18d016a1f2a081048fbe125bb640b67b50fd029f8411'
+sha256sums=('ed92f3d483871091b27407ef0576a7ed388c7f881dc46450ed0ee2a1cf6509b9'
             '6b635ee9d01865057f04f5c4606fbe37f37829d0d748d61e18490ecef943abb6')
 
 export KBUILD_BUILD_HOST=archlinux
