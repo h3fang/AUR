@@ -5,9 +5,9 @@
 - use official repo build instructions
 - make go build cache writable
 
-## evince-light
+## evince
 - with only pdf support
-- use cmake build system
+- removed gnome dependency
 
 ## hstr-git
 - with the patch to remove the "history -r" call
