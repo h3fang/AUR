@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.9
-_zenver=zen1
-_commit=56e3b2ab9780c41befa64e72d82bef6c7146ed98
+_srcver=5.9.1
+_zenver=zen2
+_commit=73c7e1d6489aa3ae743b2abb1113fc738ba7d8f1
 pkgver=${_srcver}.${_zenver}
 pkgrel=1
 _srcname=zen-kernel-${_srcver}-${_zenver}
