@@ -1,7 +1,7 @@
 # Maintainer: Martin Dørum <martid0311@gmail.com>
 _gitname=swaylock-effects
-pkgname="$_gitname-git"
-pkgver=r255.6f29f07
+pkgname="${_gitname}-git"
+pkgver=r354.912c8bc
 pkgrel=1
 pkgdesc="A fancier screen locker for Wayland."
 arch=('i686' 'x86_64')
@@ -12,13 +12,13 @@ makedepends=('git' 'meson' 'ninja' 'scdoc')
 provides=('swaylock' 'swaylock-effects')
 conflicts=('swaylock')
 groups=('modified')
-source=("git+https://github.com/mortie/$_gitname.git"
+source=("git+https://github.com/mortie/${_gitname}.git"
         '01-text-align.patch')
 md5sums=('SKIP' 'SKIP')
 
 pkgver() {
-	cd "$srcdir/$_gitname"
-	echo "r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
+    cd "$srcdir/$_gitname"
+    echo "r$(git rev-list --count HEAD).$(git rev-parse --short HEAD)"
 }
 
 prepare() {
@@ -27,12 +27,12 @@ prepare() {
 }
 
 build() {
-	cd "$srcdir/$_gitname"
-	meson build --prefix=/usr
-	ninja -C build
+    cd "$srcdir/$_gitname"
+    meson build --prefix=/usr
+    ninja -C build
 }
 
 package() {
-	cd "$srcdir/$_gitname"
-	DESTDIR="$pkgdir" ninja -C build install
+    cd "$srcdir/$_gitname"
+    DESTDIR="$pkgdir" ninja -C build install
 }
