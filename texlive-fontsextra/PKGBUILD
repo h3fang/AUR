@@ -1,7 +1,7 @@
 # Maintainer: Fang He <hf.enigma@gmail.com>
 
 pkgname=texlive-fontsextra
-pkgver=2020.55407
+pkgver=2020.57042
 _revnr=${pkgver#2020.}
 pkgrel=1
 pkgdesc="TeX Live - extra fonts that I need"
@@ -23,14 +23,14 @@ source=(
 )
 options=('!emptydirs' '!strip')
 sha256sums=('fd3e420a2204d1296e882b6cb1c4d218fc28f1abdac370710587caf406835df4'
-            '8db3a02d8578fe86270f395fafd263a95e34d6e8b37b8a1dd8d46be4ddce3c0d'
+            '778baeecbcc6bd2c55611dcfa6985212d6e759110861fbd19be7f7843542fff3'
             'c55add2adb27e1258a6cc335f0149d5d53662b68f243d57f97bafca83042141a'
             'a2e24ac5e56f16af8b6c4b7e95b190f44d7b631e1072c6abc0a2ff581750e242'
             '8dca12a426b6e5653ae754674e79b2a6df52765ba7acc5046c2c73c53297b697'
             '1ec9052d3e9664439eec2449dbe3671e076eab45ceeae2deebfff16dde854c26'
             '1c9558be99163e277388d76c8017495e267e87f51b7749b2bb43827b77aadbde'
             'cdc51390b6ad6e1151d0186c5be4b24d8bc910e338fa472db282023825c74409'
-            '6346b4a1fc5a2a2e744715ae2e9462a55255e229e59d0e00ab5957d34bd75f99')
+            '731a5b5a95577589243ae0b4ab54c83b62293afdf993105d099fef6fe61d8f6b')
 
 build() {
    cd "$srcdir"
