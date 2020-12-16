@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux
-_srcver=5.9.13
+_srcver=5.9.14
 _zenver=zen1
-_commit=7b074fff319ba0c2aefee673f80bff2815300504
+_commit=746db3b91934bab5c58684b0deea2b94b4ec0d90
 pkgver=${_srcver}.${_zenver}
 pkgrel=1
 _srcname=zen-kernel-${_srcver}-${_zenver}
@@ -13,15 +13,15 @@ arch=(x86_64)
 license=(GPL2)
 groups=('modified')
 makedepends=(
-  bc kmod libelf pahole
+  bc kmod libelf pahole cpio perl tar xz
 )
 options=('!strip')
 source=(
   "https://github.com/zen-kernel/zen-kernel/archive/v${_srcver}-${_zenver}.tar.gz"
   "config::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_commit}/trunk/config"
 )
-sha256sums=('6b37feab6c5258ed3827c5bd939d1234f342f88cf01f57e91138428f9c924002'
-            '23f9693a1b35e4d674eced335a2a2cd8a231a157f362000340ccfdb86b4a98e2')
+sha256sums=('4f7d0ce51ebb62ca32c4dbd5bfc80aa8e44ab0a737e2aa84bac11e6bcfcea1df'
+            '99ef50a43c3aa70dc61668558274a88530b24076b825a31b10f409cf94daff5b')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
