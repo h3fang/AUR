@@ -3,7 +3,7 @@
 # Contributor: Kazuo Teramoto <kaz.rag@gmail.com>
 
 pkgname=evince
-pkgver=3.38.0+1+gffa3fd98
+pkgver=3.38.1
 pkgrel=1
 pkgdesc="GNOME document viewer, built with minimal dependencies by default but configurable."
 url="https://wiki.gnome.org/Apps/Evince"
@@ -14,7 +14,7 @@ groups=('gnome' 'modified')
 makedepends=('itstool' 'intltool' 'python' 'gobject-introspection' 'meson' 'appstream-glib')
 optdepends=('gvfs: bookmark support and session saving')
 provides=(libev{document,view}3.so)
-_commit=ffa3fd989d0f4ff100f950c42221d951f71ee598  # gnome-3-38
+_commit=16ba571942dbcc8d8208c7a8c350ed1e7016a110  # tags/3.38.1^0
 source=("git+https://gitlab.gnome.org/GNOME/evince.git#commit=$_commit")
 sha256sums=('SKIP')
 
