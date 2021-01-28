@@ -9,6 +9,9 @@
 - with only pdf support
 - removed gnome dependency
 
+## gammastep
+- remove geoclue dependency
+
 ## hstr-git
 - with the patch to remove the "history -r" call
 
