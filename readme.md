@@ -9,6 +9,9 @@
 - with only pdf support
 - removed gnome dependency
 
+## fcitx5-pinyin-zhwiki
+- use the dict from the repository instead of building it
+
 ## gammastep
 - remove geoclue dependency
 
