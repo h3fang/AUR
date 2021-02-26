@@ -15,6 +15,10 @@
 ## gammastep
 - remove geoclue dependency
 
+## go-tun2socks
+- rewrote building instructions
+- removed systemd service files
+
 ## hstr-git
 - with the patch to remove the "history -r" call
 
