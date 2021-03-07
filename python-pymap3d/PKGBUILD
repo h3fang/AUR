@@ -1,0 +1,26 @@
+# Maintainer: h3fang <hf.enigma gmail>
+
+pkgname=python-pymap3d
+pkgver=2.5.0
+pkgrel=1
+pkgdesc='Pure-Python (Numpy optional) 3D coordinate conversions for geospace ecef enu eci.'
+url='https://github.com/geospace-code/pymap3d'
+arch=('any')
+license=('BSD')
+groups=('modified')
+depends=('python')
+makedepends=('python-setuptools')
+optdepends=('python-numpy: for accelerated performance')
+source=("pymap3d-$pkgver.tar.gz"::"https://github.com/geospace-code/pymap3d/archive/v${pkgver}.tar.gz")
+sha256sums=('2abbc1fae193bdda3f1b4802113432a8d2950a5d6283f60b38f5066c6848ea22')
+
+build() {
+    cd "$srcdir/pymap3d-$pkgver"
+    python setup.py build
+}
+
+package() {
+    cd "$srcdir/pymap3d-$pkgver"
+    python setup.py install --root="$pkgdir" --optimize=1 --skip-build
+}
+

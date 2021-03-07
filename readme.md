@@ -39,6 +39,9 @@
 - prefer AUR version build flags
 - native build for performance
 
+## python-pymap3d
+- not on AUR
+
 ## qpdfview
 - move page number to the beginning of title
 - darker scroll handle color
