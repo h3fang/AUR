@@ -25,7 +25,7 @@
 ## libblockdev
 - remove lvm2, btrfs, xfs dependency
 
-## linux
+## linux-zen-docs
 - remove linux-docs split package
 - add modprobed localmodconfig for faster compilation
 - native build for performance

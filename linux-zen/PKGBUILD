@@ -1,13 +1,13 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-pkgbase=linux
-_srcver=5.11.4
+pkgbase=linux-zen
+_srcver=5.11.5
 _zenver=zen1
-_config_commit=ba1e901f8ee614393a6fe73e79d9d117dbf082c3
+_config_commit=6c39169180a080f3d14c3190ea88e13d60f149c6
 pkgver=${_srcver}.${_zenver}
 pkgrel=1
 _srcname=zen-kernel-${_srcver}-${_zenver}
-pkgdesc='Linux'
+pkgdesc='Linux ZEN'
 url="https://github.com/zen-kernel/zen-kernel/releases/tag/v${_srcver}.${_zenver}"
 arch=(x86_64)
 license=(GPL2)
@@ -20,7 +20,7 @@ source=(
   "https://github.com/zen-kernel/zen-kernel/archive/v${_srcver}-${_zenver}.tar.gz"
   "config::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
-sha256sums=('3ac1981f6757d4e0a0a7fed4920302bfb49e557d31870dfce70d88de81bac63b'
+sha256sums=('6cd8ca5cd70d297688fe7a2b122c50550a066e1d541112c67f7c4055f14ccc70'
             'd2560a0a58611273b95da4c51a9583b7965404d011bb8f0e46f9b668167c07fc')
 
 export KBUILD_BUILD_HOST=archlinux
@@ -58,7 +58,7 @@ _package() {
   depends=(coreutils kmod initramfs)
   optdepends=('crda: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
-  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE)
+  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE VHBA-MODULE)
   replaces=()
 
   cd $_srcname
