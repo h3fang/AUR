@@ -3,12 +3,12 @@
 
 pkgname=exa
 pkgver=0.9.0
-pkgrel=2
+pkgrel=3
 pkgdesc='ls replacement'
 arch=(x86_64)
 url='https://the.exa.website/'
 license=(MIT)
-depends=(libssh2 zlib)
+depends=(gcc-libs libssh2 zlib)
 makedepends=(cargo cmake git rust)
 groups=('modified')
 source=("git+https://github.com/ogham/exa.git")
