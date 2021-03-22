@@ -1,0 +1,10 @@
+name: 'Run makepkg'
+description: 'Run makepkg for every subfolder with PKGBUILD file.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+inputs:
+  arch:
+    description: "Enable compiler optimizations for specified CPU architecture."
+    required: true
+    default: ""

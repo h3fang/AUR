@@ -1,0 +1,24 @@
+name: Build Arch Linux packages
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build
+        uses: ./.github/actions/makepkg
+        with:
+          arch: znver2
+      - name: Commit hash
+        id: hash
+        shell: bash
+        run: echo "::set-output name=sha_short::$(git rev-parse --short HEAD)"
+      - name: Release
+        uses: ncipollo/release-action@v1
+        with:
+          allowUpdates: true
+          tag: packages
+          name: Commit ${{ steps.hash.outputs.sha_short }}"
+          artifacts: "./*/*.pkg.tar.zst"
+          token: ${{ secrets.GITHUB_TOKEN }}
