@@ -17,8 +17,8 @@ jobs:
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          allowUpdates: true
           tag: packages
-          name: Commit ${{ steps.hash.outputs.sha_short }}
+          name: Prebuilt packages
+          commit: ${{ github.sha }}
           artifacts: "./*/*.pkg.tar.zst"
           token: ${{ secrets.GITHUB_TOKEN }}
