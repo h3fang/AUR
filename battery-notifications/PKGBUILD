@@ -13,7 +13,7 @@ source=('Makefile'
         'battery-notifications.cpp'
         'battery-notifications.service')
 
-sha256sums=('b93ab7ddb8552a7944ff53d22aa3def60451e8588a7e047efa61066b5b6e7a3c'
+sha256sums=('01e98641005b201f8c740e4929784c83a7655e7421e199574f159be763c14510'
             '548f5a7efe7b3b1eb0d79f8cb7a316340fb6afbe47e1e8796fc50afdca525343'
             '5e5ee719826ddd9dccd2ea516ab80617530062d37ea64cbca9e1d351dd26d54a')
 
