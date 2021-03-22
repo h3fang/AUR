@@ -19,6 +19,6 @@ jobs:
         with:
           allowUpdates: true
           tag: packages
-          name: Commit ${{ steps.hash.outputs.sha_short }}"
+          name: Commit ${{ steps.hash.outputs.sha_short }}
           artifacts: "./*/*.pkg.tar.zst"
           token: ${{ secrets.GITHUB_TOKEN }}
