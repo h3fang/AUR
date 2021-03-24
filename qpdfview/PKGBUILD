@@ -3,7 +3,7 @@
 
 pkgname=qpdfview
 pkgver=0.4.18
-_pkgver=2107
+_pkgver=2116
 pkgrel=2
 pkgdesc='A tabbed PDF viewer using the poppler library.'
 url='https://launchpad.net/qpdfview'
@@ -17,7 +17,7 @@ optdepends=('libspectre: for PostScript support'
 source=("qpdfview_trunk-r$_pkgver.tar.gz"::"https://bazaar.launchpad.net/~adamreichold/qpdfview/trunk/tarball/$_pkgver"
         "scrollbar.patch"
         "title.patch")
-sha256sums=('467a34b3ce9ef651bbddc456586b2b5e032c622445ec6f5dbf47ba0e25716df3'
+sha256sums=('7a85d52ed428c8c975304f705e5190fbc00459c9f4b19b8f903527a3eff08d0f'
             'f3282ae9bdda3586a80117dc1e2cb7bbae8b0c6e88beb8d7560b0182bb05459a'
             '8e65b47dfeda6e04a0f030355f3e947f2d5315fb9bfa92ac6fae1ca8465bdb4c')
 
