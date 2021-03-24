@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux-zen
-_srcver=5.11.7
+_srcver=5.11.8
 _zenver=zen1
-_config_commit=cda0e7dfecc8a96cfffc7a5f0f33563aa41de140
+_config_commit=c2f27f65bb10f3b4e7048a3b2938687329ee9e62
 pkgver=${_srcver}.${_zenver}
 pkgrel=1
 _srcname=zen-kernel-${_srcver}-${_zenver}
@@ -19,9 +19,11 @@ options=('!strip')
 source=(
   "https://github.com/zen-kernel/zen-kernel/archive/v${_srcver}-${_zenver}.tar.gz"
   "config::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
+  "0001-drm-ttm-make-ttm_bo_unpin-more-defensive.patch"
 )
-sha256sums=('e95ef2cb84dae6dbe4dc1529053c86d546250a5117b928466f4bcb03e34e1e50'
-            'f41245ec730b4773f430762ae06d0e8eaefc78587e37a1b7f6ecd62ab16f2406')
+sha256sums=('6965b47273a7a14b79b23f738a629a9c02e045f9d8b82c5a072731c8d0573a75'
+            '1bcc8a0cf210b676e9861f309c0501df642474a7d727549c6144651e77276fc9'
+            '223f88b5dcdbc0ec26cc189acd2b8748303387095d485250610421cccf4344f4')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -34,6 +36,15 @@ prepare() {
   scripts/setlocalversion --save-scmversion
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
+
+  local src
+  for src in "${source[@]}"; do
+    src="${src%%::*}"
+    src="${src##*/}"
+    [[ $src = *.patch ]] || continue
+    echo "Applying patch $src..."
+    patch -Np1 < "../$src"
+  done
 
   echo "Setting config..."
   cp ../config .config
