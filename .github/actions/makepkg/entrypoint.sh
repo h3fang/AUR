@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -eu
+
 sed -i '/^CFLAGS=/ s/.*/CFLAGS="-march='${INPUT_ARCH}' -O2 -pipe -fno-plt"/' /etc/makepkg.conf
 sed -i '/^CXXFLAGS=/ s/.*/CXXFLAGS="${CFLAGS}"/' /etc/makepkg.conf
 sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j$(nproc)"/' /etc/makepkg.conf
