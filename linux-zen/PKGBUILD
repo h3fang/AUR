@@ -21,7 +21,7 @@ source=(
   "config::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
 sha256sums=('b510705ddc0f5e84e34e04e5ffd749b62c51293427203e9bc55005a4a6cda4c4'
-            '1bcc8a0cf210b676e9861f309c0501df642474a7d727549c6144651e77276fc9')
+            '5399923af629b6f496133648334720c87ca7f3c43c9c3166af03c0ca846c10b1')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
