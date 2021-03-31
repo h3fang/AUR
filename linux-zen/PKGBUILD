@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux-zen
-_srcver=5.11.10
+_srcver=5.11.11
 _zenver=zen1
-_config_commit=1b6c6365ad4aa94f85afc3e9456406bd5c51a037
+_config_commit=e90f68035a7497185426ccffb0b1bbfc7c1bed0a
 pkgver=${_srcver}.${_zenver}
 pkgrel=1
 _srcname=zen-kernel-${_srcver}-${_zenver}
@@ -21,8 +21,8 @@ source=(
   "config::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
   "0001-drm-ttm-make-ttm_bo_unpin-more-defensive.patch"
 )
-sha256sums=('b510705ddc0f5e84e34e04e5ffd749b62c51293427203e9bc55005a4a6cda4c4'
-            '5399923af629b6f496133648334720c87ca7f3c43c9c3166af03c0ca846c10b1'
+sha256sums=('13dda04350e98cacf4fe0be42dcabb2a16baa724d923773e66ea39e945c3e5df'
+            'df59b8605e86ee358f905b19cc3db9eef06356e8170a1785a0a0b1e27d071004'
             'a15889a455cdfb17622fdb35fc517b1cc9ae4d50ed9cf7233ee8e42fd5b91e38')
 
 export KBUILD_BUILD_HOST=archlinux
