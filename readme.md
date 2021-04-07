@@ -15,17 +15,13 @@
 ## gammastep
 - remove geoclue dependency
 
-## go-tun2socks
-- rewrote building instructions
-- removed systemd service files
-
 ## hstr-git
 - with the patch to remove the "history -r" call
 
 ## libblockdev
 - remove lvm2, btrfs, xfs dependency
 
-## linux-zen-docs
+## linux-zen
 - remove linux-docs split package
 - add modprobed localmodconfig for faster compilation
 - native build for performance
