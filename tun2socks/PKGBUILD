@@ -1,0 +1,27 @@
+# Maintainer: h3fang <hf.enigma@gmail.com>
+pkgname=tun2socks
+pkgver=2.1.5
+pkgrel=1
+pkgdesc="tun2socks - powered by gVisor TCP/IP stack."
+arch=(x86_64)
+url="https://github.com/xjasonlyu/tun2socks"
+license=(GPL3)
+makedepends=(go)
+groups=(modified)
+source=(
+    "https://github.com/xjasonlyu/tun2socks/archive/refs/tags/v${pkgver}.tar.gz"
+)
+sha512sums=('SKIP')
+
+build() {
+    cd "$srcdir/${pkgname}-${pkgver}"
+    export GOPATH="${srcdir}/go"
+    export LDFLAGS=
+    export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
+    make linux-amd64
+}
+
+package() {
+    cd "$srcdir/${pkgname}-${pkgver}"
+    install -Dm755 "build/tun2socks-linux-amd64" "$pkgdir/usr/bin/tun2socks"
+}
