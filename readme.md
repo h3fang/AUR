@@ -49,9 +49,12 @@
 - only a few selected fonts
 - https://h3fang.github.io/post/2019/texlive-fontsextra/
 
+## tun2socks
+- not on AUR
+
 ## vim-commentary-git
 - remove install script
 
 ## yacd
-- create PKGBUILD for yacd
+- use prebuilt package
 
