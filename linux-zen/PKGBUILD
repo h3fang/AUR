@@ -18,7 +18,7 @@ makedepends=(
 options=('!strip')
 source=(
   "https://github.com/zen-kernel/zen-kernel/archive/v${_srcver}-${_zenver}.tar.gz"
-  "config::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
+  "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
 sha256sums=('fc6a54da47c9c6d5abb54cccdda74b8a3215b5a0384aca70e7a496a0c4c2a9ee'
             '796949e1c074444b2a70514458da4e8e651807e47050f860ae629d22284f98c9')
@@ -45,7 +45,7 @@ prepare() {
   done
 
   echo "Setting config..."
-  cp ../config .config
+  cp ../config_${_config_commit} .config
   make olddefconfig
 
   if [ -f $HOME/.config/modprobed.db ]; then
