@@ -1,0 +1,17 @@
+diff --git a/src/yoga-bios-unlock.c b/src/yoga-bios-unlock.c
+index b851331..a4bf352 100644
+--- a/src/yoga-bios-unlock.c
++++ b/src/yoga-bios-unlock.c
+@@ -18,10 +18,10 @@
+ 
+ #define __BOARD_NAME "LNVNB161216"
+ #define __BOARD_VENDOR "LENOVO"
+-#define __BOARD_VERSION_00 "SDK0J40700 WIN  "
++#define __BOARD_VERSION_00 "SDK0L77769 WIN  "
+ #define __BOARD_VERSION_09 "SDK0J40709 WIN  "
+ 
+-#define __CHASSIS_VERSION "Yoga Slim 7 14ARE05"
++#define __CHASSIS_VERSION "Yoga 14sARE 2020"
+ 
+ typedef struct dmi_strings dmi_strings_t;
+ struct dmi_strings {
