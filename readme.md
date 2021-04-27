@@ -58,3 +58,7 @@
 ## yacd
 - use prebuilt package
 
+## yoga-bios-unlock
+- not on AUR
+- patched for yoga 14sARE 2020 version
+
