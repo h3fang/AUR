@@ -2,8 +2,8 @@
 
 pkgbase=linux-zen
 _srcver=5.12.1
-_zenver=zen1
-_config_commit=2af62022ed568fea6b3396e0e0d717b67b46f6a0
+_zenver=zen2
+_config_commit=5e670c5df730fab7837e77fdfef561ea02b7e7c0
 pkgver=${_srcver}.${_zenver}
 pkgrel=1
 _srcname=zen-kernel-${_srcver}-${_zenver}
@@ -20,7 +20,7 @@ source=(
   "https://github.com/zen-kernel/zen-kernel/archive/v${_srcver}-${_zenver}.tar.gz"
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
-sha256sums=('212543e3d3e7084cc3a3e20f70f33925f26ba6c50478175e9c05d431e6212698'
+sha256sums=('2ae5973252c1ad956eac97f9f574c3084213c4c8a468a217e01749b80303d4ad'
             'fe71a704462bf1e1fa346b6c20e75706dbb3c6e50d315f60bdbf90fdf1d733be')
 
 export KBUILD_BUILD_HOST=archlinux
