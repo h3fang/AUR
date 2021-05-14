@@ -1,6 +1,6 @@
 # Maintainer: h3fang <hf.enigma@gmail.com>
 pkgname=tun2socks
-pkgver=2.1.5
+pkgver=2.2.0
 pkgrel=1
 pkgdesc="tun2socks - powered by gVisor TCP/IP stack."
 arch=(x86_64)
@@ -11,7 +11,7 @@ groups=(modified)
 source=(
     "https://github.com/xjasonlyu/tun2socks/archive/refs/tags/v${pkgver}.tar.gz"
 )
-sha512sums=('SKIP')
+sha512sums=('051834a3a10c2a335d6126eb3c450241ed93ea5cf1ca218c056116f904359a692fe7fab151591a8ba6dbee23acfb0ed3937090f2a377e3bbf78c71ad4a767685')
 
 build() {
     cd "$srcdir/${pkgname}-${pkgver}"
