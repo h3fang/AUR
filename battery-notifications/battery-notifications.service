@@ -6,4 +6,4 @@ Type=simple
 ExecStart=/usr/bin/battery-notifications
 
 [Install]
-WantedBy=graphical.target
+WantedBy=default.target
