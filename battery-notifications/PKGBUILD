@@ -1,7 +1,7 @@
 # Maintainer: h3fang hf.enigma#gmail
 
 pkgname=battery-notifications
-pkgver=0.1
+pkgver=0.1.1
 pkgrel=1
 pkgdesc="Battery notifications"
 url="https://github.com/h3fang/battery-notifications"
@@ -12,7 +12,7 @@ arch=('x86_64')
 source=("https://github.com/h3fang/battery-notifications/archive/refs/tags/v${pkgver}.tar.gz"
         'battery-notifications.service')
 
-sha256sums=('9b90fdef18244cb9fbeabf55bd72d58eb8fc3cca2c6a63469c3450218cc5aa9d'
+sha256sums=('43850b287fc15c9b20bdcabdb1ee2a50cc4687ea4adf7c33ec6b5000bf7221b6'
             '58f15fb74470234dac1ccbd508edc2ab6935d3ba3eca13dc3ef4cdc753f90e88')
 
 build() {
