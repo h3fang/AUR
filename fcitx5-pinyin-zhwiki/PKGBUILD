@@ -1,7 +1,7 @@
 # Maintainer: Felix Yan <felixonmars@archlinux.org>
 
 pkgname=fcitx5-pinyin-zhwiki
-pkgver=20210501
+pkgver=20210520
 _converterver=0.2.2
 pkgrel=1
 pkgdesc="Fcitx 5 Pinyin Dictionary from zh.wikipedia.org"
@@ -11,7 +11,7 @@ license=('GFDL' 'CCPL:by-sa')
 depends=('fcitx5-chinese-addons')
 groups=('modified')
 source=("https://github.com/felixonmars/fcitx5-pinyin-zhwiki/releases/download/$_converterver/zhwiki-$pkgver.dict")
-sha512sums=('998e2fdcaba5a49e428bebd5dc412772273dacca0bae0d52319d45fb7617118b840f7d8cf4b311befd411a5557b41da08b435ed4e11395a306407aa12b2f7855')
+sha512sums=('2a0b2e6de79c34f38b8da2fb3b55a103696c68cdd57f1bd5da8632172f87f3999f4296a3667e2d155c75addb622eb153db68b0ed400ea1400fef11112ae43152')
 
 package() {
     install -Dm644 "$srcdir/zhwiki-$pkgver.dict" -t "$pkgdir/usr/share/fcitx5/pinyin/dictionaries/"
