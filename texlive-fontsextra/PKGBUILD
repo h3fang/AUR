@@ -1,8 +1,8 @@
 # Maintainer: Fang He <hf.enigma@gmail.com>
 
 pkgname=texlive-fontsextra
-pkgver=2020.57042
-_revnr=${pkgver#2020.}
+pkgver=2021.58704
+_revnr=${pkgver#2021.}
 pkgrel=1
 pkgdesc="TeX Live - extra fonts that I need"
 license=('GPL')
@@ -21,7 +21,7 @@ source=(
     "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/xits.tar.xz"
     "$pkgname.maps::https://git.archlinux.org/svntogit/packages.git/plain/trunk/texlive-fontsextra.maps?h=packages/texlive-fontsextra"
 )
-options=('!emptydirs' '!strip')
+options=('!emptydirs')
 sha256sums=('fd3e420a2204d1296e882b6cb1c4d218fc28f1abdac370710587caf406835df4'
             '778baeecbcc6bd2c55611dcfa6985212d6e759110861fbd19be7f7843542fff3'
             'c55add2adb27e1258a6cc335f0149d5d53662b68f243d57f97bafca83042141a'
