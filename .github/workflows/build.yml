@@ -17,10 +17,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release
-        uses: ncipollo/release-action@v1
+        uses: ncipollo/release-action@v1.8.6
         with:
           tag: latest
           name: Optimized packages for AMD Zen 2
+          omitBody: true
           commit: ${{ github.sha }}
           artifacts: "./*/*.pkg.tar.zst"
           token: ${{ secrets.GITHUB_TOKEN }}
