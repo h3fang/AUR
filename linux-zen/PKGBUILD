@@ -17,20 +17,13 @@ makedepends=(
 )
 options=('!strip')
 source=(
-  "https://cdn.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar".{xz,sign}
-  "https://github.com/zen-kernel/zen-kernel/releases/download/v${_srcver}-${_zenver}/v${_srcver}-${_zenver}.patch.xz"{,.sig}
+  "https://cdn.kernel.org/pub/linux/kernel/v5.x/${_srcname}.tar.xz"
+  "https://github.com/zen-kernel/zen-kernel/releases/download/v${_srcver}-${_zenver}/v${_srcver}-${_zenver}.patch.xz"
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
-)
-validpgpkeys=(
-  'ABAF11C65A2970B130ABE3C479BE3E4300411886'  # Linus Torvalds
-  '647F28654894E3BD457199BE38DBBDC86092693E'  # Greg Kroah-Hartman
-  'A2FF3A36AAA56654109064AB19802F8B0D70FC30'  # Jan Alexander Steffens
 )
 b2sums=(
   '842d921b9a73d2aaade763dbd2ec67bdfe0275baa6d628b775f5c87574ad7dc86f0419afcd48c10c1235f4bffa16084243f2cf4556e6afcd391e975fe8ba530b'
-  'SKIP'
   '8e67213beb19fb2201f0dc1b13c674a2ffce7af050e34ddb8764c50bf1a0a5d0c8efa8f82e4aa1149b8f82abeaabd115b50654af4a1e0d9cddb818bcde0aa266'
-  'SKIP'
   'e612f6d0698d5b734f42aa130212ab73f20da1ad06709f7b24c1a41da9bf3507783171eb4e0e889a41b572fc6b5e151bf2bccb3bf64c88239c194a7aa782134a'
 )
 
