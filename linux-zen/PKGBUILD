@@ -2,11 +2,11 @@
 
 pkgbase=linux-zen
 _srcname=linux-5.12
-_srcver=5.12.13
+_srcver=5.12.15
 _zenver=zen1
-_config_commit=c5f8dc3ec3d8378bcea00997bd86b3ea043fe2b8
+_config_commit=b746c5a3b4629aa2651070da6f1a7f7243a253ba
 pkgver=${_srcver}.${_zenver}
-pkgrel=2
+pkgrel=1
 pkgdesc='Linux ZEN'
 url="https://github.com/zen-kernel/zen-kernel/releases/tag/v${_srcver}.${_zenver}"
 arch=(x86_64)
@@ -22,8 +22,8 @@ source=(
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
 b2sums=('842d921b9a73d2aaade763dbd2ec67bdfe0275baa6d628b775f5c87574ad7dc86f0419afcd48c10c1235f4bffa16084243f2cf4556e6afcd391e975fe8ba530b'
-        '9f08e078c40d0584fe2177c654f51315f5beed7781502b0c096a335de699383c765aacffe94113804b0f6b389cd6201734da23f10055c2c5f1b55088279aa2fb'
-        '66fdaeedd83d7a98d5606f38e61af121ac0763e31f42bce8067bb5762c24d55a87ff615940fa2dfbb87a1bfd85b974157354b3396522517bda0331bc1d3e9fdf')
+        '468e406a3c2dadf318df9cf222c2306c4c12fd4a912ebf9492fe52bdbd0ecf2b202a5f373893006ba97472dbe96d6452f0318a88caa554f26e10c96eed9ca947'
+        '62bb666be8afd93b9268d76d27428958b9eec698f3b2daec2525659e0eb1caf739a10e2a57ce25e4ee13da0c42532f61eee0491c1fbf3d2ed5baf65917d2fb75')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -120,10 +120,10 @@ _package-headers() {
   install -Dt "$builddir/drivers/md" -m644 drivers/md/*.h
   install -Dt "$builddir/net/mac80211" -m644 net/mac80211/*.h
 
-  # http://bugs.archlinux.org/task/13146
+  # https://bugs.archlinux.org/task/13146
   install -Dt "$builddir/drivers/media/i2c" -m644 drivers/media/i2c/msp3400-driver.h
 
-  # http://bugs.archlinux.org/task/20402
+  # https://bugs.archlinux.org/task/20402
   install -Dt "$builddir/drivers/media/usb/dvb-usb" -m644 drivers/media/usb/dvb-usb/*.h
   install -Dt "$builddir/drivers/media/dvb-frontends" -m644 drivers/media/dvb-frontends/*.h
   install -Dt "$builddir/drivers/media/tuners" -m644 drivers/media/tuners/*.h
