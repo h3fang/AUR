@@ -3,7 +3,7 @@
 # Contributor: Kazuo Teramoto <kaz.rag@gmail.com>
 
 pkgname=evince
-pkgver=40.3
+pkgver=40.4
 pkgrel=1
 pkgdesc="GNOME document viewer, built with minimal dependencies by default but configurable."
 url="https://wiki.gnome.org/Apps/Evince"
@@ -16,7 +16,7 @@ optdepends=(
     'texlive-bin: DVI support'
 )
 provides=(libev{document,view}3.so)
-_commit=2d59ee3367e5f964d4a4e7d2f89025e4f88b85ba   # tags/40.3^0
+_commit=d5639b30081f8ded08aa6be64ca0d1954f8daa52   # tags/40.4^0
 source=("git+https://gitlab.gnome.org/GNOME/evince.git#commit=$_commit")
 sha256sums=('SKIP')
 
