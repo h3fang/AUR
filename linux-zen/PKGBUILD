@@ -1,10 +1,10 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
 pkgbase=linux-zen
-_srcname=linux-5.12
-_srcver=5.12.15
-_zenver=zen1
-_config_commit=b746c5a3b4629aa2651070da6f1a7f7243a253ba
+_srcname=linux-5.13
+_srcver=5.13.4
+_zenver=zen2
+_config_commit=2f4b7a17d7efa83aa4e9591c2d07c963271469a9
 pkgver=${_srcver}.${_zenver}
 pkgrel=1
 pkgdesc='Linux ZEN'
@@ -21,9 +21,9 @@ source=(
   "https://github.com/zen-kernel/zen-kernel/releases/download/v${_srcver}-${_zenver}/v${_srcver}-${_zenver}.patch.xz"
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
-b2sums=('842d921b9a73d2aaade763dbd2ec67bdfe0275baa6d628b775f5c87574ad7dc86f0419afcd48c10c1235f4bffa16084243f2cf4556e6afcd391e975fe8ba530b'
-        '468e406a3c2dadf318df9cf222c2306c4c12fd4a912ebf9492fe52bdbd0ecf2b202a5f373893006ba97472dbe96d6452f0318a88caa554f26e10c96eed9ca947'
-        '62bb666be8afd93b9268d76d27428958b9eec698f3b2daec2525659e0eb1caf739a10e2a57ce25e4ee13da0c42532f61eee0491c1fbf3d2ed5baf65917d2fb75')
+b2sums=('9c4c12e2394dec064adff51f7ccdf389192eb27ba7906db5eda543afe3d04afca6b9ea0848a057571bf2534eeb98e1e3a67734deff82c0d3731be205ad995668'
+        'f6b9c6291870905d83bea702ac6950432cb7953f28feb41cf5ad029be544f49a1fccfdf6554027b58bf5e28a363418f901792663530d6fe37795eb24f026bbe3'
+        '1e91a5bd088135fe85eeb40b82814aee59364a2061641a135aa8647e2c91c7e4d644e4c4929978c913380658e0186e646b8238633a60b6f31b2ff3b19c1473c4')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
