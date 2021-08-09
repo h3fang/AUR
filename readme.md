@@ -35,10 +35,6 @@
 ## python-pymap3d
 - not on AUR
 
-## qpdfview
-- move page number to the beginning of title
-- darker scroll handle color
-
 ## swaylock-effects-git
 - fix text alignment
 
