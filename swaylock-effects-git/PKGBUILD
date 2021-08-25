@@ -1,7 +1,7 @@
 # Maintainer: Martin Dørum <martid0311@gmail.com>
 _gitname=swaylock-effects
 pkgname="${_gitname}-git"
-pkgver=r354.912c8bc
+pkgver=r363.5cb9579
 pkgrel=1
 pkgdesc="A fancier screen locker for Wayland."
 arch=('i686' 'x86_64')
