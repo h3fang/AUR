@@ -1,7 +1,7 @@
 # Maintainer: h3fang <hf.enigma@gmail.com>
 pkgname=yoga-bios-unlock-git
 _pkgname=yoga-bios-unlock
-pkgver=r23.ff8076c
+pkgver=r27.4fd15f6
 pkgrel=1
 pkgdesc="unlock the advanced menu of Lenovo Yoga laptop BIOS"
 arch=('x86_64')
@@ -14,7 +14,7 @@ source=(
     "0001-yoga-14sARE-2020.patch"
 )
 md5sums=('SKIP'
-         '74bb5cf267384935e48336bc493db234')
+         '53c6d424d711f81b3aab0cb7fef5eb93')
 
 pkgver() {
     cd "$_pkgname"
