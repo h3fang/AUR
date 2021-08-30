@@ -2,9 +2,9 @@
 
 pkgbase=linux-zen
 _srcname=linux-5.13
-_srcver=5.13.12
+_srcver=5.13.13
 _zenver=zen1
-_config_commit=4cf5eb877883568e02c4fd4a8ec00702b4aa6755
+_config_commit=795a1fd364a702928d0d956550c082fd6e8a2b50
 pkgver=${_srcver}.${_zenver}
 pkgrel=1
 pkgdesc='Linux ZEN'
@@ -22,8 +22,8 @@ source=(
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
 b2sums=('9c4c12e2394dec064adff51f7ccdf389192eb27ba7906db5eda543afe3d04afca6b9ea0848a057571bf2534eeb98e1e3a67734deff82c0d3731be205ad995668'
-        'e5dfd822414d1018c3c479f3b89b01a6141853a22b496dfeb3a13f54d0600420fd9fb07ceca1992ee16af7abf245f484e340f41d3925fd4b28330a87b21968cc'
-        'd82aa7dc19e5768445204e1c35f725b4b17522852833d1de5a94ed3036f270f3be2fdafc5c26f784cab059e85579fbd1be504c23283c1b4c48e44cfbcb472f89')
+        '41d26a1c258b39f509400058d53000ffff2e46d69b15de6d9422c315c8d4da6f0fc2469c11e81d76c110ccf4735a20ca5ca23e1836800131d5eac84a0670f374'
+        '86c288b6f66c8786ff4166709ca2311ff276fb8b6d4398cbd3b8caa3198bf04c5983ed17837ee6d6e56089023e1cc44c356ab922e4b6bbd37ee7c900628f0c9d')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
