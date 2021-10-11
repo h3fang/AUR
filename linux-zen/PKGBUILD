@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-_srcver=5.14.9
-_zenver=zen2
+_srcver=5.14.11
+_zenver=zen1
 pkgrel=1
-_config_commit=dde31847a6c6f94f014dc67f1cba2c88f4294380
+_config_commit=f0f066b4fefc94c9829d2ec86273b0e37b03335d
 pkgbase=linux-zen
 _srcname=linux-$(echo $_srcver | grep -Po "^\d+\.\d+")
 pkgver=${_srcver}.${_zenver}
@@ -51,6 +51,7 @@ prepare() {
   echo "Setting config..."
   cp ../config_${_config_commit} .config
   make olddefconfig
+  diff -u ../config .config || :
 
   if [ -f $HOME/.config/modprobed.db ]; then
     echo "Running Steven Rostedt's make localmodconfig now"
