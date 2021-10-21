@@ -1,7 +1,7 @@
 # Maintainer: Martin Dørum <martid0311@gmail.com>
 _gitname=swaylock-effects
 pkgname="${_gitname}-git"
-pkgver=r363.5cb9579
+pkgver=r380.a8fc557
 pkgrel=1
 pkgdesc="A fancier screen locker for Wayland."
 arch=('i686' 'x86_64')
@@ -14,7 +14,8 @@ conflicts=('swaylock')
 groups=('modified')
 source=("git+https://github.com/mortie/${_gitname}.git"
         '01-text-align.patch')
-md5sums=('SKIP' 'SKIP')
+b2sums=('SKIP'
+        'c56bcc536ec2d366e156285ae6c3c8b5cc263fd7a2b9c672ba112814b9993e4cc48533f2cc0c1d490ed9ac9d6627f33fa9db34dbd296d21f5f56ea98404dc0bf')
 
 pkgver() {
     cd "$srcdir/$_gitname"
