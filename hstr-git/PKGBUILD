@@ -13,15 +13,19 @@ makedepends=('git' 'readline' 'ncurses')
 depends=('readline')
 groups=('modified')
 source=(git://github.com/dvorka/hstr.git#branch=master
-    01-remove-history-r.patch)
+    01-remove-history-r.patch
+    04_fix_ftbfs_string_format_error.patch
+)
 sha256sums=('SKIP'
-            'e7cd48e0d87301d02615ea59ef353382c391aac79beb6b4fd1f4871726c363c1')
+            'e7cd48e0d87301d02615ea59ef353382c391aac79beb6b4fd1f4871726c363c1'
+            '6a0210d67da807efb2bf6f42813416361a0eac0bd2b711c1bfddc87cedb07374')
 conflicts=('hh');
 
 prepare() {
     cd "$srcdir/hstr"
     echo "Applying patches..."
     git apply "$srcdir/01-remove-history-r.patch"
+    git apply "$srcdir/04_fix_ftbfs_string_format_error.patch"
 }
 
 build() {
