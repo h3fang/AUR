@@ -1,13 +1,13 @@
 # Maintainer: h3fang
 
 pkgname=yacd
-pkgver=0.3.3
+pkgver=0.3.4
 pkgrel=1
 pkgdesc="Yet Another Clash Dashboard"
 arch=('any')
 url="https://github.com/haishanh/yacd"
 source=("${pkgname}_${pkgver}.tar.xz::https://github.com/haishanh/yacd/releases/download/v${pkgver}/yacd.tar.xz")
-sha256sums=('742f84bb5ae74ccfd2583c6e62c9d60c90839942395d28782f925e2e846cb8b8')
+sha256sums=('c24683776ff1d16ce66ef64fc86b47c1254046ded3432e8d2387d0b6c6e50193')
 groups=('modified')
 
 package() {
