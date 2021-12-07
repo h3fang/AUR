@@ -4,6 +4,7 @@
 ## clash-dev-git
 - use official repo build instructions
 - make go build cache writable
+- user instanced service
 
 ## evince
 - with only pdf support
@@ -32,9 +33,6 @@
 - prefer AUR version build flags
 - native build for performance
 
-## python-pymap3d
-- not on AUR
-
 ## swaylock-effects-git
 - fix text alignment
 
@@ -44,9 +42,6 @@
 
 ## tun2socks
 - not on AUR
-
-## vim-commentary-git
-- remove install script
 
 ## yacd
 - use prebuilt package
