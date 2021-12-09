@@ -3,7 +3,7 @@
 # Contributor: Filip Szymański <fszymanski at, fedoraproject.org>
 
 pkgname=hstr-git
-pkgver=2.3.r3.g6507ac7
+pkgver=2.4.r1.ga0aaa3c
 pkgrel=1
 pkgdesc="A command line utility that brings improved BASH command completion from the history. It aims to make completion easier and more efficient than Ctrl-r."
 arch=('any')
@@ -17,15 +17,16 @@ source=(git://github.com/dvorka/hstr.git#branch=master
     04_fix_ftbfs_string_format_error.patch
 )
 sha256sums=('SKIP'
-            'e7cd48e0d87301d02615ea59ef353382c391aac79beb6b4fd1f4871726c363c1'
+            '7554658805a8f32d642fbdc03fcc0e5c23d3964e2992ea2c6abc1895b6728539'
             '6a0210d67da807efb2bf6f42813416361a0eac0bd2b711c1bfddc87cedb07374')
 conflicts=('hh');
 
 prepare() {
     cd "$srcdir/hstr"
-    echo "Applying patches..."
-    git apply "$srcdir/01-remove-history-r.patch"
-    git apply "$srcdir/04_fix_ftbfs_string_format_error.patch"
+    for f in "$srcdir"/*.patch; do
+        echo "Applying patch $f ..."
+        git apply "$f"
+    done
 }
 
 build() {
