@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-_srcver=5.15.6
-_zenver=zen2
+_srcver=5.15.10
+_zenver=zen1
 pkgrel=1
-_config_commit=4374c5dbb02c3b443f49766388b1d7fffa13233a
+_config_commit=8bd3c0989467869a3343d863c5f53d46efbdc514
 pkgbase=linux-zen
 _srcname=linux-$(echo $_srcver | grep -Po "^\d+\.\d+")
 pkgver=${_srcver}.${_zenver}
@@ -22,8 +22,8 @@ source=(
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
 b2sums=('3921274b23f7938abdf3ed9334534b4581e13d7484303d3a5280eddb038999aaa8b836666a487472d9c4a219af0f06b9fecccaf348fb5510ab8762f4ef4b7e83'
-        '21a5c869f9dd3eeda8c7724055d37332c943b7f28d9b6cbadef3b65cf007a15fe7e57302c78a4435834ef73345165e1ef09ee2a581df0d12b0a11c4874239063'
-        '33e59f2cf12c5e3c07431a5accbf29dad11011a1c04b0ed160723703ec29e82fdbd4ccc6364962b55b2a1cf2733f5bcb3cd9c96c1ec36c762d97a5a98b468fc4')
+        '36948979a90ee57c131caa3500f669032bfb5e971a1a72a5847f5289fe8184961addab53f476ac0b8c5b271417115ad8a05ebf537dc91b9e86cb74f028faced5'
+        '5a541057cac74f85879939271cc39c963b400ce84fbf16e21fa87c3f6833f4318dfb1e93c0b1cbf511141039a12feb4518897f756549e0a258a7a095d5969e27')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
