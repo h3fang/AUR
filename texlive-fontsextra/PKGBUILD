@@ -1,7 +1,7 @@
 # Maintainer: Fang He <hf.enigma@gmail.com>
 
 pkgname=texlive-fontsextra
-pkgver=2021.58704
+pkgver=2021.61408
 _revnr=${pkgver#2021.}
 pkgrel=1
 pkgdesc="TeX Live - extra fonts that I need"
@@ -21,7 +21,7 @@ source=(
     "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/xits.tar.xz"
     "https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/texlive-fontsextra/trunk/texlive-fontsextra.maps"
 )
-options=('!emptydirs')
+options=('!emptydirs' '!strip')
 sha256sums=('fd3e420a2204d1296e882b6cb1c4d218fc28f1abdac370710587caf406835df4'
             '778baeecbcc6bd2c55611dcfa6985212d6e759110861fbd19be7f7843542fff3'
             'c55add2adb27e1258a6cc335f0149d5d53662b68f243d57f97bafca83042141a'
@@ -30,7 +30,7 @@ sha256sums=('fd3e420a2204d1296e882b6cb1c4d218fc28f1abdac370710587caf406835df4'
             '1ec9052d3e9664439eec2449dbe3671e076eab45ceeae2deebfff16dde854c26'
             '1c9558be99163e277388d76c8017495e267e87f51b7749b2bb43827b77aadbde'
             'cdc51390b6ad6e1151d0186c5be4b24d8bc910e338fa472db282023825c74409'
-            'fd5e725f1c111ea528978cfc13f6a059ed9154f12687bb92f7de901297188362')
+            '1fcc22ee72b40765961a90144d5babe6e902e33e57fe653a9dd4b0b19c6ad399')
 
 build() {
    cd "$srcdir"
