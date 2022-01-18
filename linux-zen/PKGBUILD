@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-_srcver=5.15.10
+_srcver=5.16.1
 _zenver=zen1
 pkgrel=1
-_config_commit=8bd3c0989467869a3343d863c5f53d46efbdc514
+_config_commit=db0bc02c95d70cae010ae9f0a95c86c8a4393331
 pkgbase=linux-zen
 _srcname=linux-$(echo $_srcver | grep -Po "^\d+\.\d+")
 pkgver=${_srcver}.${_zenver}
@@ -21,9 +21,9 @@ source=(
   "https://github.com/zen-kernel/zen-kernel/releases/download/v${_srcver}-${_zenver}/v${_srcver}-${_zenver}.patch.xz"
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
-b2sums=('3921274b23f7938abdf3ed9334534b4581e13d7484303d3a5280eddb038999aaa8b836666a487472d9c4a219af0f06b9fecccaf348fb5510ab8762f4ef4b7e83'
-        '36948979a90ee57c131caa3500f669032bfb5e971a1a72a5847f5289fe8184961addab53f476ac0b8c5b271417115ad8a05ebf537dc91b9e86cb74f028faced5'
-        '5a541057cac74f85879939271cc39c963b400ce84fbf16e21fa87c3f6833f4318dfb1e93c0b1cbf511141039a12feb4518897f756549e0a258a7a095d5969e27')
+b2sums=('07a90cc640ff89e1359c06cee8c38abd33e51f9b9a89833e31a1d2750526fda4a59e8884db3c1ea63df0a37f0d3de6b5a922b014b7313d8abce20d90ac08adcb'
+        '93a6ff161aca99956199a7ac7c2d39b2e8fab2e29106cefbd3e19202b553ad6f46a0e76a74bedc9e34d0ddf8cb7ce49ca6070ba274aaa2990a4fb421ebb205c5'
+        'df3381396b0e19d728b771d5ffc3273d80c7b5f8c95c3c37246e9899c4ae3108342ae6c19e3825327256b31ebf6e52cb501bce8476d84c876471dbdb7f4003fa')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -107,11 +107,11 @@ _package-headers() {
   install -Dt "$builddir/arch/x86" -m644 arch/x86/Makefile
   cp -t "$builddir" -a scripts
 
-  # add objtool for external module building and enabled VALIDATION_STACK option
+  # required when STACK_VALIDATION is enabled
   install -Dt "$builddir/tools/objtool" tools/objtool/objtool
 
-  # add xfs and shmem for aufs building
-  mkdir -p "$builddir"/{fs/xfs,mm}
+  # required when DEBUG_INFO_BTF_MODULES is enabled
+  install -Dt "$builddir/tools/bpf/resolve_btfids" tools/bpf/resolve_btfids/resolve_btfids
 
   echo "Installing headers..."
   cp -t "$builddir" -a include
