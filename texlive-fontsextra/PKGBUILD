@@ -18,6 +18,7 @@ source=(
     "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/fontawesome5.tar.xz"
     "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/sourcecodepro.tar.xz"
     "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/sourcesanspro.tar.xz"
+    "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/newtx.tar.xz"
     "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/xits.tar.xz"
     "https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/texlive-fontsextra/trunk/texlive-fontsextra.maps"
 )
@@ -29,6 +30,7 @@ sha256sums=('fd3e420a2204d1296e882b6cb1c4d218fc28f1abdac370710587caf406835df4'
             '22c2a9a62d330c0e19507a70781a4ccecb779a0d4da3b3ff963e618305f1bc78'
             '1ec9052d3e9664439eec2449dbe3671e076eab45ceeae2deebfff16dde854c26'
             '1c9558be99163e277388d76c8017495e267e87f51b7749b2bb43827b77aadbde'
+            'be6e6c4f2154f5fed7d79974b8eb30ed86bee95c41fd47982ad5dc7f5c391e56'
             'cdc51390b6ad6e1151d0186c5be4b24d8bc910e338fa472db282023825c74409'
             '1fcc22ee72b40765961a90144d5babe6e902e33e57fe653a9dd4b0b19c6ad399')
 
