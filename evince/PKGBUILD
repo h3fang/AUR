@@ -17,8 +17,12 @@ optdepends=(
 )
 provides=(libev{document,view}3.so)
 _commit=08780f527ac0306f527c48ea6cc77a7b2c6c5fa8 # tags/41.3^0
-source=("git+https://gitlab.gnome.org/GNOME/evince.git#commit=$_commit")
-sha256sums=('SKIP')
+source=(
+  "git+https://gitlab.gnome.org/GNOME/evince.git#commit=$_commit"
+  "001_meson_i18n_merge_file.patch"
+)
+sha256sums=('SKIP'
+            'df8520731f693f82d609a8e44372f9cef028987c99796244bbeb32e6f612277a')
 
 pkgver() {
   cd $pkgname
@@ -27,6 +31,7 @@ pkgver() {
 
 prepare() {
   cd $pkgname
+  git apply "$srcdir/001_meson_i18n_merge_file.patch"
 }
 
 build() {
