@@ -13,8 +13,8 @@ source=(
     "git+https://github.com/esno/yoga-bios-unlock"
     "0001-yoga-14sARE-2020.patch"
 )
-md5sums=('SKIP'
-         '3e777e8544b6d1a8d4de4545b0ccee8d')
+b2sums=('SKIP'
+        'fa4d68440179d28c5797b524c441ff4e725c05353faa1f4d2bebd2d6456c53c094caf8dc52c034b5e36941780a1783ed53d3e87d9e2566393f7412b1146f5d95')
 
 pkgver() {
     cd "$_pkgname"
@@ -24,6 +24,8 @@ pkgver() {
 prepare() {
     cd "$srcdir/$_pkgname"
     patch -Np1 < "$srcdir/0001-yoga-14sARE-2020.patch"
+    echo "SDK0L77769 WIN" >> board-versions.txt
+    make headers
 }
 
 build() {
