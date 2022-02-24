@@ -8,7 +8,7 @@ arch=('x86_64')
 url="https://github.com/esno/yoga-bios-unlock"
 license=('MIT')
 groups=('modified')
-depends=('glibc')
+depends=('glibc' 'vim')
 source=(
     "git+https://github.com/esno/yoga-bios-unlock"
     "0001-yoga-14sARE-2020.patch"
