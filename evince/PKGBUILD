@@ -15,33 +15,14 @@ makedepends=(texlive-bin gobject-introspection gi-docgen git meson appstream-gli
 optdepends=('texlive-bin: DVI support')
 provides=(libev{document,view}3.so)
 groups=('gnome' 'modified')
-_commit=67084a4f4ec10445bf8f3ef2cf98cb0ccaabcb19 # tags/42.1^0
-source=(
-  "git+https://gitlab.gnome.org/GNOME/evince.git#commit=$_commit"
-)
-sha256sums=('SKIP')
-
-pkgver() {
-  cd evince
-  git describe --tags | sed 's/[^-]*-g/r&/;s/-/+/g'
-}
-
-prepare() {
-    cd evince
-}
+source=("https://github.com/GNOME/evince/archive/refs/tags/${pkgver}.tar.gz")
+b2sums=('a1aa0d283cfe60ffcf86e5452e16fd8060e14c2630a0239f3dac415ada4a9daa0720f0c7cee8777911c6bfa62b6b5e51c2c396383551318e8ecf4aeefbc24703')
 
 build() {
-    arch-meson evince build \
+    arch-meson evince-${pkgver} build \
     -D nautilus=false \
     -D previewer=false \
     -D thumbnailer=false \
-    -D ps=disabled \
-    -D djvu=disabled \
-    -D dvi=disabled \
-    -D xps=disabled \
-    -D comics=disabled \
-    -D tiff=disabled \
-    -D multimedia=disabled \
     -D gtk_doc=false \
     -D user_doc=false \
     -D keyring=disabled \
