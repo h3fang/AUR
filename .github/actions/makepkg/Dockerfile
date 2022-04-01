@@ -8,6 +8,4 @@ RUN echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 COPY entrypoint.sh /entrypoint.sh
 
-USER builder
-
 ENTRYPOINT ["/entrypoint.sh"]
