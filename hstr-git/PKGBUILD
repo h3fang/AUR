@@ -3,7 +3,7 @@
 # Contributor: Filip Szymański <fszymanski at, fedoraproject.org>
 
 pkgname=hstr-git
-pkgver=2.5.r2.g1e1b954
+pkgver=2.5.r13.gbe59f8c
 pkgrel=1
 pkgdesc="A command line utility that brings improved BASH command completion from the history. It aims to make completion easier and more efficient than Ctrl-r."
 arch=('any')
@@ -12,8 +12,9 @@ license=('Apache')
 makedepends=('git' 'readline' 'ncurses')
 depends=('readline')
 groups=('modified')
-source=(git://github.com/dvorka/hstr.git#branch=master
-    01-remove-history-r.patch
+source=(
+    "hstr::git+https://github.com/dvorka/hstr.git"
+    "01-remove-history-r.patch"
 )
 sha256sums=('SKIP'
             '7554658805a8f32d642fbdc03fcc0e5c23d3964e2992ea2c6abc1895b6728539')
