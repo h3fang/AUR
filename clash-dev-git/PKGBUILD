@@ -17,7 +17,7 @@ source=("clash@.service"
         "clash_user.service"
         "$pkgname::git+https://github.com/Dreamacro/clash.git#branch=dev")
 sha512sums=('5b53faea10bba16df98a74fcbffebb6c8b7f8c238999a147bb848b2c30732688813915fd6bc32f44ec6f90024ad29dbde059e70760c91ccea198dd05da52d077'
-            '3ae61e1c6f0213ea8c3113c62f27c704f04f657cda8c726c0e487194dd5c1ce36e448f6e22b61aeef65f4a1910a2df62a3798f0cba9bae10c8e80a7cb1cfb7b3'
+            '6ac0c9b60d9fc653fd4116d230edd5fbbf15a55d58be59163e67b1617dfe45af07350220a4eb616f3153a9a1b1756c2474a9db204e30797cdc223a1459348acf'
             'SKIP')
 
 pkgver() {
