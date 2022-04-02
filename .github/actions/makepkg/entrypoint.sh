@@ -9,7 +9,7 @@ chown -R builder .
 mkdir pkgs
 
 for d in */; do
-    if [[ -f "$d/PKGBUILD" && "$d" != "linux-zen/" ]]; then
+    if [[ -f "$d/PKGBUILD" && "$d" != "linux-zen/" && "$d" != "evince/" ]]; then
         pushd "$d"
         echo "Running makepkg with $PWD/PKGBUILD"
         sudo -H -u builder makepkg -fsrCc --noconfirm
