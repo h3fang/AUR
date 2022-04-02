@@ -23,5 +23,5 @@ jobs:
           name: Optimized packages for AMD Zen 2
           omitBody: true
           commit: ${{ github.sha }}
-          artifacts: "./*/*.pkg.tar.zst"
+          artifacts: "./pkgs/*.pkg.tar.zst"
           token: ${{ secrets.GITHUB_TOKEN }}
