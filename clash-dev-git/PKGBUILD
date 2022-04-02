@@ -49,5 +49,5 @@ package() {
     install -Dm755 "clash" "${pkgdir}/usr/bin/clash"
     install -Dm644 "LICENSE" "${pkgdir}/usr/share/licenses/clash/LICENSE"
     install -Dm644 "${srcdir}/clash@.service" "${pkgdir}/usr/lib/systemd/system/clash@.service"
-    install -Dm644 "${srcdir}/clash_user.service" "${pkgdir}/usr/lib/systemd/user/clash.service"
+    install -Dm644 "${srcdir}/clash_user.service" "${pkgdir}/usr/lib/systemd/user/clash@.service"
 }
