@@ -1,6 +1,6 @@
 # Maintainer: h3fang <hf.enigma@gmail.com>
 pkgname=tun2socks
-pkgver=2.3.2
+pkgver=2.4.0
 pkgrel=1
 pkgdesc="tun2socks - powered by gVisor TCP/IP stack."
 arch=(x86_64)
@@ -11,17 +11,18 @@ groups=(modified)
 source=(
     "https://github.com/xjasonlyu/tun2socks/archive/refs/tags/v${pkgver}.tar.gz"
 )
-sha512sums=('12883eb7288f834e0accc7b86207689da785de896bd2866b5eb2c63fd3b1b27f1435dff1010da7c327a859175be122389bcd2a85f1b335b9f89147baef994efe')
+sha512sums=('2c0e8fe60dc23b84fec603fe48f77c23739543cb406d6922af002898b6e17b7231ee09e7818ad978d5ebb52c7046a9d6bcacc9b6f03eeefbc6b49fc0f287e4b9')
 
 build() {
     cd "$srcdir/${pkgname}-${pkgver}"
     export GOPATH="${srcdir}/go"
     export LDFLAGS=
     export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
-    make linux-amd64
+    make tun2socks
 }
 
 package() {
     cd "$srcdir/${pkgname}-${pkgver}"
-    install -Dm755 "build/tun2socks-linux-amd64" "$pkgdir/usr/bin/tun2socks"
+    install -Dm755 "build/tun2socks" "$pkgdir/usr/bin/tun2socks"
+    install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
