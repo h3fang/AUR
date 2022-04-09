@@ -1,7 +1,7 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-_srcver=5.16.14
-_zenver=zen1
+_srcver=5.17.2
+_zenver=zen2
 pkgrel=1
 _config_commit=4cf329bb800a68f2bc8f1b0920c65258c2392dc8
 pkgbase=linux-zen
@@ -13,7 +13,7 @@ arch=(x86_64)
 license=(GPL2)
 groups=('modified')
 makedepends=(
-  bc kmod libelf pahole cpio perl tar xz
+  bc libelf pahole cpio perl tar xz
 )
 options=('!strip')
 source=(
@@ -21,8 +21,8 @@ source=(
   "https://github.com/zen-kernel/zen-kernel/releases/download/v${_srcver}-${_zenver}/v${_srcver}-${_zenver}.patch.xz"
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
-b2sums=('07a90cc640ff89e1359c06cee8c38abd33e51f9b9a89833e31a1d2750526fda4a59e8884db3c1ea63df0a37f0d3de6b5a922b014b7313d8abce20d90ac08adcb'
-        '8abc8e92a33c0f0302519aa957daba97db0039963c1860b8ef94a0d6aeda2329d44ffc6c9f489fd1fca8a82664d84f9e8d29edd914ea715c385216e8a97436f3'
+b2sums=('82dc4a45cc25c781ac67aa6ed1e4c369544154960f41c4634d47621f381159687a227054976d078524cda28884d395a15f7542fe44ca74ce98ca6ff54a81d6d0'
+        'ca29758aca39d7125ef344218e347b18fb0e1c8423f40819eb263354c5354941c2cac02f96ee2f6b962ed538260e4daa6cbde83e6d6b0d9d21766543edc51841'
         '4aa6844770efad7d02bd01364682d770445f3e3d3188781c4ccd77fd436111e7620650f75ac8b9b71020d3fe9b1d5f5ad599de6d212444e915ea64fb36b1df85')
 
 export KBUILD_BUILD_HOST=archlinux
@@ -70,7 +70,7 @@ build() {
 _package() {
   pkgdesc="The $pkgdesc kernel and modules"
   depends=(coreutils kmod initramfs)
-  optdepends=('crda: to set the correct wireless channels of your country'
+  optdepends=('wireless-regdb: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
   provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE VHBA-MODULE)
   replaces=()
@@ -88,7 +88,8 @@ _package() {
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   echo "Installing modules..."
-  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 modules_install
+  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
+    DEPMOD=/doesnt/exist modules_install  # Suppress depmod
 
   # remove build and source links
   rm "$modulesdir"/{source,build}
