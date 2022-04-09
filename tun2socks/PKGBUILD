@@ -1,6 +1,6 @@
 # Maintainer: h3fang <hf.enigma@gmail.com>
 pkgname=tun2socks
-pkgver=2.4.0
+pkgver=2.4.1
 pkgrel=1
 pkgdesc="tun2socks - powered by gVisor TCP/IP stack."
 arch=(x86_64)
@@ -11,14 +11,18 @@ groups=(modified)
 source=(
     "https://github.com/xjasonlyu/tun2socks/archive/refs/tags/v${pkgver}.tar.gz"
 )
-sha512sums=('2c0e8fe60dc23b84fec603fe48f77c23739543cb406d6922af002898b6e17b7231ee09e7818ad978d5ebb52c7046a9d6bcacc9b6f03eeefbc6b49fc0f287e4b9')
+sha512sums=('9a95b8cfa3e3997e122849dcbead68d350f80d8d1b0045f54475ac107257f7122b994690048d9de776adcb19f540b5d67f02a0d3178d5ddf38d0072d28ce8d35')
 
 build() {
     cd "$srcdir/${pkgname}-${pkgver}"
     export GOPATH="${srcdir}/go"
-    export LDFLAGS=
-    export GOFLAGS="-buildmode=pie -trimpath -mod=readonly -modcacherw"
-    make tun2socks
+    export CGO_CPPFLAGS="${CPPFLAGS}"
+    export CGO_CFLAGS="${CFLAGS}"
+    export CGO_CXXFLAGS="${CXXFLAGS}"
+    export CGO_LDFLAGS="${LDFLAGS}"
+    export GOFLAGS="-buildmode=pie -trimpath -ldflags=-linkmode=external -mod=readonly -modcacherw"
+    mkdir -p build/
+    go build -o build
 }
 
 package() {
