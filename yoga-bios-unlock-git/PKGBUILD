@@ -1,7 +1,7 @@
 # Maintainer: h3fang <hf.enigma@gmail.com>
 pkgname=yoga-bios-unlock-git
 _pkgname=yoga-bios-unlock
-pkgver=r37.81ce322
+pkgver=r47.812dfbc
 pkgrel=1
 pkgdesc="unlock the advanced menu of Lenovo Yoga laptop BIOS"
 arch=('x86_64')
@@ -35,6 +35,6 @@ build() {
 
 package() {
     cd "$srcdir/$_pkgname"
-    install -Dm 0644 "$_pkgname" "$pkgdir/usr/bin/$_pkgname"
+    install -Dm 0755 "$_pkgname" "$pkgdir/usr/bin/$_pkgname"
 }
 
