@@ -11,15 +11,15 @@ depends=('texlive-core')
 groups=('texlive-most' 'modified')
 url='http://tug.org/texlive/'
 source=(
-    "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/fira.tar.xz"
-    "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/firamath.tar.xz"
-    "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/firamath-otf.tar.xz"
-    "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/fontawesome.tar.xz"
-    "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/fontawesome5.tar.xz"
-    "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/sourcecodepro.tar.xz"
-    "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/sourcesanspro.tar.xz"
-    "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/newtx.tar.xz"
-    "https://ctan.org/tex-archive/systems/texlive/tlnet/archive/xits.tar.xz"
+    "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/fira.tar.xz"
+    "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/firamath.tar.xz"
+    "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/firamath-otf.tar.xz"
+    "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/fontawesome.tar.xz"
+    "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/fontawesome5.tar.xz"
+    "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/sourcecodepro.tar.xz"
+    "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/sourcesanspro.tar.xz"
+    "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newtx.tar.xz"
+    "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/xits.tar.xz"
     "https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/texlive-fontsextra/trunk/texlive-fontsextra.maps"
 )
 options=('!emptydirs' '!strip')

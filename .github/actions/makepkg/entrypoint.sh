@@ -2,19 +2,16 @@
 
 set -eu
 
-sed -i '/^CFLAGS=/ s/-march=x86-64 -mtune=generic/-march='${INPUT_ARCH}'/' /etc/makepkg.conf
-sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j$(nproc)"/' /etc/makepkg.conf
+if [ -d "/github" ]; then
+    sudo chown -R builder /github/workspace /github/home
+fi
 
-chown -R builder .
-mkdir pkgs
+sudo sed -i '/^CFLAGS=/ s/-march=x86-64 -mtune=generic/-march='${INPUT_ARCH}'/' /etc/makepkg.conf
+sudo sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j$(nproc)"/' /etc/makepkg.conf
 
-for d in */; do
-    if [[ -f "$d/PKGBUILD" && "$d" != "linux-zen/" && "$d" != "evince/" ]]; then
-        pushd "$d"
-        echo "Running makepkg with $PWD/PKGBUILD"
-        sudo -H -u builder makepkg -fsrCc --noconfirm
-        mv *.pkg.tar.zst ../pkgs/
-        rm -rf *
-        popd
-    fi
-done
+mkdir -p pkgs
+
+cd "${INPUT_PKG}"
+echo "Running makepkg with $PWD/PKGBUILD"
+makepkg -fs --noconfirm
+mv *.pkg.tar.zst ../pkgs/

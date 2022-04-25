@@ -8,3 +8,7 @@ inputs:
     description: "Enable compiler optimizations for specified CPU architecture."
     required: true
     default: ""
+  pkg:
+    description: "Package to build."
+    required: true
+    default: ""

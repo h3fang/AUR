@@ -3,6 +3,9 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        pkg: [battery-notifications, clash-dev-git, gammastep, libblockdev, networkd-notify, openblas, swaylock-effects-git, texlive-fontsextra, tun2socks, yacd, yoga-bios-unlock-git]
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -10,6 +13,12 @@ jobs:
         uses: ./.github/actions/makepkg
         with:
           arch: znver2
+          pkg: ${{ matrix.pkg }}
+  release:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+    steps:
       - uses: dev-drprasad/delete-tag-and-release@v0.2.0
         with:
           delete_release: true

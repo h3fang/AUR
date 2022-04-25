@@ -3,8 +3,11 @@ FROM archlinux:base-devel
 RUN pacman -Syu --needed --noconfirm git
 
 RUN groupadd -f -r wheel
-RUN useradd -m -G wheel -s /bin/bash builder
+RUN useradd -d /builder -m builder
 RUN echo "builder ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
+USER builder
+WORKDIR /builder
 
 COPY entrypoint.sh /entrypoint.sh
 
