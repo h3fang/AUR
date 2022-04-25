@@ -13,9 +13,6 @@
 ## gammastep
 - remove geoclue dependency
 
-## hstr-git
-- with the patch to remove the "history -r" call
-
 ## libblockdev
 - remove lvm2, btrfs, xfs dependency
 
