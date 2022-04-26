@@ -4,6 +4,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         pkg: [battery-notifications, clash-dev-git, gammastep, libblockdev, networkd-notify, openblas, swaylock-effects-git, texlive-fontsextra, tun2socks, yacd, yoga-bios-unlock-git]
     steps:
@@ -14,11 +15,20 @@ jobs:
         with:
           arch: znver2
           pkg: ${{ matrix.pkg }}
+      - name: Archive packages
+        uses: actions/upload-artifact@v3
+        with:
+          name: packages
+          path: pkgs/
   release:
     runs-on: ubuntu-latest
     needs:
       - build
     steps:
+      - uses: actions/download-artifact@master
+        with:
+          name: packages
+          path: pkgs/
       - uses: dev-drprasad/delete-tag-and-release@v0.2.0
         with:
           delete_release: true
@@ -32,5 +42,5 @@ jobs:
           name: Optimized packages for AMD Zen 2
           omitBody: true
           commit: ${{ github.sha }}
-          artifacts: "./pkgs/*.pkg.tar.zst"
+          artifacts: "pkgs/*.pkg.tar.zst"
           token: ${{ secrets.GITHUB_TOKEN }}
