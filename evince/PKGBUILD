@@ -3,7 +3,7 @@
 # Contributor: Kazuo Teramoto <kaz.rag@gmail.com>
 
 pkgname=evince
-pkgver=42.2
+pkgver=42.3
 pkgrel=1
 pkgdesc="GNOME document viewer, built with minimal dependencies."
 url="https://wiki.gnome.org/Apps/Evince"
@@ -16,7 +16,7 @@ optdepends=('texlive-bin: DVI support')
 provides=(libev{document,view}3.so)
 groups=('gnome' 'modified')
 source=("https://github.com/GNOME/evince/archive/refs/tags/${pkgver}.tar.gz")
-b2sums=('65b5c851859f2ef0be6c5035a609176f058d5efce4a6e4cfe8fbc8ff2341fcc8e5cc66bf2bee6ae5978ddaa432be27097bbc88c984846ed6339dbc5cd2023f90')
+b2sums=('febc582227988f80ba81a3e96f5711d1d99274ed232b87850fc48dae813a64e616b6ade69d155d6e4db73a1dcac8620f85020f888b06fa750d1838c488a3c7d9')
 
 build() {
     arch-meson evince-${pkgver} build \
