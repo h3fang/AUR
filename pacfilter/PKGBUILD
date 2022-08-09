@@ -1,0 +1,24 @@
+# Maintainer: h3fang hf.enigma#gmail
+
+pkgname=pacfilter
+pkgver=0.1.1
+pkgrel=1
+pkgdesc="Filter pacman log file"
+url="https://github.com/h3fang/pacfilter"
+license=('MIT')
+groups=(modified)
+makedepends=(cargo)
+arch=('x86_64')
+source=("https://github.com/h3fang/pacfilter/archive/refs/tags/v${pkgver}.tar.gz")
+
+sha256sums=('838948510247eba1751f0e643a614707232e035a7c0b6f27466626b24b672e1b')
+
+build() {
+    cd "$srcdir/$pkgname-$pkgver"
+    cargo build --release
+}
+
+package() {
+    cd "$srcdir/$pkgname-$pkgver"
+    install -Dm755 "target/release/$pkgname" "$pkgdir/usr/bin/$pkgname"
+}
