@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-_srcver=5.18.11
+_srcver=5.19.1
 _zenver=zen1
 pkgrel=1
-_config_commit=e1813c9dfcf5e9c7a7dcc91d7e212c79ac4764dd
+_config_commit=88a7f7d5cbc93df16eb42d5247f5e83871800d75
 pkgbase=linux-zen
 _srcname=linux-$(echo $_srcver | grep -Po "^\d+\.\d+")
 pkgver=${_srcver}.${_zenver}
@@ -21,9 +21,9 @@ source=(
   "https://github.com/zen-kernel/zen-kernel/releases/download/v${_srcver}-${_zenver}/v${_srcver}-${_zenver}.patch.xz"
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
-b2sums=('e2745a69eb70169e90505a9318a3993046eab3020496eecde7d8352ecda0eb71a25b21becf7ce93fc593507dce7d1cd61b94ddcdf82b3094d79c0d3d48508eeb'
-        '50728d37712b15fdb0c08a387741ad6a9ae31f148e1d01e0b1c847326688c01ba65ea7020fc726660ec0274b0098f1aae03a3ec637ca338b9f9d64ab142d71ff'
-        'c0c1b2e747eb5ac4cf4d395dbd28d0eda6f922c64b841f1c5de406a633fb1c4acdbbc8aeead886d391a9d341a20bf760b7953d0860fa056154dd99f81071ad77')
+b2sums=('4db03a6830a3b3bbf0837e1912182a443d9a4aa8af20a12e6ec814ed708038452d3c0ccee1258cca671c464d76461536363a8adc56e9d098c9a44ae3484a297a'
+        'b975f9a20779f8d0c9c001ad9ac6f82fab4148f117b8e7dc4703ab6b493765e588f630817268afe1b3ca9a8ebe0ac67ab2232ed1df18382c638710ad4afb2d5b'
+        '8547b7b8f2148dc6b293a9a05e9af7ef9735a36350e41fd8e3a350a832acb04df5be074f5416ea3c621f4b2849659ddf09b35d207fe28a8dafa32da00f4e8ac1')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -72,7 +72,7 @@ _package() {
   depends=(coreutils kmod initramfs)
   optdepends=('wireless-regdb: to set the correct wireless channels of your country'
               'linux-firmware: firmware images needed for some devices')
-  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE VHBA-MODULE UKSMD-BUILTIN)
+  provides=(VIRTUALBOX-GUEST-MODULES WIREGUARD-MODULE KSMBD-MODULE VHBA-MODULE UKSMD-BUILTIN)
   replaces=()
 
   cd "$_srcname"
