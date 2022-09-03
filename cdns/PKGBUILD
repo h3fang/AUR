@@ -1,0 +1,25 @@
+# Maintainer: h3fang hf.enigma#gmail
+
+pkgname=cdns
+pkgver=0.4.3
+pkgrel=1
+pkgdesc="Local DNS server to relay queries to public DNS-over-Https servers"
+url="https://github.com/h3fang/cdns"
+license=('MIT')
+groups=(modified)
+makedepends=(cargo)
+arch=('x86_64')
+source=("${url}/archive/refs/tags/v${pkgver}.tar.gz")
+
+sha256sums=('3c8116dbe95ca945336711c2babd424291f256387e9364d6c8bf5bdb1cb6474a')
+
+build() {
+    cd "$srcdir/$pkgname-$pkgver"
+    cargo build --release
+}
+
+package() {
+    cd "$srcdir/$pkgname-$pkgver"
+    install -Dm755 "target/release/$pkgname" "$pkgdir/usr/bin/$pkgname"
+    install -Dm644 "LICENSE" "$pkgdir/usr/share/licenses/${pkgname}/LICENSE"
+}
