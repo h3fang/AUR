@@ -23,7 +23,7 @@ source=(
     "https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/texlive-fontsextra/trunk/texlive-fontsextra.maps"
 )
 options=('!emptydirs' '!strip')
-sha256sums=('fd3e420a2204d1296e882b6cb1c4d218fc28f1abdac370710587caf406835df4'
+sha256sums=('ddd01a7538ab53e272c7282eb8f072a3baa76b8ad30034ff3e5d87cb77a7e252'
             '778baeecbcc6bd2c55611dcfa6985212d6e759110861fbd19be7f7843542fff3'
             'c55add2adb27e1258a6cc335f0149d5d53662b68f243d57f97bafca83042141a'
             'a2e24ac5e56f16af8b6c4b7e95b190f44d7b631e1072c6abc0a2ff581750e242'
