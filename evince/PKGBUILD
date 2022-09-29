@@ -4,7 +4,7 @@
 
 pkgname=evince
 pkgver=42.3
-pkgrel=1
+pkgrel=2
 pkgdesc="GNOME document viewer, built with minimal dependencies."
 url="https://wiki.gnome.org/Apps/Evince"
 arch=('i686' 'x86_64')
