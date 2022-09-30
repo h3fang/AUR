@@ -1,11 +1,6 @@
 ## battery-notifications
 - send notifications to user based on battery states
 
-## clash-dev-git
-- use official repo build instructions
-- make go build cache writable
-- user instanced service
-
 ## evince
 - with only pdf support
 - removed gnome dependency
