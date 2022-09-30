@@ -30,6 +30,9 @@
 - prefer AUR version build flags
 - native build for performance
 
+## python-mapbox-earcut
+- remove the pybind11 clone
+
 ## swaylock-effects-git
 - fix text alignment
 
