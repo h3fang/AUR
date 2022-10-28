@@ -16,7 +16,7 @@
 - add modprobed localmodconfig for faster compilation
 - native build for performance
 
-## networkd-notify
+## networkd-notify-git
 - use iw instead of wireless-tools
 - increase notification popup duration
 
