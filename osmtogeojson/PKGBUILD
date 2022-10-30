@@ -1,0 +1,23 @@
+# Maintainer: Simon Legner <Simon.Legner@gmail.com>
+pkgname=osmtogeojson
+pkgver=3.0.0b5
+_pkgver=3.0.0-beta.5
+pkgrel=1
+pkgdesc="Convert OSM data to GeoJSON"
+arch=(any)
+url="https://github.com/tyrasd/osmtogeojson"
+license=('MIT')
+groups=(modified)
+depends=('nodejs')
+makedepends=('npm')
+source=(https://registry.npmjs.org/$pkgname/-/$pkgname-$_pkgver.tgz)
+sha256sums=('e572a61055798f5ae8006b2dc766297d11bc41f7636b2a4e55938aff6facc857')
+noextract=("${pkgname}-${_pkgver}.tgz")
+
+package() {
+  npm install -g --cache "${srcdir}/npm-cache" --prefix "$pkgdir/usr" "$srcdir/$pkgname-$_pkgver.tgz"
+  chown -R root:root "${pkgdir}"
+  install -Dm755 "$pkgdir/usr/lib/node_modules/$pkgname/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
+
+# vim:set ts=2 sw=2 et:

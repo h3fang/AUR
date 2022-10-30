@@ -25,6 +25,10 @@
 - prefer AUR version build flags
 - native build for performance
 
+## osmtogeojson
+- orphaned on AUR
+- refactor build instructions
+
 ## python-mapbox-earcut
 - remove the pybind11 clone
 
