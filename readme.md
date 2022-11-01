@@ -2,8 +2,8 @@
 - send notifications to user based on battery states
 
 ## evince
-- with only pdf support
-- removed gnome dependency
+- with only PDF support
+- remove gnome dependency
 
 ## gammastep
 - remove geoclue dependency
@@ -40,12 +40,11 @@
 - https://h3fang.github.io/post/2019/texlive-fontsextra/
 
 ## tun2socks
-- not on AUR
+- use local GOPATH
 
 ## yacd
 - use prebuilt package
 
 ## yoga-bios-unlock-git
-- not on AUR
 - patched for yoga 14sARE 2020 version
 
