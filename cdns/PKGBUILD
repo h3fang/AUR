@@ -1,7 +1,7 @@
 # Maintainer: h3fang hf.enigma#gmail
 
 pkgname=cdns
-pkgver=0.4.3
+pkgver=0.5.0
 pkgrel=1
 pkgdesc="Local DNS server to relay queries to public DNS-over-Https servers"
 url="https://github.com/h3fang/cdns"
@@ -11,7 +11,7 @@ makedepends=(cargo)
 arch=('x86_64')
 source=("${url}/archive/refs/tags/v${pkgver}.tar.gz")
 
-sha256sums=('3c8116dbe95ca945336711c2babd424291f256387e9364d6c8bf5bdb1cb6474a')
+sha256sums=('c0f545bf83154249771ce165df29c8228845a42d5fa554afeaa803d8bd57bd5d')
 
 build() {
     cd "$srcdir/$pkgname-$pkgver"
