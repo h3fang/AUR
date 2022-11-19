@@ -1,6 +1,6 @@
 _gitname=swaylock-effects
 pkgname="${_gitname}-git"
-pkgver=r400.e2da354
+pkgver=r405.b2736c5
 pkgrel=1
 pkgdesc="A fancier screen locker for Wayland."
 arch=('i686' 'x86_64')
