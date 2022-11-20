@@ -1,7 +1,7 @@
 _gitname=swaylock-effects
 pkgname="${_gitname}-git"
 pkgver=r405.b2736c5
-pkgrel=1
+pkgrel=2
 pkgdesc="A fancier screen locker for Wayland."
 arch=('i686' 'x86_64')
 url="https://github.com/jirutka/$_gitname"
@@ -12,9 +12,9 @@ provides=('swaylock' 'swaylock-effects')
 conflicts=('swaylock')
 groups=('modified')
 source=("git+https://github.com/jirutka/${_gitname}.git"
-        '01-text-align.patch')
+        '01-fix-time-string-postion-and-scale.patch')
 b2sums=('SKIP'
-        'c56bcc536ec2d366e156285ae6c3c8b5cc263fd7a2b9c672ba112814b9993e4cc48533f2cc0c1d490ed9ac9d6627f33fa9db34dbd296d21f5f56ea98404dc0bf')
+        '7edfa90b6d7be116980f86cb0849a3244d259abc5659f8f92844767b2e454d07c9cc3b7a6b07c78de3511cf62628f210bfddbfdc37706e5ec695a4e3b552e68e')
 
 pkgver() {
     cd "$srcdir/$_gitname"
@@ -23,7 +23,7 @@ pkgver() {
 
 prepare() {
     cd "$srcdir/$_gitname"
-    patch -p1 < "$srcdir"/01-text-align.patch
+    patch -p1 < "$srcdir"/01-fix-time-string-postion-and-scale.patch
 }
 
 build() {
