@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-_srcver=6.0.8
+_srcver=6.0.11
 _zenver=zen1
 pkgrel=1
-_config_commit=75e9eb5a36a71d65dfbd1d265e1150802a563eaa
+_config_commit=810f5977c5e7e16d596c3be329113fea70f76721
 pkgbase=linux-zen
 _srcname=linux-$(echo $_srcver | grep -Po "^\d+\.\d+")
 pkgver=${_srcver}.${_zenver}
@@ -22,8 +22,8 @@ source=(
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
 b2sums=('c09a9c877ac0fac83dc31d2d04d96f0a3331d4ed78e3ad4edfd4dc077e1c11d0c49f419fdac4008b5c93d1b09c2b724e12ef0b38371ad0962908abf85dfa95fa'
-        '9f7a87496b0e20c307fe5ac33c84466b58a3e4c99c643aa8e8a0f5b7ac0a753720a5a166143fb07f5c010ae1b21667848354f7ef1cd3a7016dc49981583b75fa'
-        '516ce7e201f26f02f21a72dcf647ff59d55cd5b01e8a6b34df295ddc709cc098720d984aa4bb30062debec447ffb2b3720664c1ee5bffe4c521aba4e8170765d')
+        '2ad1a5cbb5150adff70383c2cc302945badff498f5e086a49775123e1a71aa536d38c25fadd1baf84f6be625d11e0bdda9c934025803cf0ab5741dd2e19322cb'
+        '35af38fd26ba44dc922bd869125e903602d915b2980fa7819dd3d87809a7f56cb93ad03b3ec3e9dfc7f2955f9492806d1fd1d868a9c8f5f78cbeecd188ba5e61')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
@@ -153,7 +153,7 @@ _package-headers() {
   echo "Stripping build tools..."
   local file
   while read -rd '' file; do
-    case "$(file -bi "$file")" in
+    case "$(file -Sib "$file")" in
       application/x-sharedlib\;*)      # Libraries (.so)
         strip -v $STRIP_SHARED "$file" ;;
       application/x-archive\;*)        # Libraries (.a)
