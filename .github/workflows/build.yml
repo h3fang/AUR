@@ -29,14 +29,14 @@ jobs:
         with:
           name: packages
           path: pkgs/
-      - uses: dev-drprasad/delete-tag-and-release@v0.2.0
+      - uses: dev-drprasad/delete-tag-and-release@v0.2
         with:
           delete_release: true
           tag_name: latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Release
-        uses: ncipollo/release-action@v1.11.2
+        uses: ncipollo/release-action@v1.12
         with:
           tag: latest
           name: Optimized packages for AMD Zen 2
