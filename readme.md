@@ -1,6 +1,9 @@
 ## battery-notifications
 - send notifications to user based on battery states
 
+## cdns
+- a local DNS server to relay queries to public DNS-over-Https servers
+
 ## evince
 - with only PDF support
 - remove gnome dependency
@@ -25,6 +28,9 @@
 - prefer AUR version build flags
 - native build for performance
 
+## pacfilter
+- a tool to filter pacman log
+
 ## python-mapbox-earcut
 - remove the pybind11 clone
 
@@ -43,4 +49,3 @@
 
 ## yoga-bios-unlock-git
 - patched for yoga 14sARE 2020 version
-
