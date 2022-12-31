@@ -1,19 +1,20 @@
 # Maintainer: h3fang hf.enigma#gmail
 
 pkgname=battery-notifications
-pkgver=0.2.0
+pkgver=0.3.0
 pkgrel=1
 pkgdesc="Battery notifications"
 url="https://github.com/h3fang/battery-notifications"
 license=('MIT')
 groups=(modified)
-makedepends=(cargo git)
+depends=(udev)
+makedepends=(cargo)
 arch=('x86_64')
 source=("https://github.com/h3fang/battery-notifications/archive/refs/tags/v${pkgver}.tar.gz"
         'battery-notifications.service')
 
-sha256sums=('212aa95957683626d89ad395253d27a3c9336be10742d6e6d422d3c603a33e8c'
-            '58f15fb74470234dac1ccbd508edc2ab6935d3ba3eca13dc3ef4cdc753f90e88')
+b2sums=('365eb59149424f78f403906b77a5355057522a08f03b6a9eb49e0f8675cbf1d106b90349eb24dde61d6a4dfebd2435a4e59ec33f12c7da7246ff9ad6c590de46'
+        'ae1c11d635a5419dde08b13491a79aa85fffc4304122ad598ea6fa94420e306324ab1a872291dc21777e0841c63017d3d1697e9882b7a88fda36e749f7bc34e5')
 
 build() {
     cd "$srcdir/$pkgname-$pkgver"
