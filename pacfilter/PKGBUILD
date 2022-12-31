@@ -1,7 +1,7 @@
 # Maintainer: h3fang hf.enigma#gmail
 
 pkgname=pacfilter
-pkgver=0.3.0
+pkgver=0.4.0
 pkgrel=1
 pkgdesc="Filter pacman log file"
 url="https://github.com/h3fang/pacfilter"
@@ -10,8 +10,7 @@ groups=(modified)
 makedepends=(cargo)
 arch=('x86_64')
 source=("https://github.com/h3fang/pacfilter/archive/refs/tags/v${pkgver}.tar.gz")
-
-sha256sums=('dcaa99026c4dc1cf7d27ee5d96dc03a8434c60f7af784ca8e98bdef0e24e6146')
+b2sums=('f8e8198b28e56649f0411bfcb155b37fd3ba0657a477e253e63eee6b6cf4a65995a9ad54ced5b0b661a1342b5ba0b51bbd42b57e6ef14080fba1fd3188e7082d')
 
 build() {
     cd "$srcdir/$pkgname-$pkgver"
