@@ -25,7 +25,7 @@ source=(
 options=('!emptydirs' '!strip')
 sha256sums=('ddd01a7538ab53e272c7282eb8f072a3baa76b8ad30034ff3e5d87cb77a7e252'
             '778baeecbcc6bd2c55611dcfa6985212d6e759110861fbd19be7f7843542fff3'
-            'c55add2adb27e1258a6cc335f0149d5d53662b68f243d57f97bafca83042141a'
+            'f6c4d7eff5a3c235c3c88b504ed1bda04193d48991d6cfd4e5102a8c4cad81ed'
             'a2e24ac5e56f16af8b6c4b7e95b190f44d7b631e1072c6abc0a2ff581750e242'
             '4d85aab86f679d360e7c7c812a055d9c03dd658e31bccfca4a97604497b0cc1c'
             '1ec9052d3e9664439eec2449dbe3671e076eab45ceeae2deebfff16dde854c26'
