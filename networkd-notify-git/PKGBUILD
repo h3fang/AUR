@@ -1,6 +1,6 @@
 # Maintainer: Reto Brunner <brunnre8@gmail.com>
 pkgname=networkd-notify-git
-pkgver=r26.c166d0d
+pkgver=r28.c2f3e71
 pkgrel=1
 pkgdesc='Desktop notification integration for systemd-networkd'
 arch=('any')
