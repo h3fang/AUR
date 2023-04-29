@@ -1,9 +1,9 @@
 # Maintainer: Jan Alexander Steffens (heftig) <jan.steffens@gmail.com>
 
-_srcver=6.2.8
+_srcver=6.3
 _zenver=zen1
 pkgrel=1
-_config_commit=efefad33602ee195db0bf42d50d6545be4cda11a
+_config_commit=e3964a0209f19af8dd4dbc327f80b0bb1212f7c7
 pkgbase=linux-zen
 _srcname=linux-$(echo $_srcver | grep -Po "^\d+\.\d+")
 pkgver=${_srcver}.${_zenver}
@@ -13,7 +13,7 @@ arch=(x86_64)
 license=(GPL2)
 groups=('modified')
 makedepends=(
-  bc libelf pahole cpio perl tar xz
+  bc cpio gettext libelf pahole perl tar xz
 )
 options=('!strip')
 source=(
@@ -21,21 +21,29 @@ source=(
   "https://github.com/zen-kernel/zen-kernel/releases/download/v${_srcver}-${_zenver}/v${_srcver}-${_zenver}.patch.xz"
   "config_${_config_commit}::https://raw.githubusercontent.com/archlinux/svntogit-packages/${_config_commit}/trunk/config"
 )
-b2sums=('05b63254734ea685db437cb1c00a6da63eee74d7e99f4ed2d074aaa01ac4487813ab297d337a6855cdbcbb33346b631c4256ee3b06191adfb1be3615a56bdd6d'
-        '60cfbf05f8244dac8642a7f73e69ceb29dd59b82786d86b2f70a177c869c0262a2fd86980a9fb81c04ed13b7d9cba30869e8212ba6294bd666aca40407e31653'
-        '7c0ad7c9a4356bbb7014ab659983676fa8b64934f7e1e9594c27a56783674cfa810ed736491b8e65ba9503f97556a8c73de225b9228a11e55969a96ce710d73f')
+b2sums=('f1887c8924efa8d0cb14c4e604affd0b0168bcf20f56a37c027405c7bc11aba822a43fcb38ccb55a81a26f747d00e1ab5a6554818affbf1e1c7ef5220150fc69'
+        '22275df1cd869b032f2ca25fbde69dfef79b163cb0aa1551ee72238250184fb191d0a56753a7b9e43115937cac540db09fe8e9e926e74a74bfbbdcf509c656ed'
+        '4c4d14668bc08902dfd5f070cb6a43f03ed66961377cece1ce1703bb8a28ddd14928c235d838eb96d0d9734f8187a009df543b9ab76943bc92daeba89ecd40e5')
 
 export KBUILD_BUILD_HOST=archlinux
 export KBUILD_BUILD_USER=$pkgbase
 export KBUILD_BUILD_TIMESTAMP="$(date -Ru${SOURCE_DATE_EPOCH:+d @$SOURCE_DATE_EPOCH})"
 
+_make() {
+  test -s version
+  make KERNELRELEASE="$(<version)" "$@"
+}
+
 prepare() {
   cd "$_srcname"
 
   echo "Setting version..."
-  scripts/setlocalversion --save-scmversion
   echo "-$pkgrel" > localversion.10-pkgrel
   echo "${pkgbase#linux}" > localversion.20-pkgname
+
+  make defconfig
+  make -s kernelrelease > version
+  make mrproper
 
   patch -Np1 -i ../"v${_srcver}-${_zenver}.patch"
 
@@ -50,7 +58,7 @@ prepare() {
 
   echo "Setting config..."
   cp ../config_${_config_commit} .config
-  make olddefconfig
+  _make olddefconfig
   diff -u ../config .config || :
 
   if [ -f $HOME/.config/modprobed.db ]; then
@@ -58,7 +66,6 @@ prepare() {
     make LSMOD=$HOME/.config/modprobed.db localmodconfig
   fi
 
-  make -s kernelrelease > version
   echo "Prepared $pkgbase version $(<version)"
 }
 
@@ -76,19 +83,18 @@ _package() {
   replaces=()
 
   cd "$_srcname"
-  local kernver="$(<version)"
-  local modulesdir="$pkgdir/usr/lib/modules/$kernver"
+  local modulesdir="$pkgdir/usr/lib/modules/$(<version)"
 
   echo "Installing boot image..."
   # systemd expects to find the kernel here to allow hibernation
   # https://github.com/systemd/systemd/commit/edda44605f06a41fb86b7ab8128dcf99161d2344
-  install -Dm644 "$(make -s image_name)" "$modulesdir/vmlinuz"
+  install -Dm644 "$(_make -s image_name)" "$modulesdir/vmlinuz"
 
   # Used by mkinitcpio to name the kernel
   echo "$pkgbase" | install -Dm644 /dev/stdin "$modulesdir/pkgbase"
 
   echo "Installing modules..."
-  make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
+  _make INSTALL_MOD_PATH="$pkgdir/usr" INSTALL_MOD_STRIP=1 \
     DEPMOD=/doesnt/exist modules_install  # Suppress depmod
 
   # remove build and source links
