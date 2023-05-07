@@ -3,20 +3,42 @@
 # Contributor: Kazuo Teramoto <kaz.rag@gmail.com>
 
 pkgname=evince
-pkgver=43.1
-pkgrel=2
+pkgver=44.1
+pkgrel=1
 pkgdesc="GNOME document viewer, built with minimal dependencies."
 url="https://wiki.gnome.org/Apps/Evince"
 arch=('i686' 'x86_64')
 license=('GPL')
-depends=(gtk3 libgxps libspectre gsfonts poppler-glib djvulibre dconf libsecret libsynctex
-         libarchive gst-plugins-base-libs gspell libhandy gvfs)
-makedepends=(texlive-bin gobject-introspection gi-docgen git meson appstream-glib yelp-tools)
+depends=(
+    dconf
+    djvulibre
+    gsfonts
+    gspell
+    gst-plugins-base-libs
+    gtk3
+    gvfs
+    libarchive
+    libgxps
+    libhandy
+    libsecret
+    libspectre
+    libsynctex
+    poppler-glib
+)
+makedepends=(
+  appstream-glib
+  gi-docgen
+  git
+  gobject-introspection
+  meson
+  texlive-bin
+  yelp-tools
+)
 optdepends=('texlive-bin: DVI support')
 provides=(libev{document,view}3.so)
 groups=('gnome' 'modified')
 source=("https://github.com/GNOME/evince/archive/refs/tags/${pkgver}.tar.gz")
-b2sums=('3ce156e5527a0d2e4c0e12e8199fe83b14f6ef25e4f1667e5fe1e7c8b8f20603f8bb36d0aea35284343c2783310d08c95e722322cc6b2dbd2168bd2ce932f8a6')
+b2sums=('e3fa1dd62f7d45b7c023a93e5f5f78256f01115565ccc4ffd4cc4ebe9ec1808856fdf604f2a897d45f012d90eac7a98e3be4eead6a14f4302f37dbfed33c5366')
 
 build() {
     arch-meson evince-${pkgver} build \
