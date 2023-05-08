@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        pkg: [battery-notifications, cdns, gammastep, libblockdev, networkd-notify-git, openblas, pacfilter, python-mapbox-earcut, swaylock-effects-git, texlive-fontsextra, tun2socks-bin, yacd, yoga-bios-unlock-git]
+        pkg: [battery-notifications, cdns, gammastep, libblockdev, networkd-notify-git, openblas, pacfilter, python-mapbox-earcut, swaylock-effects-git, texlive-fontsextra, yacd, yoga-bios-unlock-git]
     steps:
       - name: Checkout
         uses: actions/checkout@v3

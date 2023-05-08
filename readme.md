@@ -41,9 +41,6 @@
 - only a few selected fonts
 - https://h3fang.github.io/post/2019/texlive-fontsextra/
 
-## tun2socks-bin
-- remove config file and systemd service
-
 ## yacd
 - use prebuilt package
 
