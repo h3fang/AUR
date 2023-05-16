@@ -34,9 +34,6 @@
 ## python-mapbox-earcut
 - remove the pybind11 clone
 
-## swaylock-effects-git
-- fix text alignment
-
 ## texlive-fontsextra
 - only a few selected fonts
 - https://h3fang.github.io/post/2019/texlive-fontsextra/
