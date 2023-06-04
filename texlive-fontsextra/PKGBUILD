@@ -1,9 +1,9 @@
 # Maintainer: Fang He <hf.enigma@gmail.com>
 
 pkgname=texlive-fontsextra
-pkgver=2023.66328
+pkgver=2023.66594
 _revnr=${pkgver#2023.}
-pkgrel=1
+pkgrel=5
 pkgdesc="TeX Live - extra fonts that I need"
 license=('GPL')
 arch=(any)
