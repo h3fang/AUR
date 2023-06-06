@@ -11,9 +11,6 @@
 ## gammastep
 - remove geoclue dependency
 
-## libblockdev
-- remove lvm2, btrfs, xfs dependency
-
 ## linux-zen
 - remove linux-docs split package
 - add modprobed localmodconfig for faster compilation
