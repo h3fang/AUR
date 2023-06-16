@@ -20,11 +20,6 @@
 - use iw instead of wireless-tools
 - increase notification popup duration
 
-## openblas
-- provide blas and lapack
-- prefer AUR version build flags
-- native build for performance
-
 ## pacfilter
 - a tool to filter pacman log
 
