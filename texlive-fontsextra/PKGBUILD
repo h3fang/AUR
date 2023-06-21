@@ -3,12 +3,12 @@
 pkgname=texlive-fontsextra
 pkgver=2023.66594
 _revnr=${pkgver#2023.}
-pkgrel=7
+pkgrel=14
 pkgdesc="TeX Live - extra fonts that I need"
 license=('GPL')
 arch=(any)
-depends=('texlive-core')
-groups=('texlive-most' 'modified')
+depends=('texlive-bin' 'texlive-basic')
+groups=('texlive' 'modified')
 url='http://tug.org/texlive/'
 source=(
     "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/fira.tar.xz"
@@ -20,7 +20,6 @@ source=(
     "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/sourcesanspro.tar.xz"
     "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/newtx.tar.xz"
     "https://mirrors.sjtug.sjtu.edu.cn/ctan/systems/texlive/tlnet/archive/xits.tar.xz"
-    "https://raw.githubusercontent.com/archlinux/svntogit-packages/packages/texlive-fontsextra/trunk/texlive-fontsextra.maps"
 )
 options=('!emptydirs' '!strip')
 sha256sums=('ddd01a7538ab53e272c7282eb8f072a3baa76b8ad30034ff3e5d87cb77a7e252'
@@ -31,27 +30,17 @@ sha256sums=('ddd01a7538ab53e272c7282eb8f072a3baa76b8ad30034ff3e5d87cb77a7e252'
             '1ec9052d3e9664439eec2449dbe3671e076eab45ceeae2deebfff16dde854c26'
             '1c9558be99163e277388d76c8017495e267e87f51b7749b2bb43827b77aadbde'
             '50bfa3e5182ce32281cef269dbb8d4d2b727899391df1ef6c1ca1be2108e215e'
-            'cdc51390b6ad6e1151d0186c5be4b24d8bc910e338fa472db282023825c74409'
-            '4094810431f2496a2b8c6210520d8b363a030b90a26728e8514700554ac97b7a')
+            'cdc51390b6ad6e1151d0186c5be4b24d8bc910e338fa472db282023825c74409')
 
 build() {
-   cd "$srcdir"
-   touch CONTENTS
-   touch MAPS
-   for p in tlpkg/tlpobj/*.tlpobj; do
-       pstem=${p#tlpkg/tlpobj/}
-       pstem=${pstem%.tlpobj}
-       echo $pstem $(grep revision $p | awk '{print $2}') >> CONTENTS
-       echo $(grep -i $pstem.map $pkgname.maps) >> MAPS
-   done
-   sed -i '/^$/d' MAPS
-   rm -rf {tlpkg,doc,source} || true
+  cd "$srcdir"
+  grep -E "^execute add(Kanji|Mixed|)Map" tlpkg/tlpobj/*.tlpobj | awk '{print $2" "$3}' | sed 's/^add//' > MAPS
+  rm -rf {tlpkg,doc,source} || true
 }
 
 package() {
    cd "$srcdir"
    install -m755 -d "$pkgdir"/var/lib/texmf/arch/installedpkgs
-   install -m644 CONTENTS "$pkgdir"/var/lib/texmf/arch/installedpkgs/${pkgname}_${_revnr}.pkgs
    install -m644 MAPS "$pkgdir"/var/lib/texmf/arch/installedpkgs/$pkgname.maps
    install -m755 -d "$pkgdir"/usr/share
    wanteddirs=$(for d in *; do test -d $d && [[ $d != texmf* ]] && echo $d; done) || true
