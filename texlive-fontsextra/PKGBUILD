@@ -3,7 +3,7 @@
 pkgname=texlive-fontsextra
 pkgver=2023.66594
 _revnr=${pkgver#2023.}
-pkgrel=14
+pkgrel=15
 pkgdesc="TeX Live - extra fonts that I need"
 license=('GPL')
 arch=(any)
