@@ -30,6 +30,9 @@
 - only a few selected fonts
 - https://h3fang.github.io/post/2019/texlive-fontsextra/
 
+## udisks2
+- disable btrfs-progs and lvm2
+
 ## yacd
 - use prebuilt package
 
