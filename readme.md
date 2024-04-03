@@ -4,10 +4,6 @@
 ## cdns
 - a local DNS server to relay queries to public DNS-over-Https servers
 
-## evince
-- with only PDF support
-- remove gnome dependency
-
 ## gammastep
 - remove geoclue dependency
 
@@ -25,13 +21,6 @@
 
 ## python-mapbox-earcut
 - remove the pybind11 clone
-
-## texlive-fontsextra
-- only a few selected fonts
-- https://h3fang.github.io/post/2019/texlive-fontsextra/
-
-## udisks2
-- disable btrfs-progs and lvm2
 
 ## yacd
 - use prebuilt package
