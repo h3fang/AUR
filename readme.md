@@ -19,6 +19,3 @@
 
 ## yacd
 - use prebuilt package
-
-## yoga-bios-unlock-git
-- patched for yoga 14sARE 2020 version
