@@ -4,9 +4,6 @@
 ## cdns
 - a local DNS server to relay queries to public DNS-over-Https servers
 
-## gammastep
-- remove geoclue dependency
-
 ## networkd-notify-git
 - use iw instead of wireless-tools
 - increase notification popup duration
