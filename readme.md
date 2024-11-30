@@ -11,8 +11,5 @@
 ## pacfilter
 - a tool to filter pacman log
 
-## python-mapbox-earcut
-- remove the pybind11 clone
-
 ## yacd
 - use prebuilt package
