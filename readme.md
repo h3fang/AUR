@@ -11,5 +11,8 @@
 ## pacfilter
 - a tool to filter pacman log
 
+## sing-box-bin
+- use prebuilt package
+
 ## yacd
 - use prebuilt package

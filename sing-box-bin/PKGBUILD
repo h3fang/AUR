@@ -1,0 +1,24 @@
+# Maintainer: h3fang <hf.enigma@gmail.com>
+
+pkgname="sing-box-bin"
+pkgver="1.12.1"
+pkgrel="1"
+pkgdesc="The universal proxy platform (binary version)."
+groups=("modified")
+provides=("sing-box")
+arch=("x86_64")
+url="https://github.com/SagerNet/sing-box"
+license=("GPL3")
+source=(
+    "${url}/releases/download/v${pkgver}/sing-box_${pkgver}_linux_x86_64.pkg.tar.zst"
+)
+b2sums=('ea125afb8b7f6054e46e0d97ef26da48f2d4aa3b2294e433a79922e7700e3d8e56937c66ea7f3be623bffb6d43cf09a3202c56ae0f66dbf5db14b83bea98532b')
+
+package() {
+    install -Dm755 "$srcdir/usr/bin/sing-box" -t "$pkgdir/usr/bin"
+    install -Dm644 "$srcdir/usr/lib/systemd/system/sing-box@.service" -t "$pkgdir/usr/lib/systemd/system"
+    install -Dm644 "$srcdir/usr/lib/sysusers.d/sing-box.conf" -t "$pkgdir/usr/lib/sysusers.d"
+    install -Dm644 "$srcdir/usr/share/polkit-1/rules.d/sing-box.rules" -t "$pkgdir/usr/share/polkit-1/rules.d"
+    install -Dm644 "$srcdir/usr/share/zsh/site-functions/_sing-box" -t "$pkgdir/usr/share/zsh/site-functions"
+    install -Dm644 "$srcdir/usr/share/licenses/sing-box/LICENSE" -t "$pkgdir/usr/share/licenses/sing-box"
+}
