@@ -1,0 +1,15 @@
+diff --git a/networkd-notify b/networkd-notify
+index eda3f0f..aac99f1 100755
+--- a/networkd-notify
++++ b/networkd-notify
+@@ -29,8 +28,8 @@ STATE_MAP = {'off': 'offline',
+ 
+ # Nifty globals
+ IFACE_MAP = {}
+-NOTIFY_MS_SHORT = 1000
+-NOTIFY_MS_LONG = 3000
++NOTIFY_MS_SHORT = 5000
++NOTIFY_MS_LONG = 10000
+ 
+ NOTIFY_IF = None
+ NETWORKD_IF = None

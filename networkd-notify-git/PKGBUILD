@@ -1,6 +1,6 @@
 # Maintainer: Reto Brunner <brunnre8@gmail.com>
 pkgname=networkd-notify-git
-pkgver=r28.c2f3e71
+pkgver=r35.5d3425b
 pkgrel=1
 pkgdesc='Desktop notification integration for systemd-networkd'
 arch=('any')
@@ -12,9 +12,9 @@ provides=("${pkgname%-git}")
 conflicts=("${pkgname%-git}")
 groups=('modified')
 source=("$pkgname"::'git+https://gitlab.com/wavexx/networkd-notify.git'
-        '001-use-iw-and-increase-notification-duration.patch')
+        '001-increase-notification-duration.patch')
 sha256sums=('SKIP'
-            'a75bc93bbfb69657aedb03a62b46c804c2de64f73a386ac39f2d3a68b5728ad4')
+            '401dd63e28f3f5ce0f0ec113e2954eba4d747a0131c40a9e3432bc80c7a8b0f2')
 
 pkgver() {
     cd "$srcdir/${pkgname}"
@@ -24,7 +24,7 @@ pkgver() {
 
 prepare() {
     cd "$srcdir/${pkgname}"
-    patch -p1 < ../'001-use-iw-and-increase-notification-duration.patch'
+    patch -p1 < ../'001-increase-notification-duration.patch'
 }
 
 package() {
