@@ -13,7 +13,7 @@ jobs:
       - name: Build
         uses: ./.github/actions/makepkg
         with:
-          arch: znver2
+          arch: x86-64-v3
           pkg: ${{ matrix.pkg }}
       - name: Archive packages
         uses: actions/upload-artifact@v4
@@ -39,7 +39,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           tag: latest
-          name: Optimized packages for AMD Zen 2
+          name: Optimized packages for x86-64-v3
           omitBody: true
           commit: ${{ github.sha }}
           artifacts: "pkgs/*"
