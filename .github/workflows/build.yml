@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        pkg: [battery-notifications, cdns, networkd-notify-git, pacfilter, yacd]
+        pkg: [battery-notifications, cdns, networkd-notify-git, pacfilter, sing-box-bin, yacd]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
