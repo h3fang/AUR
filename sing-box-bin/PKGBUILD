@@ -1,7 +1,7 @@
 # Maintainer: h3fang <hf.enigma@gmail.com>
 
 pkgname="sing-box-bin"
-pkgver="1.13.11"
+pkgver="1.13.12"
 pkgrel="1"
 pkgdesc="The universal proxy platform (binary version)."
 groups=("modified")
@@ -12,7 +12,7 @@ license=("GPL3")
 source=(
     "${url}/releases/download/v${pkgver}/sing-box_${pkgver}_linux_x86_64.pkg.tar.zst"
 )
-b2sums=('ca5102aa21122e976be0133433c3cf34ac19e8e24fe055fdd47cacee8af00b324425530305ff532747c1db2d32d6ac0f1d1206f7903ff8a3d829589a685f4db5')
+b2sums=('a8a5ee92ea1a78119876d8ee64669622ebae1b3bc01787a5a4de1a725f4c1c9d03f93b62c5c4af9e2f6cfa9ac7fc3ba2448be75c4920ffe5bb16ba4eeccd19bb')
 
 package() {
     install -Dm755 "$srcdir/usr/bin/sing-box" -t "$pkgdir/usr/bin"
