@@ -12,7 +12,7 @@ license=("GPL3")
 source=(
     "${url}/releases/download/v${pkgver}/sing-box_${pkgver}_linux_x86_64.pkg.tar.zst"
 )
-b2sums=('83af128ce2be7d4e0bbac95afa14642594db2140e2343153572aff208b564f95fcd47f9a85056326f491c4c591eefb07d734f622b5d68a71061eef01ff1d6566')
+b2sums=('2f2de40a415ab53ebc36d7ed073f8abb921aec3a92988b3cad7adc3962241923a3df429ff8b7cc9dcdeaceabeada86bea895b903b7ecbccad2372a01506cb744')
 
 package() {
     install -Dm755 "$srcdir/usr/bin/sing-box" -t "$pkgdir/usr/bin"
